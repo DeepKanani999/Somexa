@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
-import styles from '../../styles/style.css';
+import styles from "../../styles/style.css";
 
 const heroImages = [
   "/assets/Hero-Banner/TV-setup-1.jpg",
@@ -293,10 +293,10 @@ const HomeScreen = () => {
             bottom: 10,
             left: "50%",
             transform: `translate(-50%, ${showBar ? "0%" : "100%"})`,
-            width: "50%",
+            width: "80%",
             backgroundColor: "#fff",
             zIndex: 9999,
-            justifyContent: "center",
+            justifyContent: "",
             alignItems: "center",
             transition: "transform 0.3s ease-in-out",
             borderRadius: "10px 10px 10px 10px",
@@ -312,47 +312,55 @@ const HomeScreen = () => {
               alignItems: "center",
             }}
           >
-            <div className="row">
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleCall}>
-                  <img
-                    src="assets/images/icons/call.webp"
-                    alt="Call"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
-                  Call Us
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleLocation}>
-                  <img
-                    src="assets/images/icons/g-map.png"
-                    alt="Location"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
-                  Location
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleWhatsApp}>
-                  <img
-                    src="assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
-                  WhatsApp
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleMail}>
-                  <img
-                    src="assets/images/icons/gmail.png"
-                    alt="Mail"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
-                  Mail
-                </button>
-              </div>
+            {/* <div
+              className="row"
+              style={{
+                justifyContent: "space-between",
+                width: "100%",
+                // alignItems: "center",
+                display: "flex",
+              }}
+            >
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleCall}>
+                    <img
+                      src="/assets/images/icons/call.webp"
+                      alt="Call"
+                      style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    />
+                    Call Us
+                  </button>
+                </div>
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleLocation}>
+                    <img
+                      src="/assets/images/icons/g-map.png"
+                      alt="Location"
+                      style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    />
+                    Location
+                  </button>
+                </div>
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleWhatsApp}>
+                    <img
+                      src="/assets/images/icons/whatsapp.png"
+                      alt="WhatsApp"
+                      style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    />
+                    WhatsApp
+                  </button>
+                </div>
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleMail}>
+                    <img
+                      src="/assets/images/icons/gmail.png"
+                      alt="Mail"
+                      style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    />
+                    Mail
+                  </button>
+                </div>
               <div className="col-auto">
                 <button
                   className="social-rounded-btn"
@@ -363,7 +371,7 @@ const HomeScreen = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="assets/images/icons/facebook.png" alt="Facebook" />
+                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -375,7 +383,7 @@ const HomeScreen = () => {
                   }}
                 >
                   <img
-                    src="assets/images/icons/instagram.png"
+                    src="/assets/images/icons/instagram.png"
                     alt="Instagram"
                   />
                 </button>
@@ -388,14 +396,94 @@ const HomeScreen = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
                   onClick={handleShare}
                   style={{ padding: "8px", backgroundColor: "#00ADFF" }}
                 >
-                  <img src="assets/images/icons/share.png" alt="Share" />
+                  <img src="/assets/images/icons/share.png" alt="Share" />
+                </button>
+              </div>
+            </div> */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap", // Optional: Makes it responsive
+                width: "95%",
+              }}
+            >
+              {/* Left Section: Main Social Buttons */}
+              <div style={{ display: "flex", gap: "12px" }}>
+                <button className="social-main-btn" onClick={handleCall}>
+                  <img
+                    src="/assets/images/icons/call.webp"
+                    alt="Call"
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                  />
+                  Call Us
+                </button>
+                <button className="social-main-btn" onClick={handleLocation}>
+                  <img
+                    src="/assets/images/icons/g-map.png"
+                    alt="Location"
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                  />
+                  Location
+                </button>
+                <button className="social-main-btn" onClick={handleWhatsApp}>
+                  <img
+                    src="/assets/images/icons/whatsapp.png"
+                    alt="WhatsApp"
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                  />
+                  WhatsApp
+                </button>
+                <button className="social-main-btn" onClick={handleMail}>
+                  <img
+                    src="/assets/images/icons/gmail.png"
+                    alt="Mail"
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                  />
+                  Mail
+                </button>
+              </div>
+
+              {/* Right Section: Rounded Social Buttons */}
+              <div style={{ display: "flex", gap: "10px" }}>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleFacebook}
+                  style={{ padding: "8px", backgroundColor: "#3A559F" }}
+                >
+                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
+                </button>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleInstagram}
+                  style={{ padding: "8px", backgroundColor: "#D03B98" }}
+                >
+                  <img
+                    src="/assets/images/icons/instagram.png"
+                    alt="Instagram"
+                  />
+                </button>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleLinkedIn}
+                  style={{ padding: "8px", backgroundColor: "#0B63BD" }}
+                >
+                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                </button>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleShare}
+                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
+                >
+                  <img src="/assets/images/icons/share.png" alt="Share" />
                 </button>
               </div>
             </div>
@@ -424,7 +512,7 @@ const HomeScreen = () => {
               <div className="col-auto">
                 <button className="social-main-btn" onClick={handleCall}>
                   <img
-                    src="assets/images/icons/call.webp"
+                    src="/assets/images/icons/call.webp"
                     alt="Call"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
@@ -434,7 +522,7 @@ const HomeScreen = () => {
               <div className="col-auto">
                 <button className="social-main-btn" onClick={handleLocation}>
                   <img
-                    src="assets/images/icons/g-map.png"
+                    src="/assets/images/icons/g-map.png"
                     alt="Location"
                     style={{ height: "30px", width: "30px", marginRight: 10 }}
                   />
@@ -444,7 +532,7 @@ const HomeScreen = () => {
               <div className="col-auto">
                 <button className="social-main-btn" onClick={handleWhatsApp}>
                   <img
-                    src="assets/images/icons/whatsapp.png"
+                    src="/assets/images/icons/whatsapp.png"
                     alt="WhatsApp"
                     style={{ height: "30px", width: "30px", marginRight: 10 }}
                   />
@@ -454,7 +542,7 @@ const HomeScreen = () => {
               <div className="col-auto">
                 <button className="social-main-btn" onClick={handleMail}>
                   <img
-                    src="assets/images/icons/gmail.png"
+                    src="/assets/images/icons/gmail.png"
                     alt="Mail"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
@@ -471,7 +559,7 @@ const HomeScreen = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="assets/images/icons/facebook.png" alt="Facebook" />
+                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -483,7 +571,7 @@ const HomeScreen = () => {
                   }}
                 >
                   <img
-                    src="assets/images/icons/instagram.png"
+                    src="/assets/images/icons/instagram.png"
                     alt="Instagram"
                   />
                 </button>
@@ -496,14 +584,14 @@ const HomeScreen = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
                   onClick={handleShare}
                   style={{ padding: "8px", backgroundColor: "#00ADFF" }}
                 >
-                  <img src="assets/images/icons/share.png" alt="Share" />
+                  <img src="/assets/images/icons/share.png" alt="Share" />
                 </button>
               </div>
 
@@ -518,7 +606,7 @@ const HomeScreen = () => {
                 }}
               >
                 <img
-                  src="assets/images/icons/google.png"
+                  src="/assets/images/icons/google.png"
                   alt="Google Reviews"
                   className="google-icon"
                   style={{
@@ -536,7 +624,7 @@ const HomeScreen = () => {
                     {[1, 2, 3, 4, 5].map((val) => (
                       <img
                         key={val}
-                        src="assets/images/icons/star-image.png"
+                        src="/assets/images/icons/star-image.png"
                         alt="Star"
                         className="w-5 h-5"
                         style={{
@@ -580,7 +668,7 @@ const HomeScreen = () => {
                 }}
               >
                 <img
-                  src="assets/images/icons/call.webp"
+                  src="/assets/images/icons/call.webp"
                   alt="Call"
                   style={{ height: "24px", width: "24px" }}
                 />
@@ -601,7 +689,7 @@ const HomeScreen = () => {
                 }}
               >
                 <img
-                  src="assets/images/icons/whatsapp.png"
+                  src="/assets/images/icons/whatsapp.png"
                   alt="WhatsApp"
                   style={{ height: "24px", width: "24px" }}
                 />
@@ -622,7 +710,7 @@ const HomeScreen = () => {
                 }}
               >
                 <img
-                  src="assets/images/icons/g-map.png"
+                  src="/assets/images/icons/g-map.png"
                   alt="Location"
                   style={{ height: "24px", width: "24px" }}
                 />
@@ -643,7 +731,7 @@ const HomeScreen = () => {
                 }}
               >
                 <img
-                  src="assets/images/icons/share.png"
+                  src="/assets/images/icons/share.png"
                   alt="Share"
                   style={{ height: "24px", width: "24px" }}
                 />
@@ -671,7 +759,7 @@ const HomeScreen = () => {
                 </div>
                 <div className="listing-thumbnail mb-30 wow fadeInUp">
                   <img
-                    src="assets/Hero-Banner/TV-setup-4.webp"
+                    src="/assets/Hero-Banner/TV-setup-4.webp"
                     alt="listing image"
                   />
                 </div>
@@ -805,7 +893,7 @@ const HomeScreen = () => {
                         }}
                       >
                         <img
-                          src="assets/images/products/tv3.png" // <-- Update TV image here
+                          src="/assets/images/products/tv3.png" // <-- Update TV image here
                           alt="TV Product Image"
                         />
                         <span className="featured-btn">Featured</span>
@@ -848,7 +936,7 @@ const HomeScreen = () => {
                                   }}
                                 >
                                   <img
-                                    src="assets/images/WhatsApp_Image.png"
+                                    src="/assets/images/WhatsApp_Image.png"
                                     alt="WhatsApp Icon"
                                     style={{
                                       height: "15px",
@@ -877,7 +965,7 @@ const HomeScreen = () => {
                         }}
                       >
                         <img
-                          src="assets/images/products/tv2.png" // <-- Update TV image here
+                          src="/assets/images/products/tv2.png" // <-- Update TV image here
                           alt="TV Product Image"
                         />
                         <span className="featured-btn">Featured</span>
@@ -922,7 +1010,7 @@ const HomeScreen = () => {
                                   }}
                                 >
                                   <img
-                                    src="assets/images/WhatsApp_Image.png"
+                                    src="/assets/images/WhatsApp_Image.png"
                                     alt="WhatsApp Icon"
                                     style={{
                                       height: "15px",
@@ -951,7 +1039,7 @@ const HomeScreen = () => {
                         }}
                       >
                         <img
-                          src="assets/images/products/tv1.png" // <-- Update TV image here
+                          src="/assets/images/products/tv1.png" // <-- Update TV image here
                           alt="TV Product Image"
                         />
                         <span className="featured-btn">Featured</span>
@@ -1000,7 +1088,7 @@ const HomeScreen = () => {
                                   }}
                                 >
                                   <img
-                                    src="assets/images/WhatsApp_Image.png"
+                                    src="/assets/images/WhatsApp_Image.png"
                                     alt="WhatsApp Icon"
                                     style={{
                                       height: "15px",
@@ -1027,43 +1115,43 @@ const HomeScreen = () => {
                   <Slider {...GallerySlider2} className="gallery-slider-one">
                     <div className="gallery-item">
                       <img
-                        src="assets/images/Posts/Post 1.jpg"
+                        src="/assets/images/Posts/Post 1.jpg"
                         alt="gallery image"
                       />
                     </div>
                     <div className="gallery-item">
                       <img
-                        src="assets/images/Posts/Post 2.jpg"
+                        src="/assets/images/Posts/Post 2.jpg"
                         alt="gallery image"
                       />
                     </div>
                     <div className="gallery-item">
                       <img
-                        src="assets/images/Posts/Post 3.jpg"
+                        src="/assets/images/Posts/Post 3.jpg"
                         alt="gallery image"
                       />
                     </div>
                     <div className="gallery-item">
                       <img
-                        src="assets/images/Posts/Post 4.jpg"
+                        src="/assets/images/Posts/Post 4.jpg"
                         alt="gallery image"
                       />
                     </div>
                     <div className="gallery-item">
                       <img
-                        src="assets/images/Posts/Post 5.jpg"
+                        src="/assets/images/Posts/Post 5.jpg"
                         alt="gallery image"
                       />
                     </div>
                     <div className="gallery-item">
                       <img
-                        src="assets/images/Posts/Post 6.jpg"
+                        src="/assets/images/Posts/Post 6.jpg"
                         alt="gallery image"
                       />
                     </div>
                     <div className="gallery-item">
                       <img
-                        src="assets/images/Posts/Post 7.jpg"
+                        src="/assets/images/Posts/Post 7.jpg"
                         alt="gallery image"
                       />
                     </div>
@@ -1114,7 +1202,7 @@ const HomeScreen = () => {
                       style={{ marginRight: "5px" }}
                     >
                       <img
-                        src="assets/images/whatsapp-image-green.png"
+                        src="/assets/images/whatsapp-image-green.png"
                         alt="WhatsApp Icon"
                         style={{
                           height: "25px",
@@ -1176,7 +1264,8 @@ const HomeScreen = () => {
                     return (
                       <span
                         key={val}
-                        className="px-3 my-2 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm">
+                        className="px-3 my-2 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm"
+                      >
                         {val}
                       </span>
                     );
@@ -1251,7 +1340,7 @@ const HomeScreen = () => {
                     <li className="review">
                       <div className="thumb">
                         <img
-                          src="assets/images/listing/review-1.jpg"
+                          src="/assets/images/listing/review-1.jpg"
                           alt="review image"
                         />
                       </div>
@@ -1294,7 +1383,7 @@ const HomeScreen = () => {
                     <li className="review">
                       <div className="thumb">
                         <img
-                          src="assets/images/listing/review-2.jpg"
+                          src="/assets/images/listing/review-2.jpg"
                           alt="review image"
                         />
                       </div>
@@ -1337,7 +1426,7 @@ const HomeScreen = () => {
                     <li className="review">
                       <div className="thumb">
                         <img
-                          src="assets/images/listing/review-3.jpg"
+                          src="/assets/images/listing/review-3.jpg"
                           alt="review image"
                         />
                       </div>
