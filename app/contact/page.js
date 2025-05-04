@@ -75,17 +75,17 @@ const Contact = () => {
 
       {/*====== Start Contact Section ======*/}
       <section className="contact-section pt-115 pb-100">
-        <div
+      <div
           className={`floating-social-bar ${showBar ? "visible" : ""}`}
           style={{
             position: "fixed",
             bottom: 10,
             left: "50%",
             transform: `translate(-50%, ${showBar ? "0%" : "100%"})`,
-            width: "50%",
+            width: "80%",
             backgroundColor: "#fff",
             zIndex: 9999,
-            justifyContent: "center",
+            justifyContent: "",
             alignItems: "center",
             transition: "transform 0.3s ease-in-out",
             borderRadius: "10px 10px 10px 10px",
@@ -101,47 +101,55 @@ const Contact = () => {
               alignItems: "center",
             }}
           >
-            <div className="row">
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleCall}>
-                  <img
-                    src="assets/images/icons/call.webp"
-                    alt="Call"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
-                  Call Us
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleLocation}>
-                  <img
-                    src="assets/images/icons/g-map.png"
-                    alt="Location"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
-                  Location
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleWhatsApp}>
-                  <img
-                    src="assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
-                  WhatsApp
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleMail}>
-                  <img
-                    src="assets/images/icons/gmail.png"
-                    alt="Mail"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
-                  Mail
-                </button>
-              </div>
+            {/* <div
+              className="row"
+              style={{
+                justifyContent: "space-between",
+                width: "100%",
+                // alignItems: "center",
+                display: "flex",
+              }}
+            >
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleCall}>
+                    <img
+                      src="/assets/images/icons/call.webp"
+                      alt="Call"
+                      style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    />
+                    Call Us
+                  </button>
+                </div>
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleLocation}>
+                    <img
+                      src="/assets/images/icons/g-map.png"
+                      alt="Location"
+                      style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    />
+                    Location
+                  </button>
+                </div>
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleWhatsApp}>
+                    <img
+                      src="/assets/images/icons/whatsapp.png"
+                      alt="WhatsApp"
+                      style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    />
+                    WhatsApp
+                  </button>
+                </div>
+                <div className="col-auto">
+                  <button className="social-main-btn" onClick={handleMail}>
+                    <img
+                      src="/assets/images/icons/gmail.png"
+                      alt="Mail"
+                      style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    />
+                    Mail
+                  </button>
+                </div>
               <div className="col-auto">
                 <button
                   className="social-rounded-btn"
@@ -152,7 +160,7 @@ const Contact = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="assets/images/icons/facebook.png" alt="Facebook" />
+                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -164,7 +172,7 @@ const Contact = () => {
                   }}
                 >
                   <img
-                    src="assets/images/icons/instagram.png"
+                    src="/assets/images/icons/instagram.png"
                     alt="Instagram"
                   />
                 </button>
@@ -177,14 +185,94 @@ const Contact = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
                   onClick={handleShare}
                   style={{ padding: "8px", backgroundColor: "#00ADFF" }}
                 >
-                  <img src="assets/images/icons/share.png" alt="Share" />
+                  <img src="/assets/images/icons/share.png" alt="Share" />
+                </button>
+              </div>
+            </div> */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap", // Optional: Makes it responsive
+                width: "95%",
+              }}
+            >
+              {/* Left Section: Main Social Buttons */}
+              <div style={{ display: "flex", gap: "12px" }}>
+                <button className="social-main-btn" onClick={handleCall}>
+                  <img
+                    src="/assets/images/icons/call.webp"
+                    alt="Call"
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                  />
+                  Call Us
+                </button>
+                <button className="social-main-btn" onClick={handleLocation}>
+                  <img
+                    src="/assets/images/icons/g-map.png"
+                    alt="Location"
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                  />
+                  Location
+                </button>
+                <button className="social-main-btn" onClick={handleWhatsApp}>
+                  <img
+                    src="/assets/images/icons/whatsapp.png"
+                    alt="WhatsApp"
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                  />
+                  WhatsApp
+                </button>
+                <button className="social-main-btn" onClick={handleMail}>
+                  <img
+                    src="/assets/images/icons/gmail.png"
+                    alt="Mail"
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                  />
+                  Mail
+                </button>
+              </div>
+
+              {/* Right Section: Rounded Social Buttons */}
+              <div style={{ display: "flex", gap: "10px" }}>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleFacebook}
+                  style={{ padding: "8px", backgroundColor: "#3A559F" }}
+                >
+                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
+                </button>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleInstagram}
+                  style={{ padding: "8px", backgroundColor: "#D03B98" }}
+                >
+                  <img
+                    src="/assets/images/icons/instagram.png"
+                    alt="Instagram"
+                  />
+                </button>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleLinkedIn}
+                  style={{ padding: "8px", backgroundColor: "#0B63BD" }}
+                >
+                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                </button>
+                <button
+                  className="social-rounded-btn"
+                  onClick={handleShare}
+                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
+                >
+                  <img src="/assets/images/icons/share.png" alt="Share" />
                 </button>
               </div>
             </div>
