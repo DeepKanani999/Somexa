@@ -1,22 +1,21 @@
 {
-    "name": "Plixon",
-    "short_name": "Plixon",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#FFFFFF",
-    "theme_color": "#FFFFFF",
-    "orientation": "portrait",
-    "icons": [
-      {
-        "src": "/icons/icon-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "/icons/icon-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ]
-  }
-  
+  "name": "Plixon",
+  "short_name": "Plixon",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/pwa/icon512_maskable.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/pwa/icon512_rounded.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

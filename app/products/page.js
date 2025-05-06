@@ -75,7 +75,7 @@ const Products = () => {
     <Layout>
       <PageBanner title={"Products"} />
       <section className="products-area pt-120 pb-120">
-      <div
+        <div
           className={`floating-social-bar ${showBar ? "visible" : ""}`}
           style={{
             position: "fixed",
@@ -185,7 +185,7 @@ const Products = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -265,7 +265,7 @@ const Products = () => {
                   onClick={handleLinkedIn}
                   style={{ padding: "8px", backgroundColor: "#0B63BD" }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -539,7 +539,76 @@ const Products = () => {
               {products.map((val) => {
                 return (
                   <div className="col-lg-4 col-md-6 col-sm-12" key={val.slug}>
-                    <div className="products-item products-item-one mb-25 wow fadeInUp">
+                    <div className="listing-item listing-grid-item-two">
+                      <div
+                        className="listing-thumbnail"
+                        style={{
+                          backgroundColor: val.backgroundColor,
+                          borderTopLeftRadius: "10px",
+                          borderTopRightRadius: "10px",
+                        }}
+                      >
+                        <img
+                          src={val.image} // <-- Update TV image here
+                          alt="TV Product Image"
+                        />
+                        <span className="featured-btn">Featured</span>
+                      </div>
+                      <div className="listing-content">
+                        <h3 className="title">
+                          <Link href="/tv-details">{val.name}</Link>{" "}
+                        </h3>
+                        <p>
+                          {val.detail}
+                        </p>{" "}
+                        <div className="features-list">
+
+                          {val.specification.map((feature, _ind) => { return (<ul key={_ind}> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{feature}</li></ul>) })} {/* Feature 1 */}
+
+                        </div>
+                        <span className="phone-meta">
+                        </span>
+                        <div className="listing-meta">
+                          <ul>
+                            <li>
+                              <Link
+                                href={`/product-details/${val.slug}`}
+                                style={{ display: "flex", justifyContent: "center" }}
+                              >
+                                <div
+                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
+                                  style={{
+                                    backgroundColor: "#69C8C7",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    alignSelf: "center",
+                                    marginBottom: "30px",
+                                  }}
+                                >
+                                  <img
+                                    src="/assets/images/WhatsApp_Image.png"
+                                    alt="WhatsApp Icon"
+                                    style={{
+                                      height: "20px",
+                                      width: "20px",
+                                      marginRight: "8px",
+                                    }}
+                                  />
+                                  <span
+                                    className="underline text-white"
+                                    style={{ fontSize: "20px" }}
+                                  >
+                                    View Details
+                                  </span>
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    {/* <div className="products-item products-item-one mb-25 wow fadeInUp">
                       <div className="product-img">
                         <Link href={`/product-details/${val.slug}`}>
                           <img
@@ -562,40 +631,12 @@ const Products = () => {
                             {val.name}
                           </Link>
                         </h3>
+                        <p>
+                          {val.detail}
+                        </p>
                       </div>
-                      <Link
-                        href={`/product-details/${val.slug}`}
-                        style={{ display: "flex", justifyContent: "center" }}
-                      >
-                        <div
-                          className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
-                          style={{
-                            backgroundColor: "#69C8C7",
-                            display: "flex",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            alignSelf: "center",
-                            marginBottom: "30px",
-                          }}
-                        >
-                          {/* <img
-                            src="/assets/images/WhatsApp_Image.png"
-                            alt="WhatsApp Icon"
-                            style={{
-                              height: "20px",
-                              width: "20px",
-                              marginRight: "8px",
-                            }}
-                          /> */}
-                          <span
-                            className="underline text-white"
-                            style={{ fontSize: "20px" }}
-                          >
-                            View Details
-                          </span>
-                        </div>
-                      </Link>
-                    </div>
+
+                    </div> */}
                   </div>
                 );
               })}

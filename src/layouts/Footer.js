@@ -1,7 +1,44 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [writtenMessage, setWrittenMessage] = useState();
+  const handleFacebook = () => {
+    window.open("https://facebook.com/yourprofile", "_blank");
+  };
+
+  const handleInstagram = () => {
+    window.open("https://instagram.com/yourprofile", "_blank");
+  };
+
+  const handleLinkedIn = () => {
+    window.open("https://linkedin.com/in/yourprofile", "_blank");
+  };
+
+  const handleShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Check this out!",
+          text: "Have a look at this amazing website.",
+          url: window.location.href,
+        });
+      } else {
+        alert("Sharing is not supported on this browser.");
+      }
+    } catch (error) {
+      console.error("Share failed:", error);
+    }
+  };
+
+  const handleWhatsAppShare = () => {
+    const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
+    const message = writtenMessage;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <footer className="footer-area">
       <div className="footer-wrapper-one dark-black pt-90">
@@ -13,7 +50,7 @@ const Footer = () => {
                   className="widget about-widget mb-40 wow fadeInUp"
                   data-wow-delay="10ms"
                 >
-                  <h4 className="widget-title">Mobile Experience</h4>
+                  {/* <h4 className="widget-title">Mobile Experience</h4>
                   <ul className="button">
                     <li>
                       <a href="#" className="app-btn android-btn">
@@ -37,27 +74,27 @@ const Footer = () => {
                         </div>
                       </a>
                     </li>
-                  </ul>
+                  </ul> */}
                   <div className="footer-social">
                     <h4>Follow Us</h4>
                     <ul className="social-link">
                       <li>
-                        <a href="#">
+                        <a onClick={handleFacebook}>
                           <i className="ti-facebook"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i className="ti-twitter-alt"></i>
+                        <a onClick={handleLinkedIn}>
+                          <i className="ti-linkedin"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i className="ti-pinterest"></i>
+                        <a onClick={handleShare}>
+                          <i className="ti-sharethis"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a onClick={handleInstagram}>
                           <i className="ti-instagram"></i>
                         </a>
                       </li>
@@ -70,32 +107,32 @@ const Footer = () => {
                   className="widget recent-post-widget mb-40 wow fadeInUp"
                   data-wow-delay="20ms"
                 >
-                  <h4 className="widget-title">Recent News</h4>
+                  <h4 className="widget-title">About Us</h4>
                   <ul className="post-widget-list">
                     <li className="post-content-item">
                       <div className="post-title-date">
                         <span className="posted-on">
-                          <a href="#">22 August - 2021</a>
+                          <a href="#">22 May - 2025</a>
                         </span>
                         <h6 className="title">
-                          <Link href="/blog-details">
-                            Facilisis a ultricies quis dictumst fredom...
+                          <Link href="#">
+                            Discover premium TVs with stunning 4K visuals, smooth refresh rates, and smart streaming, designed for immersive home entertainment.
                           </Link>
                         </h6>
                       </div>
                     </li>
-                    <li className="post-content-item">
+                    {/* <li className="post-content-item">
                       <div className="post-title-date">
                         <span className="posted-on">
                           <a href="#">22 August - 2021</a>
                         </span>
                         <h6 className="title">
-                          <Link href="/blog-details">
+                          <Link href="#">
                             Facilisis a ultricies quis dictumst fredom...
                           </Link>
                         </h6>
                       </div>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
@@ -107,22 +144,16 @@ const Footer = () => {
                   <h4 className="widget-title">Categories</h4>
                   <ul className="categories-link">
                     <li>
-                      <a href="#">Restaurant</a>
+                      <a href="#">Home</a>
                     </li>
                     <li>
-                      <a href="#">Museum</a>
+                      <a href="/about">About Us</a>
                     </li>
                     <li>
-                      <a href="#">Party Center</a>
+                      <a href="/products">Products</a>
                     </li>
                     <li>
-                      <a href="#">Game Field</a>
-                    </li>
-                    <li>
-                      <a href="#">Shopping</a>
-                    </li>
-                    <li>
-                      <a href="#">Art & Gallery</a>
+                      <a href="/contact">Contact Us</a>
                     </li>
                   </ul>
                 </div>
@@ -132,22 +163,30 @@ const Footer = () => {
                   className="widget newsletter-widget mb-40 wow fadeInUp"
                   data-wow-delay="40ms"
                 >
-                  <h4 className="widget-title">Newsletter</h4>
-                  <p>
+                  <h4 className="widget-title">Get in Touch</h4>
+                  {/* <p>
                     Caoreet massa torto pon interdum sestibulum suscipit duis.
-                  </p>
+                  </p> */}
                   <form onSubmit={(e) => e.preventDefault()}>
                     <div className="form_group">
                       <input
                         type="email"
                         className="form_control"
-                        placeholder="Enter Email"
+                        placeholder="Write your message here..."
                         name="email"
                         required
+                        onChange={(e) => setWrittenMessage(e.target.value)}
+                        value={writtenMessage}
                       />
                     </div>
                     <div className="form_group">
-                      <button className="main-btn">Subscribe</button>
+                      <button
+                        className="main-btn"
+                        onClick={handleWhatsAppShare}
+                        style={{ backgroundColor: "#fff" }}
+                      >
+                        Subscribe
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -161,8 +200,8 @@ const Footer = () => {
               <div className="col-lg-6">
                 <div className="copyright-text">
                   <p>
-                    Copyright &copy; 2021. All rights reserved to{" "}
-                    <span>Webtend</span>
+                    Copyright &copy; 2025. All rights reserved to{" "}
+                    <span>GrayPix Studio</span>
                   </p>
                 </div>
               </div>

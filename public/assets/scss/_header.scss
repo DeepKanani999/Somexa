@@ -81,7 +81,7 @@
 				font-size: 16px;
 				color: $heading-color;
 				font-weight: 700;
-                font-family: $quicksand;
+                font-family: $Opensans;
 				text-transform: capitalize;
 				padding: 32px 0px;
 				line-height: 1;
@@ -352,7 +352,7 @@
                 & li{
                     & span{
                         font-weight: 600;
-                        font-family: $quicksand; 
+                        font-family: $Opensans; 
                         color: $heading-color;
                     }
                     margin-right: 10px;
@@ -372,7 +372,7 @@
                 & a{
                     @extend %primary;
                     font-weight: 500;
-                    font-family: $quicksand;
+                    font-family: $Opensans;
                     text-decoration: underline;
                     text-underline-position: under;
                 }
@@ -404,7 +404,7 @@
                     & a{
                         color: $heading-color;
                         & span{
-                            font-family: $quicksand;
+                            font-family: $Opensans;
                             font-weight: 500;
 							@media #{$lg}{
 								display: none;

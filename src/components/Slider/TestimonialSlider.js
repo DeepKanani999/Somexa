@@ -81,7 +81,7 @@ export default class TestimoinalSlider extends Component {
               <div className="author-info">
                 <div className="author-title">
                   <h4>Melisa Powels</h4>
-                  <span className="position">Sr. Designer</span>
+                  {/* <span className="position">Sr. Designer</span> */}
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default class TestimoinalSlider extends Component {
               <div className="author-info">
                 <div className="author-title">
                   <h4>Martyn Decode</h4>
-                  <span className="position">Sr. Designer</span>
+                  {/* <span className="position">Sr. Designer</span> */}
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default class TestimoinalSlider extends Component {
               <div className="author-info">
                 <div className="author-title">
                   <h4>Alesha Mature</h4>
-                  <span className="position">Sr. Designer</span>
+                  {/* <span className="position">Sr. Designer</span> */}
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default class TestimoinalSlider extends Component {
               <div className="author-info">
                 <div className="author-title">
                   <h4>Martyn Decode</h4>
-                  <span className="position">Sr. Designer</span>
+                  {/* <span className="position">Sr. Designer</span> */}
                 </div>
               </div>
             </div>

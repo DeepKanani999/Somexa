@@ -158,7 +158,7 @@ h3.title{
                 width: 0;
                 height: 0;
                 content: "";
-                border-bottom: 15px solid #ff344f;
+                border-bottom: 15px solid #69C8C7;
                 border-right: 13.01px solid transparent;
             }
         }
@@ -345,7 +345,7 @@ h3.title{
             margin-bottom: 7px;
         }
         & span.city{
-            font-family: $quicksand;
+            font-family: $Opensans;
             font-weight: 700;
             vertical-align: middle;
             margin-bottom: 15px;
@@ -362,7 +362,7 @@ h3.title{
         }
         & span.price{
             font-weight: 700;
-            font-family: $quicksand;
+            font-family: $Opensans;
             color: $heading-color;
         }
     }
@@ -662,7 +662,7 @@ h3.title{
                     border: 1px solid $border;
                     cursor: pointer;
                     font-weight: 500;
-                    font-family: $quicksand;
+                    font-family: $Opensans;
                     color: $heading-color;
                     padding: 22px 30px;
                 }
@@ -1029,7 +1029,7 @@ h3.title{
                     @extend %primary;
                     margin-left: 15px;
                     font-weight: 700;
-                    font-family: $quicksand;
+                    font-family: $Opensans;
                 }
             }
         }

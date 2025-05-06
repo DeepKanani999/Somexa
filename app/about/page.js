@@ -190,7 +190,7 @@ const About = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -274,7 +274,7 @@ const About = () => {
                     style={{ padding: "8px", backgroundColor: "#0B63BD" }}
                   >
                     <img
-                      src="/assets/images/icons/Linkedin.png"
+                      src="/assets/images/icons/linkedin.png"
                       alt="LinkedIn"
                     />
                   </button>
@@ -296,7 +296,7 @@ const About = () => {
               <div className="col-lg-6">
                 <div className="section-title text-center mb-60 wow fadeInUp">
                   <span className="sub-title">Some Feature</span>
-                  <h2>Caring Your Hobbies</h2>
+                  <h2>Caring for Your Entertainment</h2>
                 </div>
               </div>
             </div>
@@ -310,10 +310,11 @@ const About = () => {
                     <i className="flaticon-add-user" />
                   </div>
                   <div className="content">
-                    <h3 className="title">User Friendly</h3>
+                    <h3 className="title">User-Friendly Experience</h3>
                     <p>
-                      Our TVs are built to be easy to use, with simple
-                      navigation and quick access to your favorite apps and
+                      At Plixon, our Smart TVs are designed for effortless
+                      usability — with intuitive interfaces, smooth navigation,
+                      and instant access to all your favorite streaming apps and
                       features.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
@@ -331,10 +332,11 @@ const About = () => {
                     <i className="flaticon-gift-box" />
                   </div>
                   <div className="content">
-                    <h3 className="title">Daily Offers</h3>
+                    <h3 className="title">Exciting Daily Deals</h3>
                     <p>
-                      We offer regular deals so you can enjoy high-quality TVs
-                      at competitive prices without sacrificing performance.
+                      Enjoy unbeatable value every day. Plixon offers exclusive
+                      daily deals on high-performance Smart TVs, giving you
+                      premium quality at pocket-friendly prices.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -351,10 +353,12 @@ const About = () => {
                     <i className="flaticon-laptop" />
                   </div>
                   <div className="content">
-                    <h3 className="title">Quick Search</h3>
+                    <h3 className="title">Smart & Quick Search</h3>
                     <p>
-                      Quickly find the right TV for your needs using smart
-                      filters and easy search tools on our platform.
+                      Say goodbye to endless scrolling. With Plixon’s advanced
+                      filters and intelligent search, find your perfect Smart TV
+                      match in seconds — tailored to your preferences and
+                      budget.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -371,10 +375,12 @@ const About = () => {
                     <i className="flaticon-headphone" />
                   </div>
                   <div className="content">
-                    <h3 className="title">Live Support</h3>
+                    <h3 className="title">24/7 Live Support</h3>
                     <p>
-                      Our support team is always ready to help with product
-                      questions, setup, or service-related queries.
+                      Need help? Our dedicated support team is always ready to
+                      assist — whether it’s setup guidance, feature
+                      explanations, or product inquiries. At Plixon, we’re just
+                      a click away.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -404,12 +410,11 @@ const About = () => {
                 <div className="features-content-box features-content-box-one">
                   <div className="section-title section-title-left mb-30 wow fadeInUp">
                     <span className="sub-title">Our Speciality</span>
-                    <h2>Comprehnsive All Great Destination Here</h2>
+                    <h2>Experience Entertainment Like Never Before</h2>
                   </div>
                   <h5>
-                    Risus urnas Iaculis per amet vestibulum luctus.tincidunt
-                    ultricies aenean quam eros eleifend sodales cubilia mattis
-                    quam.
+                    Enjoy stunning visuals, rich sound, and seamless
+                    connectivity with Plixon Smart TVs.
                   </h5>
                   <ul className="features-list-one">
                     <li
@@ -420,10 +425,10 @@ const About = () => {
                         <i className="flaticon-find" />
                       </div>
                       <div className="content">
-                        <h5>Find What You Want</h5>
+                        <h5>Perfect Match, Effortlessly</h5>
                         <p>
-                          Rhoncus dolor quam etiam mattis, tincidunt nec
-                          lobortis sociis facilisi aenean netus tempor duis.
+                          From compact to cinematic, find the TV that fits your
+                          space and style with ease.
                         </p>
                       </div>
                     </li>
@@ -435,10 +440,10 @@ const About = () => {
                         <i className="flaticon-place" />
                       </div>
                       <div className="content">
-                        <h5>Easy Choose Your Place</h5>
+                        <h5>Smart & Simple Selection</h5>
                         <p>
-                          Rhoncus dolor quam etiam mattis, tincidunt nec
-                          lobortis sociis facilisi aenean netus tempor duis.
+                          User-friendly tools help you compare and choose
+                          confidently.
                         </p>
                       </div>
                     </li>
@@ -450,14 +455,40 @@ const About = () => {
                         <i className="flaticon-social-care" />
                       </div>
                       <div className="content">
-                        <h5>Live Online Assistance</h5>
+                        <h5>24/7 Expert Support</h5>
                         <p>
-                          Rhoncus dolor quam etiam mattis, tincidunt nec
-                          lobortis sociis facilisi aenean netus tempor duis.
+                          Instant help is always a click away for any product
+                          questions.
                         </p>
                       </div>
                     </li>
                   </ul>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-5">
+              <div className="col-lg-6">
+                <div className="content">
+                  <h5>Our Vision</h5>
+                  <p>
+                    To revolutionize home entertainment by making smart,
+                    connected, and immersive viewing experiences accessible to
+                    every household—empowering people to see the world in
+                    extraordinary clarity and convenience.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="content">
+                  <h5>Our Mission</h5>
+                  <p>
+                    At Plixon, our mission is to innovate relentlessly and
+                    deliver cutting-edge Smart TVs that combine elegance,
+                    intelligence, and ease of use. We aim to enhance everyday
+                    living through technology that’s intuitive, reliable, and
+                    enriching—backed by exceptional support, sustainable
+                    practices, and a customer-first mindset.
+                  </p>
                 </div>
               </div>
             </div>
@@ -474,18 +505,36 @@ const About = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-7">
-                <div className="company-name wow fadeInLeft">Fioxen</div>
+                <div className="company-name wow fadeInLeft">Plixon</div>
               </div>
               <div className="col-lg-5">
                 <div className="cta-content-box wow fadeInRight">
-                  <h2>Visit the Best Places</h2>
+                  <h2>Experience Best Display Technology</h2>
                   <p>
-                    Pharetra venenatis ante pulvinar fermentum dignissim one
-                    malesuada laoreet ridiculus fringilla quam
+                    Superior TV collection featuring crystal-clear resolution
+                    and immersive sound that transforms your viewing into a
+                    cinema-like experience.
                   </p>
-                  <Link href="/listing-grid" className="main-btn icon-btn">
-                    Explore Now
-                  </Link>
+                  <a
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = '/assets/images/Plixon-Catalogue-Digital.pdf';
+                      link.download = 'Plixon-Catalogue-Digital.pdf'; // Optional: Specify the file name
+                      link.click();
+                    }}
+                    className="main-btn"
+                    style={{
+                      display: "inline-block",
+                      padding: "10px 20px",
+                      backgroundColor: "#69C8C7",
+                      color: "#FFF",
+                      textDecoration: "none",
+                      borderRadius: "5px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    Download Catalogue
+                  </a>
                 </div>
               </div>
             </div>
@@ -523,7 +572,7 @@ const About = () => {
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Newsletter Section ======*/}
       <section className="newsletter-area">
-        <div className="container">
+        <div className="container" style={{ marginBottom: "50px" }}>
           <div
             className="newsletter-wrapper newsletter-wrapper-one bg_cover"
             style={{
@@ -534,10 +583,18 @@ const About = () => {
               <div className="col-lg-5">
                 <div className="newsletter-content-box-one wow fadeInLeft">
                   <div className="icon">
-                    <i className="flaticon-email" />
+                    <i className="flaticon-email" style={{ marginTop: "5px" }} />
                   </div>
                   <div className="content">
-                    <h2>Get Special Rewards</h2>
+                    <h4 style={{ color: "#FFF" }}>Send your requirement</h4>
+                    <div
+                      style={{
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <h2>WhatsApp Now</h2>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -547,12 +604,18 @@ const About = () => {
                     <input
                       type="email"
                       className="form_control"
-                      placeholder="Enter Address"
+                      placeholder="Enter your requirement"
                       name="email"
                       required=""
+                      style={{ marginTop: "20px" }}
                     />
-                    <i className="ti-location-pin" />
-                    <button className="main-btn icon-btn">Subscribe</button>
+                    {/* <i className="ti-location-pin" /> */}
+                    <button
+                      className="main-btn"
+                      style={{ backgroundColor: "#69C8C7" }}
+                    >
+                      Subscribe
+                    </button>
                   </div>
                 </div>
               </div>
@@ -562,7 +625,7 @@ const About = () => {
       </section>
       {/*====== End Newsletter Section ======*/}
       {/*====== Start Team Section ======*/}
-      <section className="team-area pt-115 pb-85">
+      {/* <section className="team-area pt-115 pb-85">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
@@ -683,7 +746,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End Team Section ======*/}
     </Layout>
   );

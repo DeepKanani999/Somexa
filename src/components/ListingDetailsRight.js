@@ -60,20 +60,27 @@ const ListingDetailsRight = () => {
             <i className="ti-book" />
             <h3>Get our latest product list</h3>
             <a
-              href="/Plixon-Catalogue-Digital.pdf"
-              download="Plixon-Catalogue-Digital.pdf"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/assets/images/Plixon-Catalogue-Digital.pdf';
+                link.target = '_blank'; // Open in a new tab
+                link.rel = 'noopener noreferrer'; // Security best practice
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
               className="main-btn"
               style={{
-                display: "inline-block",
-                padding: "10px 20px",
-                backgroundColor: "#69C8C7",
-                color: "#FFF",
-                textDecoration: "none",
-                borderRadius: "5px",
-                marginTop: "10px",
+                display: 'inline-block',
+                padding: '10px 20px',
+                backgroundColor: '#69C8C7',
+                color: '#FFF',
+                textDecoration: 'none',
+                borderRadius: '5px',
+                marginTop: '10px',
               }}
             >
-              Download
+              View Catalogue
             </a>
           </div>
         </div>
@@ -259,34 +266,34 @@ const ListingDetailsRight = () => {
         </div>
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
-          <h5 className="widget-title">Get the List of TV Brands</h5>
+          <h5 className="widget-title" style={{marginBottom: "10px"}}>Get the List of TV Brands</h5>
           <span
-            style={{ borderRadius: "0px" }}
-            className="px-4 py-2 my-3 mr-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
+            style={{ borderRadius: "20px" }}
+            className="px-4 py-2 my-1 mr-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
             4K UltraHD
           </span>
           <span
-            style={{ borderRadius: "0px" }}
-            className="px-4 py-2 my-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
+            style={{ borderRadius: "20px" }}
+            className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
             Smart TV
           </span>
           <span
-            style={{ borderRadius: "0px" }}
-            className="px-4 py-2 my-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
+            style={{ borderRadius: "20px" }}
+            className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
             OLED Technology
           </span>
           <span
-            style={{ borderRadius: "0px" }}
-            className="px-4 py-2 my-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
+            style={{ borderRadius: "20px" }}
+            className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
             8K Resolution
           </span>
           <span
-            style={{ borderRadius: "0px" }}
-            className="px-4 py-2 my-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
+            style={{ borderRadius: "20px" }}
+            className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
             Smart Voice Control
           </span>

@@ -4,7 +4,7 @@
     1. Start COMMON css 
 ==========================*/
 
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Opensans:wght@300;400;500;600;700&display=swap');
 
 html{
     font-size: 100%;
@@ -51,7 +51,7 @@ h5,
 h6{
     color: $heading-color;
     margin: 0px;
-    font-family: $quicksand;
+    font-family: $Opensans;
     font-weight: 700;
 }
 h1 {
@@ -229,7 +229,7 @@ button{
     background-color: $primary-color;
     padding: 16px 40px;
     color: $white;
-    font-family: $quicksand;
+    font-family: $Opensans;
     font-size: 15px;
     font-weight: 700;
     line-height: 28px;

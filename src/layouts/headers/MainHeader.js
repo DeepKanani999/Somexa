@@ -27,17 +27,17 @@ const Header2 = () => {
                   </div>
                   <nav className="main-menu">
                     <ul>
-                      <li className="menu-item ">
+                      <li className="menu-item">
                         <Link href="/">Home</Link>
                       </li>
                       <li className="menu-item">
-                        <a href="/about">About</a>
+                        <Link href="/about">About</Link>
                       </li>
                       <li className="menu-item">
-                        <a href="/products">Products</a>
+                        <Link href="/products">Products</Link>
                       </li>
                       <li className="menu-item">
-                        <a href="/contact">Contact</a>
+                        <Link href="/contact">Contact</Link>
                       </li>
                     </ul>
                   </nav>
