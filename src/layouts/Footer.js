@@ -112,7 +112,7 @@ const Footer = () => {
                     <li className="post-content-item">
                       <div className="post-title-date">
                         <span className="posted-on">
-                          <a href="#">22 May - 2025</a>
+                          {/* <a href="#">22 May - 2025</a> */}
                         </span>
                         <h6 className="title">
                           <Link href="#">
