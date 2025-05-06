@@ -5,7 +5,7 @@
 ==========================*/
 
 .btn-link{
-    font-family: $quicksand;
+    font-family: $Opensans;
     font-weight: 700;
     color: $text-color;
     &:after{
@@ -65,7 +65,7 @@
                 background-color: #f31b38;
                 flex-direction: column;
                 font-weight: 700;
-                font-family: $quicksand;
+                font-family: $Opensans;
                 @extend %white;
                 font-size: 22px;
                 & span{
@@ -140,7 +140,7 @@
             padding: 40px 15px 20px;
         }
         & .cat-btn{
-            background-color: #ff344f;
+            background-color: #69C8C7;
             font-weight: 600;
             color: #fff;
             line-height: 20px;
@@ -199,7 +199,7 @@
                 background-color: #f31b38;
                 flex-direction: column;
                 font-weight: 700;
-                font-family: $quicksand;
+                font-family: $Opensans;
                 @extend %white;
                 font-size: 22px;
                 & span{
@@ -446,7 +446,7 @@
         & .post-nav-item{
             max-width: 250px;
             & .btn-link{
-                font-family: $quicksand;
+                font-family: $Opensans;
                 font-weight: 700;
             }
             & h5{
@@ -488,7 +488,7 @@
                         margin-top: 30px;
                     }
                     & .comment-author-content{
-                        font-family: $quicksand;
+                        font-family: $Opensans;
                         font-weight: 700;
                         color: $heading-color;
                         & span.author-name{

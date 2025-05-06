@@ -6,6 +6,7 @@ import { Nav, Tab } from "react-bootstrap";
 import Slider from "react-slick";
 import { reletedProductSlider } from "@/sliderProps";
 import Link from "next/link";
+import { products } from "@/products";
 
 const ProductDetailsClient = ({ item }) => {
   const [showBar, setShowBar] = useState(false);
@@ -187,7 +188,7 @@ const ProductDetailsClient = ({ item }) => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -267,7 +268,7 @@ const ProductDetailsClient = ({ item }) => {
                   onClick={handleLinkedIn}
                   style={{ padding: "8px", backgroundColor: "#0B63BD" }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -299,16 +300,15 @@ const ProductDetailsClient = ({ item }) => {
               >
                 <div className="product-info mt-30">
                   <h3 className="title">{item?.name}</h3>
-                  <p>{item?.detail}</p>
+                  <span>{item?.detail}</span>
                   <button
-                    onClick={() => {}}
-                    className="flex items-center gap-2 px-4 py-2 mt-1 mb-4 border border-gray-300 rounded-lg transition"
+                    onClick={() => { }}
+                    className="flex items-center gap-2 px-3 py-2 mt-3 mb-3 border border-gray-300 rounded-lg transition"
                     style={{
                       backgroundColor: "#24D07A",
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
-                      marginBottom: "30px",
                     }}
                   >
                     <img
@@ -552,7 +552,78 @@ const ProductDetailsClient = ({ item }) => {
               {...reletedProductSlider}
               className="releted-products-slider-one"
             >
-              <div className="products-item products-item-one">
+              {products.map((item) =>
+                <div className="listing-item listing-grid-item-two">
+                  <div
+                    className="listing-thumbnail"
+                    style={{
+                      backgroundColor: item.backgroundColor,
+                      borderTopLeftRadius: "10px",
+                      borderTopRightRadius: "10px",
+                    }}
+                  >
+                    <img
+                      src={item.image} // <-- Update TV image here
+                      alt="TV Product Image"
+                    />
+                    <span className="featured-btn">Featured</span>
+                  </div>
+                  <div className="listing-content">
+                    <h3 className="title">
+                      <Link href="/tv-details">{item.name}</Link>{" "}
+                    </h3>
+                    <p>
+                      {item.detail}
+                    </p>{" "}
+                    <div className="features-list">
+
+                      {item.specification.map((feature, _ind) => { return (<ul key={_ind}> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{feature}</li></ul>) })} {/* Feature 1 */}
+
+                    </div>
+                    <span className="phone-meta">
+                    </span>
+                    <div className="listing-meta">
+                      <ul>
+                        <li>
+                          <Link
+                            href={`/product-details/${item.slug}`}
+                            style={{ display: "flex", justifyContent: "center" }}
+                          >
+                            <div
+                              className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
+                              style={{
+                                backgroundColor: "#69C8C7",
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                alignSelf: "center",
+                                marginBottom: "30px",
+                              }}
+                            >
+                              <img
+                                src="/assets/images/WhatsApp_Image.png"
+                                alt="WhatsApp Icon"
+                                style={{
+                                  height: "20px",
+                                  width: "20px",
+                                  marginRight: "8px",
+                                }}
+                              />
+                              <span
+                                className="underline text-white"
+                                style={{ fontSize: "20px" }}
+                              >
+                                View Details
+                              </span>
+                            </div>
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>)
+              }
+              {/* <div className="products-item products-item-one">
                 <div className="product-img">
                   <img
                     src="/assets/images/details-images/product-detail-1.jpg"
@@ -576,7 +647,7 @@ const ProductDetailsClient = ({ item }) => {
                   </h3>
                   <div style={{ display: "flex", justifyContent: "center" }}>
                     <button
-                      onClick={() => {}}
+                      onClick={() => { }}
                       className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
                       style={{
                         backgroundColor: "#24D07A",
@@ -625,7 +696,7 @@ const ProductDetailsClient = ({ item }) => {
                   </h3>
                   <div style={{ display: "flex", justifyContent: "center" }}>
                     <button
-                      onClick={() => {}}
+                      onClick={() => { }}
                       className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
                       style={{
                         backgroundColor: "#24D07A",
@@ -674,7 +745,7 @@ const ProductDetailsClient = ({ item }) => {
                   </h3>
                   <div style={{ display: "flex", justifyContent: "center" }}>
                     <button
-                      onClick={() => {}}
+                      onClick={() => { }}
                       className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
                       style={{
                         backgroundColor: "#24D07A",
@@ -723,7 +794,7 @@ const ProductDetailsClient = ({ item }) => {
                   </h3>
                   <div style={{ display: "flex", justifyContent: "center" }}>
                     <button
-                      onClick={() => {}}
+                      onClick={() => { }}
                       className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
                       style={{
                         backgroundColor: "#24D07A",
@@ -746,7 +817,7 @@ const ProductDetailsClient = ({ item }) => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </Slider>
           </div>
         </div>

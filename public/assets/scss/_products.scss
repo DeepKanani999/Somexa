@@ -109,7 +109,7 @@
         }
         & span.price{
             @extend %primary;
-            font: 700 18px $quicksand;
+            font: 700 18px $Opensans;
             & span.pre-price{
                 font-weight: 500;
                 text-decoration: line-through;
@@ -156,7 +156,7 @@
         & span.price{
             display: block;
             font-size: 24px;
-            font-family: $quicksand;
+            font-family: $Opensans;
             font-weight: 700;
             @extend %primary;
             margin-bottom: 20px;
@@ -217,7 +217,7 @@
             & .category span.title,
             & .tags span.title{
                 font-weight: 500;
-                font-family: $quicksand;
+                font-family: $Opensans;
                 color: $heading-color;
                 margin-right: 10px;
             }
@@ -264,7 +264,7 @@
                 margin-bottom: 0px;
                 font-size: 18px;
                 font-weight: 700;
-                font-family: $quicksand;
+                font-family: $Opensans;
                 color: $heading-color;
                 padding-bottom: 20px;
                 margin-right: 30px;
@@ -336,7 +336,7 @@
                     }
                     & .reply{
                         font-weight: 700;
-                        font-family: $quicksand;
+                        font-family: $Opensans;
                         text-transform: uppercase;
                         color: $heading-color;
                         &:hover{
@@ -356,7 +356,7 @@
                 & span{
                     font-weight: 700;
                     color: $heading-color;
-                    font-family: $quicksand;
+                    font-family: $Opensans;
                     margin-right: 15px;
                 }
                 &:hover{

@@ -185,7 +185,7 @@ const Contact = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -265,7 +265,7 @@ const Contact = () => {
                   onClick={handleLinkedIn}
                   style={{ padding: "8px", backgroundColor: "#0B63BD" }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"

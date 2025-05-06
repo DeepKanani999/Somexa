@@ -13,7 +13,7 @@ import styles from "../../styles/style.css";
 
 const heroImages = [
   "/assets/Hero-Banner/TV-setup-1.jpg",
-  "/assets/Hero-Banner/TV-setup-2.png",
+  "/assets/Hero-Banner/TV-setup-2.jpg",
   "/assets/Hero-Banner/TV-setup-3.jpg",
 ];
 
@@ -396,7 +396,7 @@ const HomeScreen = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -420,7 +420,7 @@ const HomeScreen = () => {
               <div style={{ display: "flex", gap: "12px" }}>
                 <button className="social-main-btn" onClick={handleCall}>
                   <img
-                    src="/assets/images/icons/call.webp"
+                    src="/assets/images/icons/call.webp" // Correct
                     alt="Call"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
@@ -476,7 +476,7 @@ const HomeScreen = () => {
                   onClick={handleLinkedIn}
                   style={{ padding: "8px", backgroundColor: "#0B63BD" }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -512,7 +512,7 @@ const HomeScreen = () => {
               <div className="col-auto">
                 <button className="social-main-btn" onClick={handleCall}>
                   <img
-                    src="/assets/images/icons/call.webp"
+                    src="/assets/images/icons/call.webp" // Correct
                     alt="Call"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
@@ -584,7 +584,7 @@ const HomeScreen = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <img src="/assets/images/icons/Linkedin.png" alt="LinkedIn" />
+                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
                 </button>
                 <button
                   className="social-rounded-btn"
@@ -668,7 +668,7 @@ const HomeScreen = () => {
                 }}
               >
                 <img
-                  src="/assets/images/icons/call.webp"
+                  src="/assets/images/icons/call.webp" // Correct
                   alt="Call"
                   style={{ height: "24px", width: "24px" }}
                 />
@@ -1175,7 +1175,7 @@ const HomeScreen = () => {
                     style={{ minWidth: "250px", paddingLeft: "20px" }}
                   >
                     <span style={{ fontSize: "16px", marginBottom: "5px" }}>
-                      Send your requirement on
+                      Send your requirement
                     </span>
                     <br />
                     <strong
