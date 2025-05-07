@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import styles from "../../styles/style.css";
+import { products } from "@/products";
 
 const heroImages = [
   "/assets/Hero-Banner/TV-setup-1.jpg",
@@ -854,8 +855,8 @@ const HomeScreen = () => {
                     </div>
                   </div>
                   <p>
-                    Cras vivamus dui cubilia placerat netus lorem vivamus
-                    inceptos sollicitudin non inceptos mi dui vulputate donec
+                    Cras vivamus placerat netus lorem vivamus
+                    inceptos sollicitudin non mi dui vulputate donec
                     sed etiam turpis varius a porta natoque nullam tincidunt in
                     nec cubilia hac netus and class pharetra Commodo convallis
                     pharetra tortor facilisis dapibus maecenas nunc nascetur
@@ -883,7 +884,90 @@ const HomeScreen = () => {
                     {...reletedListingSlider2}
                     className="releted-listing-slider-one"
                   >
-                    <div className="listing-item listing-grid-item-two">
+                    {products.map((product, index) =>
+                      <div className="listing-item listing-grid-item-two">
+                        <div
+                          className="listing-thumbnail"
+                          style={{
+                            backgroundColor: product.backgroundColor,
+                            borderTopLeftRadius: "10px",
+                            borderTopRightRadius: "10px",
+                          }}
+                        >
+                          <Link href={`/product-details/${product.slug}`}></Link>
+                          <img
+                            src={product.image}
+                            alt="TV Product Image"
+                          />
+                          <span className="featured-btn" style={{ borderRadius: "5px" }}>Featured</span>
+                        </div>
+                        <div className="listing-content">
+                          <h3 className="title">
+                            <Link href={`/product-details/${product.slug}`}>{product.name}</Link>
+                          </h3>
+                          <p style={{
+                            display: '-webkit-box',
+                            WebkitBoxOrient: 'vertical',
+                            WebkitLineClamp: 3,
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            maxWidth: '300px',
+                            lineHeight: '1.5',
+                            marginBottom: "15px",
+                          }}>
+                            {product.detail}
+                          </p>
+                          <div className="features-list">
+                            <ul>
+                              <li>AI Upscaling</li>
+                              <li>8K Ultra HD</li>
+                            </ul>
+                          </div>
+                          <span className="phone-meta"></span>
+                          <div className="listing-meta">
+                            <ul>
+                              <li>
+                                <span>
+                                  <button
+                                    onClick={() => {
+                                      const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
+                                      const message = `Hello, I am interested in knowing the price details for the product. Please share more information.`;
+                                      const encodedMessage =
+                                        encodeURIComponent(message);
+                                      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                                      window.open(whatsappURL, "_blank");
+                                    }}
+                                    className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
+                                    style={{
+                                      backgroundColor: "#24D07A",
+                                      display: "flex",
+                                      flexDirection: "row",
+                                      alignItems: "center",
+                                      // paddingBottom: "20px",
+                                    }}
+                                  >
+                                    <img
+                                      src="/assets/images/WhatsApp_Image.png"
+                                      alt="WhatsApp Icon"
+                                      style={{
+                                        height: "15px",
+                                        width: "15px",
+                                        marginRight: "8px",
+                                      }}
+                                    />
+                                    <span className="underline text-white">
+                                      Get Price
+                                    </span>
+                                  </button>
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* <div className="listing-item listing-grid-item-two">
                       <div
                         className="listing-thumbnail"
                         style={{
@@ -900,7 +984,7 @@ const HomeScreen = () => {
                       </div>
                       <div className="listing-content">
                         <h3 className="title">
-                          <Link href="/tv-details">NeoVision 8K Smart TV</Link>
+                          <Link href="/">NeoVision 8K Smart TV</Link>
                         </h3>
                         <p>
                           Unmatched 8K clarity, AI-powered upscaling, and sleek
@@ -972,7 +1056,7 @@ const HomeScreen = () => {
                       </div>
                       <div className="listing-content">
                         <h3 className="title">
-                          <Link href="/tv-details">
+                          <Link href="/">
                             MaxiView Quantum OLED TV
                           </Link>
                         </h3>
@@ -1027,85 +1111,7 @@ const HomeScreen = () => {
                           </ul>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="listing-item listing-grid-item-two">
-                      <div
-                        className="listing-thumbnail"
-                        style={{
-                          backgroundColor: "#69C8C7",
-                          borderTopLeftRadius: "10px",
-                          borderTopRightRadius: "10px",
-                        }}
-                      >
-                        <img
-                          src="/assets/images/products/tv1.png" // <-- Update TV image here
-                          alt="TV Product Image"
-                        />
-                        <span className="featured-btn">Featured</span>
-                      </div>
-                      <div className="listing-content">
-                        <h3 className="title">
-                          <Link href="/tv-details">VisionX Ultra HD TV</Link>{" "}
-                          {/* TV Name */}
-                        </h3>
-                        <p>
-                          Experience breathtaking 4K visuals with smart
-                          features.
-                        </p>{" "}
-                        {/* Small Description */}
-                        <div className="features-list">
-                          <ul>
-                            <li>Ultra-Fast WiFi</li> {/* Feature 1 */}
-                            <li>Outdoor Viewing Mode</li> {/* Feature 2 */}
-                          </ul>
-                        </div>
-                        <span className="phone-meta">
-                          {/* <i className="ti-tablet" /> */}
-                          {/* <span className="status st-open">Available</span>{" "} */}
-                          {/* Availability */}
-                        </span>
-                        <div className="listing-meta">
-                          <ul>
-                            <li>
-                              <span>
-                                <button
-                                  onClick={() => {
-                                    const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
-                                    const message = `Hello, I am interested in knowing the price details for the product. Please share more information.`;
-                                    const encodedMessage =
-                                      encodeURIComponent(message);
-                                    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                                    window.open(whatsappURL, "_blank");
-                                  }}
-                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
-                                  style={{
-                                    backgroundColor: "#24D07A",
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    alignItems: "center",
-                                    // paddingBottom: "20px",
-                                  }}
-                                >
-                                  <img
-                                    src="/assets/images/WhatsApp_Image.png"
-                                    alt="WhatsApp Icon"
-                                    style={{
-                                      height: "15px",
-                                      width: "15px",
-                                      marginRight: "8px",
-                                    }}
-                                  />
-                                  <span className="underline text-white">
-                                    Get Price
-                                  </span>
-                                </button>
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+                    </div> */}
                   </Slider>
                 </div>
                 <div className="listing-gallery-box mb-30 wow fadeInUp">
