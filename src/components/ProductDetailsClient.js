@@ -327,28 +327,30 @@ const ProductDetailsClient = ({ item }) => {
                       Get Price
                     </span>
                   </button>
-                  <div className="product-meta">
+                  <div className="product-meta mt-4">
                     <span className="category">
-                      <span className="title" style={{ fontSize: "22px" }}>
+                      <span className="title text-sm">
                         Usability:
                       </span>
                       {item?.usability?.map((val) => (
                         <span
                           key={val}
-                          className="px-3 my-2 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm"
+                          style={{ borderRadius: "20px" }}
+                          className="px-3 my-1 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm"
                         >
                           {val}
                         </span>
                       ))}
                     </span>
                     <span className="category">
-                      <span className="title" style={{ fontSize: "22px" }}>
+                      <span className="title text-sm">
                         Specifications:
                       </span>
                       {item?.specification?.map((val) => (
                         <span
                           key={val}
-                          className="px-3 my-2 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm"
+                          style={{ borderRadius: "20px" }}
+                          className="px-3 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm"
                         >
                           {val}
                         </span>
@@ -562,22 +564,32 @@ const ProductDetailsClient = ({ item }) => {
                       borderTopRightRadius: "10px",
                     }}
                   >
-                    <img
-                      src={item.image} // <-- Update TV image here
-                      alt="TV Product Image"
-                    />
-                    <span className="featured-btn">Featured</span>
+                    <Link
+                      href={`/product-details/${item.slug}`}
+                    >
+                      <img
+                        src={item.image} // <-- Update TV image here
+                        alt="TV Product Image"
+                      /></Link>
+                    <span className="featured-btn" style={{ borderRadius: "5px" }}>Featured</span>
                   </div>
                   <div className="listing-content">
                     <h3 className="title">
-                      <Link href="/tv-details">{item.name}</Link>{" "}
+                      <Link href={`/product-details/${item.slug}`}>{item.name}</Link>{" "}
                     </h3>
-                    <p>
+                    <p style={{
+                      display: '-webkit-box',
+                      WebkitBoxOrient: 'vertical',
+                      WebkitLineClamp: 3,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      maxWidth: '300px',
+                      lineHeight: '1.5',
+                      marginBottom: "15px",
+                    }}>
                       {item.detail}
                     </p>{" "}
-                    <div className="features-list">
-
-                      {item.specification.map((feature, _ind) => { return (<ul key={_ind}> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{feature}</li></ul>) })} {/* Feature 1 */}
+                    <div className="features-list"><ul> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{"Smart TV"}</li></ul>
 
                     </div>
                     <span className="phone-meta">
@@ -600,15 +612,6 @@ const ProductDetailsClient = ({ item }) => {
                                 marginBottom: "30px",
                               }}
                             >
-                              <img
-                                src="/assets/images/WhatsApp_Image.png"
-                                alt="WhatsApp Icon"
-                                style={{
-                                  height: "20px",
-                                  width: "20px",
-                                  marginRight: "8px",
-                                }}
-                              />
                               <span
                                 className="underline text-white"
                                 style={{ fontSize: "20px" }}

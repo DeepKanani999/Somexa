@@ -548,22 +548,33 @@ const Products = () => {
                           borderTopRightRadius: "10px",
                         }}
                       >
-                        <img
-                          src={val.image} // <-- Update TV image here
-                          alt="TV Product Image"
-                        />
-                        <span className="featured-btn">Featured</span>
+                        <Link href={`/product-details/${val.slug}`}>
+                          <img
+                            src={val.image} // <-- Update TV image here
+                            alt="TV Product Image"
+                          />
+                        </Link>
+                        <span className="featured-btn" style={{ borderRadius: "5px" }}>Featured</span>
                       </div>
                       <div className="listing-content">
                         <h3 className="title">
-                          <Link href="/tv-details">{val.name}</Link>{" "}
+                          <Link href={`/product-details/${val.slug}`}>{val.name}</Link>{" "}
                         </h3>
-                        <p>
+                        <p style={{
+                          display: '-webkit-box',
+                          WebkitBoxOrient: 'vertical',
+                          WebkitLineClamp: 3,
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          maxWidth: '300px',
+                          lineHeight: '1.5',
+                          marginBottom: "15px",
+                        }}>
                           {val.detail}
                         </p>{" "}
                         <div className="features-list">
 
-                          {val.specification.map((feature, _ind) => { return (<ul key={_ind}> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{feature}</li></ul>) })} {/* Feature 1 */}
+                          <ul> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{"Smart TV"}</li></ul>
 
                         </div>
                         <span className="phone-meta">
@@ -586,7 +597,7 @@ const Products = () => {
                                     marginBottom: "30px",
                                   }}
                                 >
-                                  <img
+                                  {/* <img
                                     src="/assets/images/WhatsApp_Image.png"
                                     alt="WhatsApp Icon"
                                     style={{
@@ -594,7 +605,7 @@ const Products = () => {
                                       width: "20px",
                                       marginRight: "8px",
                                     }}
-                                  />
+                                  /> */}
                                   <span
                                     className="underline text-white"
                                     style={{ fontSize: "20px" }}
