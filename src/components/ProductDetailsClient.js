@@ -595,26 +595,27 @@ const ProductDetailsClient = ({ item }) => {
                     <span className="phone-meta">
                     </span>
                     <div className="listing-meta">
-                      <ul>
-                        <li>
+                      <ul style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                        <li style={{ width: '100%' }}>
                           <Link
                             href={`/product-details/${item.slug}`}
-                            style={{ display: "flex", justifyContent: "center" }}
+                            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}
                           >
                             <div
                               className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
                               style={{
-                                backgroundColor: "#69C8C7",
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "center",
-                                alignSelf: "center",
-                                marginBottom: "30px",
+                                backgroundColor: '#69C8C7',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginBottom: '30px',
+                                width: '100%', // Makes the button take full width
                               }}
                             >
                               <span
                                 className="underline text-white"
-                                style={{ fontSize: "20px" }}
+                                style={{ fontSize: '20px' }}
                               >
                                 View Details
                               </span>

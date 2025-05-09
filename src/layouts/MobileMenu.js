@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { About, Blog, Contact, Home, Listing, Pages } from "./Menu";
+import { About, Contact } from "./Menu";
 
 const MobileMenu = () => {
   const [toggle, setToggle] = useState(false);
@@ -11,88 +11,38 @@ const MobileMenu = () => {
       setActiveMenu(activeMenu === value ? "" : value),
     activeLi = (value) =>
       value === activeMenu ? { display: "block" } : { display: "none" };
+
   return (
-    <header className="header-area header-area-one d-xl-none">
-      {/* <div className="header-top">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-4">
-              <div className="top-social">
-                <ul className="social-link">
-                  <li>
-                    <span>Follow us:</span>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-twitter-alt"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-pinterest"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-dribbble"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-md-5">
-              <div className="top-content text-center">
-                <p>
-                  We Have Special Offers Every{" "}
-                  <Link href="/">Find your offer</Link>
-                </p>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="top-right">
-                <ul className="d-flex">
-                  <li>
-                    <Link href="/">
-                      <i className="ti-search"></i>
-                      <span>Search here</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <i className="ti-heart"></i>
-                      <span>Wishlist</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <i className="ti-shopping-cart"></i>
-                      <span>Cart</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      <div className="header-navigation sticky breakpoint-on">
-        <div className="container-fluid">
+    <header
+      className="header-area header-area-one d-xl-none"
+      style={{
+        width: "100%", // Ensure the header spans the full width
+        position: "fixed", // Fix the header at the top
+        top: 0,
+        left: 0,
+        zIndex: 9999, // Ensure it stays on top of other elements
+        backgroundColor: "#fff", // Add a background color
+      }}
+    >
+      <div
+        className="header-navigation sticky breakpoint-on"
+        style={{
+          width: "100%", // Ensure the navigation spans the full width
+          padding: "0", // Remove any padding
+          margin: "0", // Remove any margin
+        }}
+      >
+        <div className="container-fluid" style={{ padding: "0" }}>
           <div className="primary-menu">
-            <div className="row">
+            <div className="row" style={{ margin: "0" }}>
               <div className="col-lg-2 col-5">
                 <div className="site-branding">
                   <Link className="brand-logo" href="/">
-                    <img src="assets/images/logo/logo-2.png" alt="Brand Logo" />
+                    <img
+                      src="/assets/images/logo/logo-2.png"
+                      alt="Brand Logo"
+                      style={{ maxWidth: "100%" }}
+                    />
                   </Link>
                 </div>
               </div>
@@ -108,57 +58,15 @@ const MobileMenu = () => {
                     <ul>
                       <li className="menu-item">
                         <Link href="/">Home</Link>
-                        {/* <ul className="sub-menu" style={activeLi("Home")}>
-                          <Home />
-                        </ul>
-                        <span
-                          className="dd-trigger"
-                          onClick={() => activeMenuSet("Home")}
-                        >
-                          <i className="ti-arrow-down"></i>
-                        </span> */}
                       </li>
                       <About />
-                      {/* <li className="menu-item has-children">
-                        <a href="#">Listings</a>
-                        <ul className="sub-menu" style={activeLi("Listings")}>
-                          <Listing />
-                        </ul>
-                        <span
-                          className="dd-trigger"
-                          onClick={() => activeMenuSet("Listings")}
-                        >
-                          <i className="ti-arrow-down"></i>
-                        </span>
-                      </li> */}
-                      <li className="menu-item ">
+                      <li className="menu-item">
                         <a href="/products">Products</a>
-                        {/* <ul className="sub-menu" style={activeLi("Pages")}>
-                          <Pages />
-                        </ul>
-                        <span
-                          className="dd-trigger"
-                          onClick={() => activeMenuSet("Pages")}
-                        >
-                          <i className="ti-arrow-down"></i>
-                        </span> */}
                       </li>
-                      {/* <li className="menu-item has-children">
-                        <a href="#">Article</a>
-                        <ul className="sub-menu" style={activeLi("Article")}>
-                          <Blog />
-                        </ul>
-                        <span
-                          className="dd-trigger"
-                          onClick={() => activeMenuSet("Article")}
-                        >
-                          <i className="ti-arrow-down"></i>
-                        </span>
-                      </li> */}
                       <Contact />
                       <li className="nav-btn">
                         <Link className="main-btn" href="#">
-                        Find Retailers
+                          Find Retailers
                         </Link>
                       </li>
                     </ul>
@@ -174,7 +82,10 @@ const MobileMenu = () => {
                       </Link>
                     </li>
                     <li className="hero-nav-btn">
-                      <Link className="main-btn icon-btn" href="/add-listing">
+                      <Link
+                        className="main-btn icon-btn"
+                        href="/add-listing"
+                      >
                         Add Listing
                       </Link>
                     </li>
@@ -198,4 +109,5 @@ const MobileMenu = () => {
     </header>
   );
 };
+
 export default MobileMenu;
