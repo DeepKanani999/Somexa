@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import styles from "../../styles/style.css";
 import { products } from "@/products";
+import BottomTab from "@/components/BottomBar";
 
 const heroImages = [
   "/assets/Hero-Banner/TV-setup-1.jpg",
@@ -252,6 +253,12 @@ const HomeScreen = () => {
 
   const [video, setVideo] = useState(false);
 
+  const [visible, setVisible] = useState(true);
+
+  const closeTab = () => {
+    setVisible(false);
+  };
+
   return (
     <Layout>
       {video && <VideoPopup close={setVideo} />}
@@ -419,37 +426,37 @@ const HomeScreen = () => {
             >
               {/* Left Section: Main Social Buttons */}
               <div style={{ display: "flex", gap: "12px" }}>
-                <button className="social-main-btn" onClick={handleCall}>
+                <button className="social-main-btn" onClick={handleCall} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
-                    src="/assets/images/icons/call.webp" // Correct
+                    src="/assets/images/icons/call.png"
                     alt="Call"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Call Us
                 </button>
-                <button className="social-main-btn" onClick={handleLocation}>
+                <button className="social-main-btn" onClick={handleLocation} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
-                    src="/assets/images/icons/g-map.png"
+                    src="/assets/images/icons/GMap.png"
                     alt="Location"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Location
                 </button>
-                <button className="social-main-btn" onClick={handleWhatsApp}>
+                <button className="social-main-btn" onClick={handleWhatsApp} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
                     src="/assets/images/icons/whatsapp.png"
                     alt="WhatsApp"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "23px", width: "23px", marginRight: 10 }}
                   />
                   WhatsApp
                 </button>
-                <button className="social-main-btn" onClick={handleMail}>
+                <button className="social-main-btn" onClick={handleMail} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
                     src="/assets/images/icons/gmail.png"
                     alt="Mail"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
                   />
-                  Mail
+                  Mail Us
                 </button>
               </div>
 
@@ -493,155 +500,357 @@ const HomeScreen = () => {
         <div>
           {/* Desktop View - Hidden on Mobile */}
           <div
-            className="d-none d-md-flex row"
+            className="row"
             style={{
-              marginBottom: "-20px",
-              marginTop: "-20px",
+              marginBottom: "20px",
+              marginTop: "-30px",
               justifyContent: "center",
               alignItems: "center",
+              flexWrap: "wrap", // Ensures responsiveness
             }}
           >
-            <div
-              className="row"
-              style={{
-                marginBottom: "50px",
-                marginTop: "-30px",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleCall}>
-                  <img
-                    src="/assets/images/icons/call.webp" // Correct
-                    alt="Call"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
-                  Call Us
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleLocation}>
-                  <img
-                    src="/assets/images/icons/g-map.png"
-                    alt="Location"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
-                  Location
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleWhatsApp}>
-                  <img
-                    src="/assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
-                  WhatsApp
-                </button>
-              </div>
-              <div className="col-auto">
-                <button className="social-main-btn" onClick={handleMail}>
-                  <img
-                    src="/assets/images/icons/gmail.png"
-                    alt="Mail"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
-                  Mail
-                </button>
-              </div>
-              <div className="col-auto">
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#3A559F",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#D03B98",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
-                  />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#0B63BD",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
-                </button>
-              </div>
-
-              <a
-                href="https://www.google.com/maps/place/Rajkot,+Gujarat"
-                className="review-button"
-                target="_blank"
-                rel="noopener noreferrer"
+            {/* Buttons Section */}
+            <div className="row">
+              {/* Desktop View */}
+              <div
+                className="d-none d-md-flex row"
                 style={{
-                  marginLeft: 30,
-                  display: "flex",
+                  marginBottom: "20px",
+                  marginTop: "20px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexWrap: "wrap",
                 }}
               >
-                <img
-                  src="/assets/images/icons/google.png"
-                  alt="Google Reviews"
-                  className="google-icon"
-                  style={{
-                    height: "50px",
-                    width: "50px",
-                    marginTop: 1,
-                    marginLeft: 1,
-                    marginRight: 8,
-                    backgroundColor: "#FFF",
-                    borderRadius: "50%",
-                  }}
-                />
-                <div className="flex flex-col space-y-2">
-                  <div className="flex space-x-1">
-                    {[1, 2, 3, 4, 5].map((val) => (
+                <div style={{ display: "flex", gap: "12px" }}>
+                  <button className="social-main-btn" onClick={handleCall} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <img
+                      src="/assets/images/icons/call.png"
+                      alt="Call"
+                      style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    />
+                    Call Us
+                  </button>
+                  <button className="social-main-btn" onClick={handleLocation} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <img
+                      src="/assets/images/icons/GMap.png"
+                      alt="Location"
+                      style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    />
+                    Location
+                  </button>
+                  <button className="social-main-btn" onClick={handleWhatsApp} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <img
+                      src="/assets/images/icons/whatsapp.png"
+                      alt="WhatsApp"
+                      style={{ height: "23px", width: "23px", marginRight: 10 }}
+                    />
+                    WhatsApp
+                  </button>
+                  <button className="social-main-btn" onClick={handleMail} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <img
+                      src="/assets/images/icons/gmail.png"
+                      alt="Mail"
+                      style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    />
+                    Mail Us
+                  </button>
+                </div>
+                <div style={{ display: "flex", gap: "10px", marginLeft: "20px" }}>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleFacebook}
+                    style={{ padding: "8px", backgroundColor: "#3A559F" }}
+                  >
+                    <img src="/assets/images/icons/facebook.png" alt="Facebook" />
+                  </button>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleInstagram}
+                    style={{ padding: "8px", backgroundColor: "#D03B98" }}
+                  >
+                    <img src="/assets/images/icons/instagram.png" alt="Instagram" />
+                  </button>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleLinkedIn}
+                    style={{ padding: "8px", backgroundColor: "#0B63BD" }}
+                  >
+                    <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
+                  </button>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleShare}
+                    style={{ padding: "8px", backgroundColor: "#00ADFF" }}
+                  >
+                    <img src="/assets/images/icons/share.png" alt="Share" />
+                  </button>
+                </div>
+                <div style={{ display: "flex", gap: "10px", marginLeft: "20px" }}>
+                  <div
+                    className="col-12"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <button
+                      onClick={() => window.open("https://www.google.com/maps/place/Rajkot,+Gujarat", "_blank")}
+                      style={{
+                        padding: "8px 20px",
+                        border: "1px solid #e0e0e0",
+                        borderRadius: "8px",
+                        backgroundColor: "white",
+                        display: "flex",
+                        alignItems: "center",
+                        fontSize: "16px",
+                        fontWeight: "500",
+                        color: "#333",
+                        boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+                      }}
+                    >
                       <img
-                        key={val}
-                        src="/assets/images/icons/star-image.png"
-                        alt="Star"
-                        className="w-5 h-5"
+                        src="/assets/images/icons/google.png"
+                        alt="Google Reviews"
                         style={{
-                          height: "13px",
-                          width: "13px",
-                          marginRight: 5,
-                          alignItems: "flex-start",
+                          height: "30px",
+                          width: "30px",
+                          marginRight: "12px",
                         }}
                       />
-                    ))}
+                      Rate Us
+                    </button>
                   </div>
-                  <span style={{ fontSize: "10px", textAlign: "left" }}>
-                    READ OUR MOST RECENT <br /> REVIEWS ON GOOGLE
-                  </span>
                 </div>
-              </a>
+              </div>
+
+              {/* Mobile View */}
+              <div
+                className="d-md-none row"
+                style={{
+                  marginBottom: "20px",
+                  // marginTop: "20px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                }}
+              >
+                {/* Full-Width Buttons - Styled like the image */}
+                <div
+                  className="col-12"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    width: "90%",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <button
+                    className="social-main-btn"
+                    onClick={handleCall}
+                    style={{
+                      width: "70%",
+                      padding: "12px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: "8px",
+                      backgroundColor: "#160E41",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      color: "#FFF",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+                    }}
+                  >
+                    <img
+                      src="/assets/images/icons/call.png"
+                      alt="Call"
+                      style={{ height: "25px", width: "25px", marginRight: "12px" }}
+                    />
+                    Call Us
+                  </button>
+
+                  <button
+                    className="social-main-btn"
+                    onClick={handleCall}
+                    style={{
+                      width: "70%",
+                      padding: "12px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: "8px",
+                      backgroundColor: "#160E41",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      color: "#FFF",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+                    }}
+                  >
+                    <img
+                      src="/assets/images/icons/whatsapp.png"
+                      alt="Call"
+                      style={{ height: "25px", width: "25px", marginRight: "12px" }}
+                    />
+                    WhatsApp
+                  </button>
+
+                  <button
+                    className="social-main-btn"
+                    onClick={handleLocation}
+                    style={{
+                      width: "70%",
+                      padding: "12px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: "8px",
+                      backgroundColor: "#160E41",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      color: "#FFF",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+                    }}
+                  >
+                    <img
+                      src="/assets/images/icons/GMap.png"
+                      alt="Location"
+                      style={{ height: "23px", width: "23px", marginRight: "12px" }}
+                    />
+                    Location
+                  </button>
+
+                  <button
+                    className="social-main-btn"
+                    onClick={handleCall}
+                    style={{
+                      width: "70%",
+                      padding: "12px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: "8px",
+                      backgroundColor: "#160E41",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      color: "#FFF",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+                    }}
+                  >
+                    <img
+                      src="/assets/images/icons/gmail.png"
+                      alt="Call"
+                      style={{ height: "30px", width: "30px", marginRight: "12px" }}
+                    />
+                    Mail
+                  </button>
+
+                  <button
+                    className="social-main-btn"
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = '/assets/images/Plixon-Catalogue-Digital.pdf';
+                      link.download = 'Plixon-Catalogue-Digital.pdf'; // Optional: Specify the file name
+                      link.click();
+                    }}
+                    style={{
+                      width: "70%",
+                      padding: "12px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: "8px",
+                      backgroundColor: "#160E41",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      color: "#FFF",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+                    }}
+                  >
+                    <i className="ti-download" style={{ marginRight: "10px" }} />
+                    Download Brochure
+                  </button>
+
+
+
+                </div>
+
+                {/* Social Media Buttons - More minimal */}
+                <div style={{ marginTop: "20px" }}>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleFacebook}
+                    style={{ padding: "8px", backgroundColor: "#3A559F", marginRight: "10px" }}
+                  >
+                    <img src="/assets/images/icons/facebook.png" alt="Facebook" />
+                  </button>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleInstagram}
+                    style={{ padding: "8px", backgroundColor: "#D03B98", marginRight: "10px" }}
+                  >
+                    <img src="/assets/images/icons/instagram.png" alt="Instagram" />
+                  </button>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleLinkedIn}
+                    style={{ padding: "8px", backgroundColor: "#0B63BD", marginRight: "10px" }}
+                  >
+                    <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
+                  </button>
+                  <button
+                    className="social-rounded-btn"
+                    onClick={handleShare}
+                    style={{ padding: "8px", backgroundColor: "#00ADFF", marginRight: "10px" }}
+                  >
+                    <img src="/assets/images/icons/share.png" alt="Share" />
+                  </button>
+                </div>
+
+                {/* Google Review Button - Simplified */}
+                <div
+                  className="col-12"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "25px",
+                  }}
+                >
+                  <button
+                    onClick={() => window.open("https://www.google.com/maps/place/Rajkot,+Gujarat", "_blank")}
+                    style={{
+                      padding: "12px 20px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: "8px",
+                      backgroundColor: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      color: "#333",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+                    }}
+                  >
+                    <img
+                      src="/assets/images/icons/google.png"
+                      alt="Google Reviews"
+                      style={{
+                        height: "30px",
+                        width: "30px",
+                        marginRight: "12px",
+                      }}
+                    />
+                    Rate Us
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -649,31 +858,36 @@ const HomeScreen = () => {
           <div
             className="d-md-none fixed-bottom bg-white shadow-lg"
             style={{
-              padding: "10px 0",
+              paddingBottom: "10px",
+              paddingTop: visible ? "0px" : "5px",
               borderTop: "1px solid #eee",
               zIndex: 1000,
             }}
           >
-            <div className="d-flex justify-content-around">
+            <BottomTab visible={visible} closeTab={closeTab} />
+            <div className="d-flex justify-content-evenly align-items-center">
               {/* Call */}
               <button
                 onClick={handleCall}
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "row",
                   alignItems: "center",
-                  background: "none",
-                  border: "none",
-                  padding: 0,
+                  justifyContent: "",
+                  background: "#160E41",
+                  border: 2,
+                  borderColor: "#FFF",
+                  borderRadius: "10px",
+                  padding: "5px 10px",
                   cursor: "pointer",
                 }}
               >
                 <img
-                  src="/assets/images/icons/call.webp" // Correct
+                  src="/assets/images/icons/call.png" // Correct
                   alt="Call"
-                  style={{ height: "24px", width: "24px" }}
+                  style={{ height: "17px", width: "17px" }}
                 />
-                <span style={{ fontSize: "12px" }}>Call</span>
+                <span style={{ fontSize: "12px", color: "#FFF" }}>Call</span>
               </button>
 
               {/* WhatsApp */}
@@ -681,20 +895,23 @@ const HomeScreen = () => {
                 onClick={handleWhatsApp}
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "row",
                   alignItems: "center",
-                  background: "none",
-                  border: "none",
-                  padding: 0,
+                  justifyContent: "center",
+                  background: "#160E41",
+                  border: 2,
+                  borderColor: "#000",
+                  borderRadius: "10px",
+                  padding: "5px 10px",
                   cursor: "pointer",
                 }}
               >
                 <img
                   src="/assets/images/icons/whatsapp.png"
                   alt="WhatsApp"
-                  style={{ height: "24px", width: "24px" }}
+                  style={{ height: "15px", width: "15px" }}
                 />
-                <span style={{ fontSize: "12px" }}>WhatsApp</span>
+                <span style={{ fontSize: "12px", color: "#FFF" }}>WhatsApp</span>
               </button>
 
               {/* Location */}
@@ -702,20 +919,23 @@ const HomeScreen = () => {
                 onClick={handleLocation}
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "row",
                   alignItems: "center",
-                  background: "none",
-                  border: "none",
-                  padding: 0,
+                  justifyContent: "center",
+                  background: "#160E41",
+                  border: 2,
+                  borderColor: "#000",
+                  borderRadius: "10px",
+                  padding: "5px 10px",
                   cursor: "pointer",
                 }}
               >
                 <img
-                  src="/assets/images/icons/g-map.png"
+                  src="/assets/images/icons/GMap.png"
                   alt="Location"
-                  style={{ height: "24px", width: "24px" }}
+                  style={{ height: "18px", width: "18px" }}
                 />
-                <span style={{ fontSize: "12px" }}>Location</span>
+                <span style={{ fontSize: "12px", color: "#FFF" }}>Location</span>
               </button>
 
               {/* Share */}
@@ -723,20 +943,24 @@ const HomeScreen = () => {
                 onClick={handleShare}
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "row",
                   alignItems: "center",
-                  background: "none",
-                  border: "none",
-                  padding: 0,
+                  justifyContent: "center",
+                  background: "#160E41",
+                  border: 2,
+                  borderColor: "#000",
+                  borderRadius: "6px",
+                  padding: "5px 10px",
                   cursor: "pointer",
                 }}
               >
-                <img
+                {/* <img
                   src="/assets/images/icons/share.png"
                   alt="Share"
                   style={{ height: "24px", width: "24px" }}
-                />
-                <span style={{ fontSize: "12px" }}>Share</span>
+                /> */}
+                {/* <i className="ti-bookmark" style={{ marginRight: "3px" }} /> */}
+                <span style={{ fontSize: "12px", color: "#FFF" }}>Save</span>
               </button>
             </div>
           </div>
@@ -749,7 +973,7 @@ const HomeScreen = () => {
                 className="listing-details-wrapper listing-details-wrapper-two"
                 style={{}}
               >
-                <div className="listing-info-area mb-20 wow fadeInUp">
+                {/* <div className="listing-info-area mb-20 wow fadeInUp">
                   <div className="row align-items-center">
                     <div className="col-md-8">
                       <div className="listing-info-content">
@@ -757,7 +981,7 @@ const HomeScreen = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="listing-thumbnail mb-30 wow fadeInUp">
                   <img
                     src="/assets/Hero-Banner/TV-setup-4.webp"
@@ -765,17 +989,9 @@ const HomeScreen = () => {
                   />
                 </div>
                 <div className="listing-content mb-30 wow fadeInUp">
-                  <h3 className="title">{`World's Quality Electronics`}</h3>
+                  <h3 className="title">{`Plixon – Smart Way to View On`}</h3>
                   <p>
-                    Discover the future of entertainment with our premium
-                    selection of televisions. Engineered for excellence, our TVs
-                    combine stunning visuals with cutting-edge technology,
-                    delivering an immersive experience for every home. Whether
-                    you're looking for cinematic 4K displays, ultra-smooth
-                    refresh rates, or smart features for effortless streaming,
-                    we offer models to match every lifestyle. Trust in our
-                    commitment to quality, innovation, and customer
-                    satisfaction.
+                    At Plixon, we redefine home entertainment by blending innovation, quality, and design. Our premium range of Smart TVs delivers cinematic visuals, cutting-edge features, and seamless streaming - all designed to create a stunning, immersive viewing experience for every kind of viewer. Whether you're a movie enthusiast, a sports fan, or a gamer, Plixon has the perfect screen for your lifestyle.
                   </p>
                   <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12">
@@ -787,7 +1003,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Card Payment</h6>
+                          <h6>OLED Technology</h6>
                         </div>
                       </div>
                     </div>
@@ -800,7 +1016,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Air-Cooled Performance</h6>
+                          <h6>Smart Voice Control</h6>
                         </div>
                       </div>
                     </div>
@@ -813,7 +1029,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Wireless Internet</h6>
+                          <h6>HD Resolution</h6>
                         </div>
                       </div>
                     </div>
@@ -826,7 +1042,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Premium Streaming</h6>
+                          <h6>Smart TV</h6>
                         </div>
                       </div>
                     </div>
@@ -836,7 +1052,7 @@ const HomeScreen = () => {
                           <i className="ti-car" style={{ color: "#69C8C7" }} />
                         </div>
                         <div className="info">
-                          <h6>Wall or Stand Mount</h6>
+                          <h6>Alexa/Google TV</h6>
                         </div>
                       </div>
                     </div>
@@ -849,19 +1065,21 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Outdoor Viewing Mode</h6>
+                          <h6>Best for streaming</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                   <p>
-                    Cras vivamus placerat netus lorem vivamus
-                    inceptos sollicitudin non mi dui vulputate donec
-                    sed etiam turpis varius a porta natoque nullam tincidunt in
-                    nec cubilia hac netus and class pharetra Commodo convallis
-                    pharetra tortor facilisis dapibus maecenas nunc nascetur
-                    arcu quam vel non varius egestas fusce aced molestie
-                    adipiscing curae ante tellus cursus ut blandit{" "}
+                    Discover the future of entertainment with our premium
+                    selection of televisions. Engineered for excellence, our TVs
+                    combine stunning visuals with cutting-edge technology,
+                    delivering an immersive experience for every home. Whether
+                    you're looking for cinematic 4K displays, ultra-smooth
+                    refresh rates, or smart features for effortless streaming,
+                    we offer models to match every lifestyle. Trust in our
+                    commitment to quality, innovation, and customer
+                    satisfaction.{" "}
                     <a
                       href="/about"
                       style={{
@@ -894,11 +1112,11 @@ const HomeScreen = () => {
                             borderTopRightRadius: "10px",
                           }}
                         >
-                          <Link href={`/product-details/${product.slug}`}></Link>
-                          <img
-                            src={product.image}
-                            alt="TV Product Image"
-                          />
+                          <Link href={`/product-details/${product.slug}`}>
+                            <img
+                              src={product.image}
+                              alt="TV Product Image"
+                            /></Link>
                           <span className="featured-btn" style={{ borderRadius: "5px" }}>Featured</span>
                         </div>
                         <div className="listing-content">
@@ -925,41 +1143,40 @@ const HomeScreen = () => {
                           </div>
                           <span className="phone-meta"></span>
                           <div className="listing-meta">
-                            <ul>
-                              <li>
-                                <span>
-                                  <button
-                                    onClick={() => {
-                                      const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
-                                      const message = `Hello, I am interested in knowing the price details for the product. Please share more information.`;
-                                      const encodedMessage =
-                                        encodeURIComponent(message);
-                                      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                                      window.open(whatsappURL, "_blank");
-                                    }}
-                                    className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
+                            <ul style={{ width: "100%", padding: 0, margin: 0 }}>
+                              <li style={{ width: "100%", padding: 0, margin: 0 }}>
+                                <button
+                                  onClick={() => {
+                                    const phoneNumber = "917779096777";
+                                    const message = `Hello, I am interested in knowing the price details for the product. Please share more information.`;
+                                    const encodedMessage = encodeURIComponent(message);
+                                    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                                    window.open(whatsappURL, "_blank");
+                                  }}
+                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition w-full justify-center"
+                                  style={{
+                                    backgroundColor: "#24D07A",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    width: "100%",
+                                    boxSizing: "border-box"
+                                  }}
+                                >
+                                  <img
+                                    src="/assets/images/WhatsApp_Image.png"
+                                    alt="WhatsApp Icon"
                                     style={{
-                                      backgroundColor: "#24D07A",
-                                      display: "flex",
-                                      flexDirection: "row",
-                                      alignItems: "center",
-                                      // paddingBottom: "20px",
+                                      height: "15px",
+                                      width: "15px",
+                                      marginRight: "8px",
                                     }}
-                                  >
-                                    <img
-                                      src="/assets/images/WhatsApp_Image.png"
-                                      alt="WhatsApp Icon"
-                                      style={{
-                                        height: "15px",
-                                        width: "15px",
-                                        marginRight: "8px",
-                                      }}
-                                    />
-                                    <span className="underline text-white">
-                                      Get Price
-                                    </span>
-                                  </button>
-                                </span>
+                                  />
+                                  <span className="underline text-white">
+                                    Get Price
+                                  </span>
+                                </button>
                               </li>
                             </ul>
                           </div>
@@ -1573,12 +1790,13 @@ const HomeScreen = () => {
       {/*====== End Listing Details Section ======*/}
       {/* Mobile-only top padding for hero banner */}
       <style jsx global>{`
-        @media (max-width: 768px) {
-          .hero-banner-carousel {
-            padding-top: 70px;
-          }
-        }
-      `}</style>
+  @media (max-width: 768px) {
+    .hero-banner-carousel {
+      padding-top: 70px;
+      overflow-y: hidden; /* Prevents vertical scrolling */
+    }
+  }
+`}</style>
     </Layout>
   );
 };

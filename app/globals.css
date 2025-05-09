@@ -107,3 +107,10 @@ img.mfp-img {
 .header-navigation .main-menu ul > li.has-children.active > a:after {
   color: #69C8C7 !important;
 }
+
+@media (max-width: 768px) {
+  .hero-banner-carousel {
+    padding-top: 70px;
+    overflow-y: hidden;
+  }
+}

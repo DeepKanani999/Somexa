@@ -272,7 +272,7 @@ button {
   font-family: "Opensans", sans-serif;
   font-size: 15px;
   font-weight: 700;
-  line-height: 28px;
+  line-height: 20px;
   text-transform: uppercase;
   border-radius: 3px;
   overflow: hidden;
@@ -316,14 +316,14 @@ button {
   position: relative;
   z-index: 1;
   background-color: #160E41;
-  padding: 10px 20px;
+  padding: 8px 15px;
   color: #fff;
   font-family: "Opensans", sans-serif;
   font-size: 15px;
   font-weight: 700;
   line-height: 28px;
   text-transform: uppercase;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -333,8 +333,8 @@ button {
   display: inline-flex;
   position: relative;
   z-index: 1;
-  width: 50px;              /* Set fixed width */
-  height: 50px;             /* Set fixed height equal to width */
+  width: 47px;              /* Set fixed width */
+  height: 47px;             /* Set fixed height equal to width */
   padding: 0;               /* Remove padding */
   color: #fff;
   font-family: "Opensans", sans-serif;
@@ -359,7 +359,7 @@ button {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
-  padding: 3px 4px;
+  padding: 3.5px 3px;
   padding-right: 6px;
   border-radius: 50px; /* for rounded corners */
   text-decoration: none;
@@ -970,7 +970,7 @@ button {
   margin-left: 15px;
   margin-right: 10px;
   font-size: 20px;
-  color: #dcdedf;
+  color: #FFF;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .header-area .header-top .top-right ul li:after {
@@ -1121,7 +1121,7 @@ button {
   }
 }
 .header-area-one .header-navigation .primary-menu {
-  background-color: #f7f7f7;
+  background-color: #FFF;
 }
 .header-area-one .header-navigation .site-branding .brand-logo {
   padding: 21px 10px;
@@ -1134,7 +1134,7 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #f7f7f7;
+  background-color: #FFF;
 }
 .header-area-one .header-navigation .nav-menu {
   display: -webkit-box;
