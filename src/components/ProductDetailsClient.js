@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import { reletedProductSlider } from "@/sliderProps";
 import Link from "next/link";
 import { products } from "@/products";
+import UserInfoPopup from "./userDetailPopup";
 
 const ProductDetailsClient = ({ item }) => {
   const [showBar, setShowBar] = useState(false);
@@ -39,7 +40,14 @@ const ProductDetailsClient = ({ item }) => {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/917779096777", "_blank"); // Replace with your number
+    const phoneNumber = "917779096777"; // Replace with your number
+    const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
+
+    const encodedMessage = encodeURIComponent(defaultMessage);
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+      "_blank"
+    );
   };
 
   const handleMail = () => {
@@ -74,8 +82,66 @@ const ProductDetailsClient = ({ item }) => {
     }
   };
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false); // Close the popup
+  };
+
+  const handleButtonClick = () => {
+    if (!mounted) return;
+
+    const userInfo = sessionStorage.getItem("userInfo");
+    if (!userInfo) {
+      setIsPopupOpen(true);
+    } else {
+      handleWhatsApp();
+    }
+  };
+
+  const getPriseButton = (productName) => {
+    if (!mounted) return;
+
+    const userInfo = sessionStorage.getItem("userInfo");
+    if (!userInfo) {
+      setIsPopupOpen(true);
+    } else {
+      const phoneNumber = "917779096777"; // Retailer's WhatsApp number
+      const message = `Hello, I’m interested in the product "${productName}". Could you please share the price and availability?`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(whatsappURL, "_blank");
+    }
+  };
+
   return (
     <div>
+      {mounted && isPopupOpen && !sessionStorage.getItem("userInfo") && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 9999,
+            background: "rgba(255, 255, 255, 0.8)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+            borderRadius: "10px",
+            padding: "20px",
+            width: "90%",
+            maxWidth: "400px",
+            textAlign: "center",
+          }}
+        >
+          <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
+        </div>
+      )}
       <PageBanner title="Product Detail" />
       <section className="product-details-section pt-120 pb-115">
         <div
@@ -210,37 +276,73 @@ const ProductDetailsClient = ({ item }) => {
             >
               {/* Left Section: Main Social Buttons */}
               <div style={{ display: "flex", gap: "12px" }}>
-                <button className="social-main-btn" onClick={handleCall}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleCall}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
-                    src="/assets/images/icons/call.webp"
+                    src="/assets/images/icons/call.png"
                     alt="Call"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Call Us
                 </button>
-                <button className="social-main-btn" onClick={handleLocation}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleLocation}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
-                    src="/assets/images/icons/g-map.png"
+                    src="/assets/images/icons/GMap.png"
                     alt="Location"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Location
                 </button>
-                <button className="social-main-btn" onClick={handleWhatsApp}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleButtonClick}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
                     src="/assets/images/icons/whatsapp.png"
                     alt="WhatsApp"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "23px", width: "23px", marginRight: 10 }}
                   />
                   WhatsApp
                 </button>
-                <button className="social-main-btn" onClick={handleMail}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleMail}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
                     src="/assets/images/icons/gmail.png"
                     alt="Mail"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
                   />
-                  Mail
+                  Mail Us
                 </button>
               </div>
 
@@ -302,7 +404,9 @@ const ProductDetailsClient = ({ item }) => {
                   <h3 className="title">{item?.name}</h3>
                   <span>{item?.detail}</span>
                   <button
-                    onClick={() => { }}
+                    onClick={() => {
+                      getPriseButton(item?.name);
+                    }}
                     className="flex items-center gap-2 px-3 py-2 mt-3 mb-3 border border-gray-300 rounded-lg transition"
                     style={{
                       backgroundColor: "#24D07A",
@@ -329,9 +433,7 @@ const ProductDetailsClient = ({ item }) => {
                   </button>
                   <div className="product-meta mt-4">
                     <span className="category">
-                      <span className="title text-sm">
-                        Usability:
-                      </span>
+                      <span className="title text-sm">Usability:</span>
                       {item?.usability?.map((val) => (
                         <span
                           key={val}
@@ -343,9 +445,7 @@ const ProductDetailsClient = ({ item }) => {
                       ))}
                     </span>
                     <span className="category">
-                      <span className="title text-sm">
-                        Specifications:
-                      </span>
+                      <span className="title text-sm">Specifications:</span>
                       {item?.specification?.map((val) => (
                         <span
                           key={val}
@@ -554,7 +654,7 @@ const ProductDetailsClient = ({ item }) => {
               {...reletedProductSlider}
               className="releted-products-slider-one"
             >
-              {products.map((item) =>
+              {products.map((item) => (
                 <div className="listing-item listing-grid-item-two">
                   <div
                     className="listing-thumbnail"
@@ -564,58 +664,87 @@ const ProductDetailsClient = ({ item }) => {
                       borderTopRightRadius: "10px",
                     }}
                   >
-                    <Link
-                      href={`/product-details/${item.slug}`}
-                    >
+                    <Link href={`/product-details/${item.slug}`}>
                       <img
                         src={item.image} // <-- Update TV image here
                         alt="TV Product Image"
-                      /></Link>
-                    <span className="featured-btn" style={{ borderRadius: "5px" }}>Featured</span>
+                      />
+                    </Link>
+                    <span
+                      className="featured-btn"
+                      style={{ borderRadius: "5px" }}
+                    >
+                      Featured
+                    </span>
                   </div>
                   <div className="listing-content">
                     <h3 className="title">
-                      <Link href={`/product-details/${item.slug}`}>{item.name}</Link>{" "}
+                      <Link href={`/product-details/${item.slug}`}>
+                        {item.name}
+                      </Link>{" "}
                     </h3>
-                    <p style={{
-                      display: '-webkit-box',
-                      WebkitBoxOrient: 'vertical',
-                      WebkitLineClamp: 3,
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      maxWidth: '300px',
-                      lineHeight: '1.5',
-                      marginBottom: "15px",
-                    }}>
+                    <p
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 3,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        maxWidth: "300px",
+                        lineHeight: "1.5",
+                        marginBottom: "15px",
+                      }}
+                    >
                       {item.detail}
                     </p>{" "}
-                    <div className="features-list"><ul> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{"Smart TV"}</li></ul>
-
+                    <div className="features-list">
+                      <ul>
+                        {" "}
+                        <li
+                          style={{
+                            color: "#000",
+                            fontSize: "16px",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {"Smart TV"}
+                        </li>
+                      </ul>
                     </div>
-                    <span className="phone-meta">
-                    </span>
+                    <span className="phone-meta"></span>
                     <div className="listing-meta">
-                      <ul style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                        <li style={{ width: '100%' }}>
+                      <ul
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          width: "100%",
+                        }}
+                      >
+                        <li style={{ width: "100%" }}>
                           <Link
                             href={`/product-details/${item.slug}`}
-                            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              width: "100%",
+                            }}
                           >
                             <div
                               className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
                               style={{
-                                backgroundColor: '#69C8C7',
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginBottom: '30px',
-                                width: '100%', // Makes the button take full width
+                                backgroundColor: "#69C8C7",
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                marginBottom: "30px",
+                                width: "100%", // Makes the button take full width
                               }}
                             >
                               <span
                                 className="underline text-white"
-                                style={{ fontSize: '20px' }}
+                                style={{ fontSize: "20px" }}
                               >
                                 View Details
                               </span>
@@ -625,8 +754,8 @@ const ProductDetailsClient = ({ item }) => {
                       </ul>
                     </div>
                   </div>
-                </div>)
-              }
+                </div>
+              ))}
               {/* <div className="products-item products-item-one">
                 <div className="product-img">
                   <img

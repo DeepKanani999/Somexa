@@ -1,5 +1,6 @@
 "use client";
 import PageBanner from "@/components/PageBanner";
+import UserInfoPopup from "@/components/userDetailPopup";
 import Layout from "@/layouts/Layout";
 import { useEffect, useState } from "react";
 
@@ -69,13 +70,81 @@ const Contact = () => {
     }
   };
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false); // Close the popup
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    try {
+      setIsSubmitting(true);
+      const userInfo = typeof window !== "undefined" && sessionStorage.getItem("userInfo");
+      
+      if (!userInfo) {
+        setIsPopupOpen(true);
+        return;
+      }
+
+      const form = e.target;
+      const firstName = form.elements["name"][0].value;
+      const lastName = form.elements["name"][1].value;
+      const phone = form.elements["phone"].value;
+      const email = form.elements["email"].value;
+      const subject = form.elements["subject"].value;
+      const message = form.elements["message"].value;
+
+      // Construct the mailto link
+      const body = `First Name: ${firstName}%0D%0ALast Name: ${lastName}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+      const mailtoLink = `mailto:info@plixon.in?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      // Open default email client
+      window.location.href = mailtoLink;
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Layout>
+      {mounted && isPopupOpen && !sessionStorage.getItem("userInfo") && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 9999,
+            background: "rgba(255, 255, 255, 0.8)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+            borderRadius: "10px",
+            padding: "20px",
+            width: "90%",
+            maxWidth: "400px",
+            textAlign: "center",
+          }}
+        >
+          <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
+        </div>
+      )}
+
       <PageBanner title={"Contact us"} />
 
       {/*====== Start Contact Section ======*/}
       <section className="contact-section pt-115 pb-100">
-      <div
+        <div
           className={`floating-social-bar ${showBar ? "visible" : ""}`}
           style={{
             position: "fixed",
@@ -101,101 +170,6 @@ const Contact = () => {
               alignItems: "center",
             }}
           >
-            {/* <div
-              className="row"
-              style={{
-                justifyContent: "space-between",
-                width: "100%",
-                // alignItems: "center",
-                display: "flex",
-              }}
-            >
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleCall}>
-                    <img
-                      src="/assets/images/icons/call.webp"
-                      alt="Call"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Call Us
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleLocation}>
-                    <img
-                      src="/assets/images/icons/g-map.png"
-                      alt="Location"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    Location
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleWhatsApp}>
-                    <img
-                      src="/assets/images/icons/whatsapp.png"
-                      alt="WhatsApp"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    WhatsApp
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleMail}>
-                    <img
-                      src="/assets/images/icons/gmail.png"
-                      alt="Mail"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Mail
-                  </button>
-                </div>
-              <div className="col-auto">
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#3A559F",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#D03B98",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
-                  />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#0B63BD",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
-                </button>
-              </div>
-            </div> */}
             <div
               style={{
                 display: "flex",
@@ -207,37 +181,73 @@ const Contact = () => {
             >
               {/* Left Section: Main Social Buttons */}
               <div style={{ display: "flex", gap: "12px" }}>
-                <button className="social-main-btn" onClick={handleCall}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleCall}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
-                    src="/assets/images/icons/call.webp"
+                    src="/assets/images/icons/call.png"
                     alt="Call"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Call Us
                 </button>
-                <button className="social-main-btn" onClick={handleLocation}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleLocation}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
-                    src="/assets/images/icons/g-map.png"
+                    src="/assets/images/icons/GMap.png"
                     alt="Location"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Location
                 </button>
-                <button className="social-main-btn" onClick={handleWhatsApp}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleWhatsApp}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
                     src="/assets/images/icons/whatsapp.png"
                     alt="WhatsApp"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "23px", width: "23px", marginRight: 10 }}
                   />
                   WhatsApp
                 </button>
-                <button className="social-main-btn" onClick={handleMail}>
+                <button
+                  className="social-main-btn"
+                  onClick={handleMail}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
                     src="/assets/images/icons/gmail.png"
                     alt="Mail"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
                   />
-                  Mail
+                  Mail Us
                 </button>
               </div>
 
@@ -282,7 +292,7 @@ const Contact = () => {
           <div className="row">
             <div className="col-lg-10">
               <div className="section-title section-title-left mb-50">
-                <span className="sub-title">Contact With Us</span>
+                <span className="sub-title">Contact Us</span>
                 <h2>How Can We Help You</h2>
               </div>
             </div>
@@ -329,7 +339,7 @@ const Contact = () => {
             <div className="col-lg-8">
               <div className="contact-wrapper-one mb-30 wow fadeInRight">
                 <div className="contact-form">
-                  <form onSubmit={(e) => e.preventDefault()}>
+                  <form onSubmit={handleFormSubmit}>
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="form_group">
@@ -338,7 +348,7 @@ const Contact = () => {
                             className="form_control"
                             placeholder="First Name"
                             name="name"
-                            required=""
+                            required
                           />
                         </div>
                       </div>
@@ -349,7 +359,7 @@ const Contact = () => {
                             className="form_control"
                             placeholder="Last Name"
                             name="name"
-                            required=""
+                            required
                           />
                         </div>
                       </div>
@@ -360,7 +370,7 @@ const Contact = () => {
                             className="form_control"
                             placeholder="Phone"
                             name="phone"
-                            required=""
+                            required
                           />
                         </div>
                       </div>
@@ -371,7 +381,7 @@ const Contact = () => {
                             className="form_control"
                             placeholder="Email"
                             name="email"
-                            required=""
+                            required
                           />
                         </div>
                       </div>
@@ -382,7 +392,7 @@ const Contact = () => {
                             className="form_control"
                             placeholder="Subject"
                             name="subject"
-                            required=""
+                            required
                           />
                         </div>
                       </div>
@@ -392,12 +402,20 @@ const Contact = () => {
                             className="form_control"
                             placeholder="Your Message"
                             name="message"
+                            required
                           />
                         </div>
                       </div>
                       <div className="col-lg-12">
                         <div className="form_group">
-                          <button className="main-btn">Send Message</button>
+                          <button 
+                            type="submit" 
+                            className="main-btn"
+                            disabled={isSubmitting}
+                            style={{ opacity: isSubmitting ? 0.7 : 1 }}
+                          >
+                            {isSubmitting ? "Sending..." : "Send Message"}
+                          </button>
                         </div>
                       </div>
                     </div>

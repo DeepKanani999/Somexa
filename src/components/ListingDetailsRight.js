@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
+import UserInfoPopup from "./userDetailPopup";
 
 const ListingDetailsRight = () => {
-  const [name, setName] = useState();
-  const [number, setNumber] = useState();
-  const [marginTop, setMarginTop] = useState("0px");
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   const handleLocation = () => {
     window.open("https://g.co/kgs/BLYuxDA", "_blank");
@@ -29,27 +34,32 @@ const ListingDetailsRight = () => {
     }
   };
 
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
-      setMarginTop("80px");
-    }
-  }, []);
-
   return (
     <div className="col-lg-4">
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: isPopupOpen ? 1000 : 0,
+          background: "rgba(255, 255, 255, 0.8)",
+          backdropFilter: "blur(10px)",
+          boxShadow: isPopupOpen ? "0 4px 15px rgba(0, 0, 0, 0.2)" : "none",
+          borderRadius: "15px",
+          padding: "20px",
+          width: "90%",
+          maxWidth: "400px",
+          textAlign: "center",
+          display: isPopupOpen ? "block" : "none"
+        }}
+      >
+        <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
+      </div>
       <div className="sidebar-widget-area">
-        {/* <div
-          className="widget newsletter-widget mb-30 wow fadeInUp"
-          style={{
-            marginTop:
-              typeof window !== "undefined" && window.innerWidth >= 768
-                ? "80px"
-                : "0",
-          }}
-        > */}
         <div
           className="widget newsletter-widget mb-30 wow fadeInUp"
-          style={{ marginTop }}
+          style={{ marginTop: "0px" }}
         >
           <div
             className="newsletter-widget-wrap bg_cover"
@@ -116,12 +126,17 @@ const ListingDetailsRight = () => {
               <button
                 className="main-btn"
                 onClick={() => {
-                  const phoneNumber = "917779096777"; // Replace with your WhatsApp number (in international format without '+')
-                  const message = `Hi, I'm ${name} and my mobile number is ${number}. I want the best price list.`;
-                  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                    message
-                  )}`;
-                  window.open(url, "_blank");
+                  const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
+                  if (!userInfo) {
+                    setIsPopupOpen(true); // Open the popup if session data is not available
+                  } else {
+                    const phoneNumber = "917779096777"; // Replace with your WhatsApp number (in international format without '+')
+                    const message = `Hi, I'm ${name} and my mobile number is ${number}. I want the best price list.`;
+                    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    setName("");
+                    setNumber("");
+                    window.open(url, "_blank");
+                  }
                 }}
               >
                 Get Best Price
@@ -134,7 +149,7 @@ const ListingDetailsRight = () => {
             <div className="contact-map">
               <iframe src="https://maps.google.com/maps?q=rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed" />
               <a href="https://g.co/kgs/BLYuxDA" className="support-icon">
-                <i className="flaticon-headphone" />
+                <i className="ti-location-pin" />
               </a>
             </div>
             <div className="contact-info-content">
@@ -143,6 +158,18 @@ const ListingDetailsRight = () => {
                 <p>
                   <i className="ti-mobile" />
                   <a href="tel:+91 77790 96777">+91 77790 96777</a>
+                </p>
+                <hr className="my-2 opacity-25" />
+              </div>
+              <div className="info-list my-3">
+                <p>
+                  <i className="ti-email" />
+                  <a
+                    style={{ fontSize: "16px" }}
+                    href="mailto:info@plixon.in"
+                  >
+                    info@plixon.in
+                  </a>
                 </p>
                 <hr className="my-2 opacity-25" />
               </div>
@@ -168,11 +195,32 @@ const ListingDetailsRight = () => {
               <div className="my-3">
                 <button
                   className="btn p-0 text-decoration-none d-flex align-items-center"
-                  onClick={handleMail}
+                  onClick={() => {
+                    const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
+                  if (!userInfo) {
+                    setIsPopupOpen(true); // Open the popup if session data is not available
+                  } else {
+                    const whatsappNumber = "917779096777"; // WhatsApp number in international format (without '+')
+                    const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in receiving your best price list.`;
+
+                    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(enquiryMessage)}`;
+
+                    // Clear form fields after sending
+                    setName("");
+                    setNumber("");
+
+                    // Open WhatsApp chat in a new tab
+                    window.open(whatsappURL, "_blank");
+                  }
+                  }}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
-                    <i className="ti-email me-2 mx-2" />
-                    <span className="underline">Send Enquiry by Email</span>
+                    <img
+                      src="/assets/images/icons/whatsapp_black.png"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "17px", height: "17px" }} />
+                    <span className="underline">Send Enquiry on WhatsApp</span>
                   </div>
                 </button>
               </div>
@@ -183,9 +231,9 @@ const ListingDetailsRight = () => {
                   onClick={handleLocation}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
-                    <i className="ti-comment-alt me-2 mx-2" />
+                    <i className="ti-email me-2 mx-2" />
                     <span className="underline">
-                      Get information by SMS/Email
+                      Get information by Email
                     </span>
                   </div>
                 </button>
@@ -215,18 +263,6 @@ const ListingDetailsRight = () => {
                     <span className="underline">Tap to rate</span>
                   </div>
                 </button>
-              </div>
-              <div className="info-list ml-2">
-                <hr className="my-3 opacity-25" />
-                <p>
-                  <i className="ti-email" />
-                  <a
-                    style={{ fontSize: "16px", color: "#000" }}
-                    href="mailto:info@plixon.in"
-                  >
-                    info@plixon.in
-                  </a>
-                </p>
               </div>
             </div>
           </div>
@@ -266,7 +302,7 @@ const ListingDetailsRight = () => {
         </div>
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
-          <h5 className="widget-title" style={{marginBottom: "10px"}}>Get the List of TV Brands</h5>
+          <h5 className="widget-title" style={{ marginBottom: "10px" }}>Get the List of TV Brands</h5>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 mr-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"

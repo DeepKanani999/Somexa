@@ -1,8 +1,9 @@
+import UserInfoPopup from "@/components/userDetailPopup";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Footer = () => {
-  const [writtenMessage, setWrittenMessage] = useState();
+  const [writtenMessage, setWrittenMessage] = useState("");
   const handleFacebook = () => {
     window.open("https://facebook.com/yourprofile", "_blank");
   };
@@ -31,16 +32,51 @@ const Footer = () => {
     }
   };
 
-  const handleWhatsAppShare = () => {
-    const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
-    const message = writtenMessage;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappURL, "_blank");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false); // Close the popup
+  };
+
+  const handleButtonClick = () => {
+    if (!mounted) return;
+
+    const userInfo = sessionStorage.getItem("userInfo");
+    if (!userInfo) {
+      setIsPopupOpen(true);
+    } else {
+      handleWhatsApp();
+    }
   };
 
   return (
     <footer className="footer-area">
+      {mounted && isPopupOpen && !sessionStorage.getItem("userInfo") && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 9999,
+            background: "rgba(255, 255, 255, 0.8)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+            borderRadius: "10px",
+            padding: "20px",
+            width: "90%",
+            maxWidth: "400px",
+            textAlign: "center",
+          }}
+        >
+          <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
+        </div>
+      )}
       <div className="footer-wrapper-one dark-black pt-90">
         <div className="footer-widget pb-60">
           <div className="container">
@@ -115,8 +151,10 @@ const Footer = () => {
                           {/* <a href="#">22 May - 2025</a> */}
                         </span>
                         <h6 className="title">
-                          <Link href="#">
-                            Discover premium TVs with stunning 4K visuals, smooth refresh rates, and smart streaming, designed for immersive home entertainment.
+                          <Link href="#" style={{ color: "#fff" }}>
+                            Discover premium TVs with stunning 4K visuals,
+                            smooth refresh rates, and smart streaming, designed
+                            for immersive home entertainment.
                           </Link>
                         </h6>
                       </div>
@@ -182,10 +220,21 @@ const Footer = () => {
                     <div className="form_group">
                       <button
                         className="main-btn"
-                        onClick={handleWhatsAppShare}
+                        onClick={() => {
+                          const userInfo = sessionStorage.getItem("userInfo");
+                          if (!userInfo) {
+                            setIsPopupOpen(true); // Open the popup if session data is not available
+                          } else {
+                            const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
+                            const message = writtenMessage;
+                            const encodedMessage = encodeURIComponent(message);
+                            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                            window.open(whatsappURL, "_blank");
+                          }
+                        }}
                         style={{ backgroundColor: "#fff" }}
                       >
-                        Subscribe
+                        Send Message
                       </button>
                     </div>
                   </form>
