@@ -1,6 +1,7 @@
 "use client";
 import PageBanner from "@/components/PageBanner";
 import TestimoinalSlider from "@/components/Slider/TestimonialSlider";
+import UserInfoPopup from "@/components/userDetailPopup";
 import Layout from "@/layouts/Layout";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -36,9 +37,15 @@ const About = () => {
   const handleLocation = () => {
     window.open("https://maps.app.goo.gl/DV8NxwoPHecb7eh4A", "_blank");
   };
-
   const handleWhatsApp = () => {
-    window.open("https://wa.me/917779096777", "_blank"); // Replace with your number
+    const phoneNumber = "917779096777"; // Replace with your number
+    const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
+
+    const encodedMessage = encodeURIComponent(defaultMessage);
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+      "_blank"
+    );
   };
 
   const handleMail = () => {
@@ -73,10 +80,52 @@ const About = () => {
     }
   };
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false); // Close the popup
+  };
+
+  const handleButtonClick = () => {
+    if (!mounted) return;
+    
+    const userInfo = sessionStorage.getItem("userInfo");
+    if (!userInfo) {
+      setIsPopupOpen(true);
+    } else {
+      handleWhatsApp();
+    }
+  };
+
   return (
     <Layout>
+      {mounted && isPopupOpen && !sessionStorage.getItem("userInfo") && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 9999,
+            background: "rgba(255, 255, 255, 0.8)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+            borderRadius: "10px",
+            padding: "20px",
+            width: "90%",
+            maxWidth: "400px",
+            textAlign: "center",
+          }}
+        >
+          <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
+        </div>
+      )}
       <PageBanner title={"About us"} />
-
       {/*====== Start Features Section ======*/}
       <section className="features-area">
         {isClient && (
@@ -212,37 +261,65 @@ const About = () => {
               >
                 {/* Left Section: Main Social Buttons */}
                 <div style={{ display: "flex", gap: "12px" }}>
-                  <button className="social-main-btn" onClick={handleCall}>
+                  <button
+                    className="social-main-btn"
+                    onClick={handleCall}
+                    style={{
+                      width: "150px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     <img
-                      src="/assets/images/icons/call.webp"
+                      src="/assets/images/icons/call.png"
                       alt="Call"
                       style={{ height: "25px", width: "25px", marginRight: 10 }}
                     />
                     Call Us
                   </button>
-                  <button className="social-main-btn" onClick={handleLocation}>
+                  <button
+                    className="social-main-btn"
+                    onClick={handleLocation}
+                    style={{
+                      width: "150px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     <img
-                      src="/assets/images/icons/g-map.png"
+                      src="/assets/images/icons/GMap.png"
                       alt="Location"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
+                      style={{ height: "25px", width: "25px", marginRight: 10 }}
                     />
                     Location
                   </button>
-                  <button className="social-main-btn" onClick={handleWhatsApp}>
+                  <button className="social-main-btn" onClick={handleButtonClick}>
+                    {/* <button className="social-main-btn" onClick={handleButtonClick} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}> */}
                     <img
                       src="/assets/images/icons/whatsapp.png"
                       alt="WhatsApp"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
+                      style={{ height: "23px", width: "23px", marginRight: 10 }}
                     />
                     WhatsApp
                   </button>
-                  <button className="social-main-btn" onClick={handleMail}>
+                  <button
+                    className="social-main-btn"
+                    onClick={handleMail}
+                    style={{
+                      width: "150px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     <img
                       src="/assets/images/icons/gmail.png"
                       alt="Mail"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
+                      style={{ height: "30px", width: "30px", marginRight: 10 }}
                     />
-                    Mail
+                    Mail Us
                   </button>
                 </div>
 
@@ -517,9 +594,9 @@ const About = () => {
                   </p>
                   <a
                     onClick={() => {
-                      const link = document.createElement('a');
-                      link.href = '/assets/images/Plixon-Catalogue-Digital.pdf';
-                      link.download = 'Plixon-Catalogue-Digital.pdf'; // Optional: Specify the file name
+                      const link = document.createElement("a");
+                      link.href = "/assets/images/Plixon-Catalogue-Digital.pdf";
+                      link.download = "Plixon-Catalogue-Digital.pdf"; // Optional: Specify the file name
                       link.click();
                     }}
                     className="main-btn"
@@ -583,7 +660,10 @@ const About = () => {
               <div className="col-lg-5">
                 <div className="newsletter-content-box-one wow fadeInLeft">
                   <div className="icon">
-                    <i className="flaticon-email" style={{ marginTop: "5px" }} />
+                    <i
+                      className="flaticon-email"
+                      style={{ marginTop: "5px" }}
+                    />
                   </div>
                   <div className="content">
                     <h4 style={{ color: "#FFF" }}>Send your requirement</h4>
@@ -602,19 +682,35 @@ const About = () => {
                 <div className="newsletter-form wow fadeInRight">
                   <div className="form_group">
                     <input
-                      type="email"
+                      type="text"
+                      id="whatsappMessage"
                       className="form_control"
                       placeholder="Enter your requirement"
-                      name="email"
+                      name="message"
                       required=""
                       style={{ marginTop: "20px" }}
                     />
-                    {/* <i className="ti-location-pin" /> */}
                     <button
                       className="main-btn"
                       style={{ backgroundColor: "#69C8C7" }}
+                      onClick={() => {
+                        const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
+                        if (!userInfo) {
+                          setIsPopupOpen(true); // Open the popup if session data is not available
+                        } else {
+                        const message =
+                          document.getElementById("whatsappMessage").value;
+                        const encodedMessage = encodeURIComponent(message);
+                        // Replace with your actual WhatsApp number (with country code, remove +)
+                        const whatsappNumber = "917779096777";
+                        window.open(
+                          `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+                          "_blank"
+                        );
+                        }
+                      }}
                     >
-                      Subscribe
+                      Send via WhatsApp
                     </button>
                   </div>
                 </div>

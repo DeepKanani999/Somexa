@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { About, Contact } from "./Menu";
+import RetailerPopup from "@/RetailerPopup/RetailerPopup";
 
 const MobileMenu = () => {
   const [toggle, setToggle] = useState(false);
   const [activeMenu, setActiveMenu] = useState("");
+  const [showRetailerPopup, setShowRetailerPopup] = useState(false);
+  
   const activeMenuSet = (value) =>
       setActiveMenu(activeMenu === value ? "" : value),
     activeLi = (value) =>
@@ -24,6 +27,13 @@ const MobileMenu = () => {
         backgroundColor: "#fff", // Add a background color
       }}
     >
+      {showRetailerPopup && (
+        <RetailerPopup 
+          visible={showRetailerPopup} 
+          onClose={() => setShowRetailerPopup(false)} 
+        />
+      )}
+      
       <div
         className="header-navigation sticky breakpoint-on"
         style={{
@@ -65,9 +75,12 @@ const MobileMenu = () => {
                       </li>
                       <Contact />
                       <li className="nav-btn">
-                        <Link className="main-btn" href="#">
+                        <button 
+                          className="main-btn" 
+                          onClick={() => setShowRetailerPopup(true)}
+                        >
                           Find Retailers
-                        </Link>
+                        </button>
                       </li>
                     </ul>
                   </nav>
@@ -82,12 +95,12 @@ const MobileMenu = () => {
                       </Link>
                     </li>
                     <li className="hero-nav-btn">
-                      <Link
-                        className="main-btn icon-btn"
-                        href="/add-listing"
+                      <button
+                        className="main-btn"
+                        onClick={() => setShowRetailerPopup(true)}
                       >
-                        Add Listing
-                      </Link>
+                        Find Retailers
+                      </button>
                     </li>
                     <li className="nav-toggle-btn">
                       <div

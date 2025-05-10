@@ -309,6 +309,76 @@ button {
   line-height: 25px;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.submitButton {
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #57b3b2;
+}
+
+.closeButton {
+  cursor: pointer;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .social-main-btn {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -325,6 +395,29 @@ button {
   text-transform: uppercase;
   border-radius: 5px;
   overflow: hidden;
+}
+
+.mobile-social-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  padding: 8px 15px;
+  color: #0d0d0d;
+  font-family: "Opensans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 28px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  overflow: hidden;
+  box-sizing: border-box;        /* Ensures padding doesn't add extra width */
+  max-width: 100%;               /* Prevents overflow on small screens */
+  white-space: nowrap;           /* Keeps the text on a single line */
+  text-align: center;            /* Centers the text */
+
 }
 
 .social-rounded-btn {

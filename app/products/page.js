@@ -207,37 +207,37 @@ const Products = () => {
             >
               {/* Left Section: Main Social Buttons */}
               <div style={{ display: "flex", gap: "12px" }}>
-                <button className="social-main-btn" onClick={handleCall}>
+                <button className="social-main-btn" onClick={handleCall} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
-                    src="/assets/images/icons/call.webp"
+                    src="/assets/images/icons/call.png"
                     alt="Call"
                     style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Call Us
                 </button>
-                <button className="social-main-btn" onClick={handleLocation}>
+                <button className="social-main-btn" onClick={handleLocation} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
-                    src="/assets/images/icons/g-map.png"
+                    src="/assets/images/icons/GMap.png"
                     alt="Location"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "25px", width: "25px", marginRight: 10 }}
                   />
                   Location
                 </button>
-                <button className="social-main-btn" onClick={handleWhatsApp}>
+                <button className="social-main-btn" onClick={handleWhatsApp} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
                     src="/assets/images/icons/whatsapp.png"
                     alt="WhatsApp"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
+                    style={{ height: "23px", width: "23px", marginRight: 10 }}
                   />
                   WhatsApp
                 </button>
-                <button className="social-main-btn" onClick={handleMail}>
+                <button className="social-main-btn" onClick={handleMail} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <img
                     src="/assets/images/icons/gmail.png"
                     alt="Mail"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
+                    style={{ height: "30px", width: "30px", marginRight: 10 }}
                   />
-                  Mail
+                  Mail Us
                 </button>
               </div>
 
