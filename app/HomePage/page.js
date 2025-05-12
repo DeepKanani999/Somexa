@@ -1455,16 +1455,35 @@ const HomeScreen = () => {
                             </ul>
                           </div>
                           <span className="phone-meta"></span>
-                          <div className="listing-meta">
-                            <ul
-                              style={{ width: "100%", padding: 0, margin: 0 }}
-                            >
-                              <li
-                                style={{ width: "100%", padding: 0, margin: 0 }}
-                              >
+                          <div
+                            className="listing-meta"
+                            style={{ width: "100%" }}
+                          >
+                            <ul style={{ width: "100%" }}>
+                              <li style={{ width: "100%" }}>
                                 <button
                                   onClick={() => {
-                                    getPrice(product);
+                                    const userInfo =
+                                      sessionStorage.getItem("userInfo");
+                                    if (isMobile) {
+                                      getPrice(product);
+                                    } else {
+                                      if (!userInfo) {
+                                        setIsPopupOpen(true); // Open the popup if session data is not available
+                                      } else {
+                                        getPrice(product);
+                                      }
+                                    }
+                                  }}
+                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
+                                  style={{
+                                    backgroundColor: "#24D07A",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    // paddingBottom: "20px",
+                                    width: "100%",
                                   }}
                                 >
                                   <img
