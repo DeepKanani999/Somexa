@@ -15,9 +15,9 @@ import BottomTab from "@/components/BottomBar";
 import UserInfoPopup from "@/components/userDetailPopup";
 
 const heroImages = [
-  "/assets/Hero-Banner/TV-setup-1.jpg",
-  "/assets/Hero-Banner/TV-setup-2.jpg",
-  "/assets/Hero-Banner/TV-setup-3.jpg",
+  "/assets/images/Hero-Banner/TV-setup-1.jpg",
+  "/assets/images/Hero-Banner/TV-setup-2.jpg",
+  "/assets/images/Hero-Banner/TV-setup-3.jpg",
 ];
 
 const populerSearches = [
@@ -193,6 +193,43 @@ const HomeScreen = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  const isMobileDevice = () => {
+    // Check user agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobileUserAgent =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        userAgent
+      );
+
+    // Check screen width
+    const isMobileScreen = window.innerWidth <= 768;
+
+    // Check if device has touch capability
+    const hasTouchScreen =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    return isMobileUserAgent || (isMobileScreen && hasTouchScreen);
+  };
+
+  useEffect(() => {
+    // Initial check
+    setIsMobile(isMobileDevice());
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(isMobileDevice());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -267,14 +304,71 @@ const HomeScreen = () => {
     }
   };
 
-  const handleButtonClick = () => {
-    if (!mounted) return;
-    
+  const getPrice = (product) => {
     const userInfo = sessionStorage.getItem("userInfo");
-    if (!userInfo) {
-      setIsPopupOpen(true);
+    if (isMobile) {
+      const phoneNumber = "917779096777";
+      const imageUrl = `https://plixon.in/${product?.image}`;
+
+      // Create a message with product details and image URL
+      const message = `*Product Inquiry*
+
+  ${imageUrl}
+  
+  *Product Details:*
+  • Name: ${product?.name}
+  • Description: ${product?.detail}
+
+  *Usability:*
+  ${product?.usability?.map((use) => `• ${use}`).join("\n")}
+  
+  *Specifications:*
+  ${product?.specification?.map((spec) => `• ${spec}`).join("\n")}
+  
+  Please provide information about:
+  • Current price
+  • Availability
+  • Delivery options
+  • Warranty details
+  
+  Thank you!`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(whatsappURL, "_blank");
     } else {
-      handleWhatsApp();
+      if (!userInfo) {
+        setIsPopupOpen(true); // Open the popup if session data is not available
+      } else {
+        const phoneNumber = "917779096777";
+
+        // Create a message with product details and image URL
+        const message = `*Product Inquiry*
+
+  ${product?.image}
+  
+  *Product Details:*
+  • Name: ${product?.name}
+  • Description: ${product?.detail}
+
+  *Usability:*
+  ${product?.usability?.map((use) => `• ${use}`).join("\n")}
+  
+  *Specifications:*
+  ${product?.specification?.map((spec) => `• ${spec}`).join("\n")}
+  
+  Please provide information about:
+  • Current price
+  • Availability
+  • Delivery options
+  • Warranty details
+  
+  Thank you!`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappURL, "_blank");
+      }
     }
   };
 
@@ -286,10 +380,49 @@ const HomeScreen = () => {
     setVisible(false);
   };
 
+  const buttonStyle = {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    background: "#160E41",
+    border: "2px solid #FFF",
+    borderRadius: "10px",
+    padding: "0 12px",
+    width: "70%",
+    height: "48px", // Fixed height for all buttons
+    cursor: "pointer",
+    color: "#FFF",
+    fontSize: "14px",
+    fontWeight: "500",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+  };
+
+  const iconWrapperStyle = {
+    height: "32px",
+    width: "32px",
+    backgroundColor: "#FFF",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: "10px",
+    borderRadius: "50%",
+    zIndex: 2,
+  };
+
+  const labelStyle = {
+    position: "absolute",
+    left: "50%",
+    transform: "translateX(-50%)",
+    color: "#FFF",
+    fontSize: "14px",
+    zIndex: 1,
+  };
+
   return (
     <Layout>
       {video && <VideoPopup close={setVideo} />}
-      
+
       {mounted && isPopupOpen && !sessionStorage.getItem("userInfo") && (
         <div
           style={{
@@ -311,29 +444,6 @@ const HomeScreen = () => {
           <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
         </div>
       )}
-
-      {/*====== Popup ======*/}
-      {/* {isClient && isPopupOpen && !sessionStorage.getItem("userInfo") && (
-        <div
-          style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 9999,
-            background: "rgba(255, 255, 255, 0.8)",
-            backdropFilter: "blur(10px)",
-            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
-            borderRadius: "10px",
-            padding: "20px",
-            width: "90%",
-            maxWidth: "400px",
-            textAlign: "center",
-          }}
-        >
-          <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
-        </div>
-      )} */}
 
       {/*====== Start Hero Banner Carousel ======*/}
       <div className="hero-banner-carousel">
@@ -374,145 +484,84 @@ const HomeScreen = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            gap: "7px",
+            gap: "10px",
           }}
         >
-          <button
-            className="social-main-btn"
-            onClick={handleCall}
-            style={{
-              width: "70%",
-              padding: "12px",
-              border: "1px solid #e0e0e0",
-              borderRadius: "8px",
-              backgroundColor: "#160E41",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "16px",
-              fontWeight: "500",
-              color: "#FFF",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-            }}
-          >
-            <img
-              src="/assets/images/icons/call.png"
-              alt="Call"
-              style={{ height: "25px", width: "25px", marginRight: "12px" }}
-            />
-            Call Us
+          {/* CALL */}
+          <button onClick={handleCall} style={buttonStyle}>
+            <div style={iconWrapperStyle}>
+              <img
+                src="/assets/images/black-icons/phone_black.png"
+                alt="Call"
+                style={{ height: "20px", width: "20px" }}
+              />
+            </div>
+            <span style={labelStyle}>CALL US</span>
           </button>
 
+          {/* WHATSAPP */}
           <button
-            className="social-main-btn"
             onClick={() => {
               const userInfo = sessionStorage.getItem("userInfo");
-              if (!userInfo) {
-                 setIsPopupOpen(true); // Open the popup if session data is not available
-               } else {
+              if (isMobile) {
                 handleWhatsApp();
+              } else {
+                !userInfo ? setIsPopupOpen(true) : handleWhatsApp();
               }
             }}
-            style={{
-              width: "70%",
-              padding: "12px",
-              border: "1px solid #e0e0e0",
-              borderRadius: "8px",
-              backgroundColor: "#160E41",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "16px",
-              fontWeight: "500",
-              color: "#FFF",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-            }}
+            style={buttonStyle}
           >
-            <img
-              src="/assets/images/icons/whatsapp.png"
-              alt="Call"
-              style={{ height: "25px", width: "25px", marginRight: "12px" }}
-            />
-            WhatsApp
+            <div style={iconWrapperStyle}>
+              <img
+                src="/assets/images/black-icons/whatsapp_black.png"
+                alt="WhatsApp"
+                style={{ height: "20px", width: "20px" }}
+              />
+            </div>
+            <span style={labelStyle}>WHATSAPP</span>
           </button>
 
-          <button
-            className="social-main-btn"
-            onClick={handleLocation}
-            style={{
-              width: "70%",
-              padding: "12px",
-              border: "1px solid #e0e0e0",
-              borderRadius: "8px",
-              backgroundColor: "#160E41",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "16px",
-              fontWeight: "500",
-              color: "#FFF",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-            }}
-          >
-            <img
-              src="/assets/images/icons/GMap.png"
-              alt="Location"
-              style={{ height: "23px", width: "23px", marginRight: "12px" }}
-            />
-            Location
+          {/* LOCATION */}
+          <button onClick={handleLocation} style={buttonStyle}>
+            <div style={iconWrapperStyle}>
+              <img
+                src="/assets/images/black-icons/location_black.png"
+                alt="Location"
+                style={{ height: "20px", width: "20px" }}
+              />
+            </div>
+            <span style={labelStyle}>LOCATION</span>
           </button>
 
-          <button
-            className="social-main-btn"
-            onClick={handleCall}
-            style={{
-              width: "70%",
-              padding: "12px",
-              border: "1px solid #e0e0e0",
-              borderRadius: "8px",
-              backgroundColor: "#160E41",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "16px",
-              fontWeight: "500",
-              color: "#FFF",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-            }}
-          >
-            <img
-              src="/assets/images/icons/gmail.png"
-              alt="Call"
-              style={{ height: "30px", width: "30px", marginRight: "12px" }}
-            />
-            Mail Us
+          {/* MAIL */}
+          <button onClick={handleMail} style={buttonStyle}>
+            <div style={iconWrapperStyle}>
+              <img
+                src="/assets/images/black-icons/gmail_black.png"
+                alt="Mail"
+                style={{ height: "20px", width: "20px" }}
+              />
+            </div>
+            <span style={labelStyle}>MAIL US</span>
           </button>
 
+          {/* DOWNLOAD BROCHURE */}
           <button
-            className="social-main-btn"
             onClick={() => {
               const link = document.createElement("a");
               link.href = "/assets/images/Plixon-Catalogue-Digital.pdf";
-              link.download = "Plixon-Catalogue-Digital.pdf"; // Optional: Specify the file name
+              link.download = "Plixon-Catalogue-Digital.pdf";
               link.click();
             }}
-            style={{
-              width: "70%",
-              padding: "12px",
-              border: "1px solid #e0e0e0",
-              borderRadius: "8px",
-              backgroundColor: "#160E41",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "16px",
-              fontWeight: "500",
-              color: "#FFF",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-            }}
+            style={buttonStyle}
           >
-            <i className="ti-download" style={{ marginRight: "10px" }} />
-            Download Brochure
+            <div style={iconWrapperStyle}>
+              <i
+                className="ti-download"
+                style={{ color: "#000", fontSize: "18px" }}
+              />
+            </div>
+            <span style={labelStyle}>DOWNLOAD BROCHURE</span>
           </button>
         </div>
 
@@ -637,101 +686,6 @@ const HomeScreen = () => {
               alignItems: "center",
             }}
           >
-            {/* <div
-              className="row"
-              style={{
-                justifyContent: "space-between",
-                width: "100%",
-                // alignItems: "center",
-                display: "flex",
-              }}
-            >
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleCall}>
-                    <img
-                      src="/assets/images/icons/call.webp"
-                      alt="Call"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Call Us
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleLocation}>
-                    <img
-                      src="/assets/images/icons/g-map.png"
-                      alt="Location"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    Location
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleWhatsApp}>
-                    <img
-                      src="/assets/images/icons/whatsapp.png"
-                      alt="WhatsApp"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    WhatsApp
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleMail}>
-                    <img
-                      src="/assets/images/icons/gmail.png"
-                      alt="Mail"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Mail
-                  </button>
-                </div>
-              <div className="col-auto">
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#3A559F",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#D03B98",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
-                  />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#0B63BD",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
-                </button>
-              </div>
-            </div> */}
             <div
               style={{
                 display: "flex",
@@ -751,13 +705,27 @@ const HomeScreen = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    flex: 1,
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/call.png"
-                    alt="Call"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/phone_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Call Us
                 </button>
                 <button
@@ -770,35 +738,65 @@ const HomeScreen = () => {
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/GMap.png"
-                    alt="Location"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/location_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Location
                 </button>
                 <button
                   className="social-main-btn"
                   onClick={() => {
                     const userInfo = sessionStorage.getItem("userInfo");
-                    if (!userInfo) {
-                      setIsPopupOpen(true); // Open the popup if session data is not available
+                    if (isMobile) {
+                      handleWhatsApp(); // Directly open WhatsApp on mobile
                     } else {
-                      handleWhatsApp();
+                      if (!userInfo) {
+                        setIsPopupOpen(true); // Open the popup if session data is not available
+                      } else {
+                        handleWhatsApp();
+                      }
                     }
                   }}
                   style={{
-                    width: "150px",
+                    width: "160px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
-                    style={{ height: "23px", width: "23px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/whatsapp_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   WhatsApp
                 </button>
                 <button
@@ -811,11 +809,24 @@ const HomeScreen = () => {
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/gmail.png"
-                    alt="Mail"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/gmail_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Mail Us
                 </button>
               </div>
@@ -891,13 +902,27 @@ const HomeScreen = () => {
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
+                      flex: 1,
                     }}
                   >
-                    <img
-                      src="/assets/images/icons/call.png"
-                      alt="Call"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/phone_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     Call Us
                   </button>
                   <button
@@ -910,28 +935,65 @@ const HomeScreen = () => {
                       alignItems: "center",
                     }}
                   >
-                    <img
-                      src="/assets/images/icons/GMap.png"
-                      alt="Location"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/location_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     Location
                   </button>
                   <button
                     className="social-main-btn"
-                    onClick={handleButtonClick}
+                    onClick={() => {
+                      const userInfo = sessionStorage.getItem("userInfo");
+                      if (isMobile) {
+                        handleWhatsApp(); // Directly open WhatsApp on mobile
+                      } else {
+                        if (!userInfo) {
+                          setIsPopupOpen(true); // Open the popup if session data is not available
+                        } else {
+                          handleWhatsApp();
+                        }
+                      }
+                    }}
                     style={{
-                      width: "150px",
+                      width: "160px",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
                     }}
                   >
-                    <img
-                      src="/assets/images/icons/whatsapp.png"
-                      alt="WhatsApp"
-                      style={{ height: "23px", width: "23px", marginRight: 10 }}
-                    />
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/whatsapp_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     WhatsApp
                   </button>
                   <button
@@ -944,11 +1006,24 @@ const HomeScreen = () => {
                       alignItems: "center",
                     }}
                   >
-                    <img
-                      src="/assets/images/icons/gmail.png"
-                      alt="Mail"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/gmail_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     Mail Us
                   </button>
                 </div>
@@ -1005,7 +1080,6 @@ const HomeScreen = () => {
                 borderTop: "1px solid #eee",
                 zIndex: 1000,
                 overflow: "hidden", // Prevents content overflow
-                // backgroundColor:'red'
               }}
             >
               <BottomTab visible={visible} closeTab={closeTab} />
@@ -1033,15 +1107,27 @@ const HomeScreen = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/call.png"
-                    alt="Call"
+                  <div
                     style={{
-                      height: "17px",
-                      width: "17px",
-                      marginRight: "5px",
+                      height: "30px",
+                      width: "30px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
                     }}
-                  />
+                  >
+                    <img
+                      src="/assets/images/black-icons/phone_black.png"
+                      alt="Call"
+                      style={{
+                        height: "17px",
+                        width: "17px",
+                      }}
+                    />
+                  </div>
                   <span style={{ fontSize: "12px", color: "#FFF" }}>Call</span>
                 </button>
 
@@ -1049,10 +1135,14 @@ const HomeScreen = () => {
                 <button
                   onClick={() => {
                     const userInfo = sessionStorage.getItem("userInfo");
-                    if (!userInfo) {
-                      setIsPopupOpen(true); // Open the popup if session data is not available
+                    if (isMobile) {
+                      handleWhatsApp(); // Directly open WhatsApp on mobile
                     } else {
-                      handleWhatsApp();
+                      if (!userInfo) {
+                        setIsPopupOpen(true); // Open the popup if session data is not available
+                      } else {
+                        handleWhatsApp();
+                      }
                     }
                   }}
                   style={{
@@ -1068,15 +1158,27 @@ const HomeScreen = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
+                  <div
                     style={{
-                      height: "15px",
-                      width: "15px",
-                      marginRight: "5px",
+                      height: "27px",
+                      width: "27px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 7,
+                      borderRadius: "50%",
                     }}
-                  />
+                  >
+                    <img
+                      src="/assets/images/black-icons/whatsapp_black.png"
+                      alt="WhatsApp"
+                      style={{
+                        height: "15px",
+                        width: "15px",
+                      }}
+                    />
+                  </div>
                   <span style={{ fontSize: "12px", color: "#FFF" }}>
                     WhatsApp
                   </span>
@@ -1098,15 +1200,27 @@ const HomeScreen = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/GMap.png"
-                    alt="Location"
+                  <div
                     style={{
-                      height: "18px",
-                      width: "18px",
-                      marginRight: "5px",
+                      height: "27px",
+                      width: "27px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
                     }}
-                  />
+                  >
+                    <img
+                      src="/assets/images/black-icons/location_black.png"
+                      alt="Location"
+                      style={{
+                        height: "18px",
+                        width: "18px",
+                      }}
+                    />
+                  </div>
                   <span style={{ fontSize: "12px", color: "#FFF" }}>
                     Location
                   </span>
@@ -1128,10 +1242,20 @@ const HomeScreen = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <i
-                    className="ti-bookmark"
-                    style={{ marginRight: "5px", color: "#FFF" }}
-                  ></i>
+                  <div
+                    style={{
+                      height: "27px",
+                      width: "27px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <i className="ti-bookmark" style={{ color: "#000" }}></i>
+                  </div>
                   <span style={{ fontSize: "12px", color: "#FFF" }}>Save</span>
                 </button>
               </div>
@@ -1148,7 +1272,7 @@ const HomeScreen = () => {
               >
                 <div className="listing-thumbnail mb-30 wow fadeInUp">
                   <img
-                    src="/assets/Hero-Banner/TV-setup-4.webp"
+                    src="/assets/images/Hero-Banner/TV-setup-4.webp"
                     alt="listing image"
                   />
                 </div>
@@ -1340,28 +1464,7 @@ const HomeScreen = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    const userInfo =
-                                      sessionStorage.getItem("userInfo");
-                                    if (!userInfo) {
-                                      setIsPopupOpen(true); // Open the popup if session data is not available
-                                    } else {
-                                      const phoneNumber = "917779096777";
-                                      const message = `Hello, I am interested in knowing the price details for the product. Please share more information.`;
-                                      const encodedMessage =
-                                        encodeURIComponent(message);
-                                      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                                      window.open(whatsappURL, "_blank");
-                                    }
-                                  }}
-                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition w-full justify-center"
-                                  style={{
-                                    backgroundColor: "#24D07A",
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    width: "100%",
-                                    boxSizing: "border-box",
+                                    getPrice(product);
                                   }}
                                 >
                                   <img
@@ -1650,14 +1753,18 @@ const HomeScreen = () => {
                       id="button-send"
                       onClick={() => {
                         const userInfo = sessionStorage.getItem("userInfo");
-                        if (!userInfo) {
-                          setIsPopupOpen(true); // Open the popup if session data is not available
+                        if (isMobile) {
+                          handleWhatsApp(); // Directly open WhatsApp on mobile
                         } else {
-                          const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
-                          const message = `${requirementInput}`;
-                          const encodedMessage = encodeURIComponent(message);
-                          const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                          window.open(whatsappURL, "_blank");
+                          if (!userInfo) {
+                            setIsPopupOpen(true); // Open the popup if session data is not available
+                          } else {
+                            const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
+                            const message = `${requirementInput}`;
+                            const encodedMessage = encodeURIComponent(message);
+                            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                            window.open(whatsappURL, "_blank");
+                          }
                         }
                       }}
                     >

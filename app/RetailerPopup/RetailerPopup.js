@@ -54,21 +54,30 @@ Pincode: ${form.pincode}`;
 
   return (
     <div
-      //   className="fixed inset-0 bg-black bg-opacity-50 z-50 px-4 py-2 flex justify-center items-center"
       style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        display: "flex",
-        marginTop: "20px",
-        position: "absolute",
-        zIndex: "1000",
-        top: 80,
-        right: 100,
+        zIndex: 1000,
+        padding: "1rem",
       }}
     >
-      <div className="bg-white rounded-lg shadow-lg w-full p-6 relative ">
+      <div
+        className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative"
+        style={{
+          maxHeight: "90vh",
+          overflowY: "auto",
+          padding: "20px 20px",
+        }}
+      >
         <h4 className="text-lg font-bold text-center mb-2">Find Retailers</h4>
-        <p className="text-sm text-gray-500 text-center mb-6 px-4">
+        <p style={{fontSize:"20px", marginBottom:"20px"}} className="text-gray-500 text-center mb-6 px-4">
           Enter your details to find the best retailer
         </p>
 
@@ -83,10 +92,10 @@ Pincode: ${form.pincode}`;
             <div
               key={field.name}
               style={{
-                alignItems: "center",
-                justifyContent: "center",
                 display: "flex",
-                marginTop: "10px",
+                flexDirection: "column",
+                width: "100%",
+                marginBottom: "10px"
               }}
             >
               <input
@@ -95,10 +104,11 @@ Pincode: ${form.pincode}`;
                 placeholder={field.placeholder}
                 value={form[field.name]}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none"
+                style={{ width: "100%", borderColor:errors[field.name] ? "red" : "gray" }}
+                className={`w-full border ${errors[field.name] ? 'border-red-500' : 'border-gray-300'} rounded px-4 py-2 text-sm focus:outline-none`}
               />
               {errors[field.name] && (
-                <p className="text-red-500 text-sm">{errors[field.name]}</p>
+                <p className="mt-1" style={{color:"red", fontSize:"12px"}}>{errors[field.name]}</p>
               )}
             </div>
           ))}
@@ -107,25 +117,33 @@ Pincode: ${form.pincode}`;
         <div
           style={{
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
             display: "flex",
             marginTop: "20px",
             marginBottom: "10px",
+            width: "100%",
+            gap: "10px",
           }}
         >
           <button
+            onClick={onClose}
+            style={{
+              backgroundColor: "#FFF",
+              textDecoration: "underline",
+              width: "50%",
+              borderRadius: "10px",
+              border: "1px solid gray",
+            }}
+            className="w-full bg-black text-black px-4 py-2 mt-6 rounded hover:bg-gray-800"
+          >
+            Close
+          </button>
+          <button
             onClick={handleSubmit}
-            style={{ backgroundColor: "#69C8C7" }}
+            style={{ backgroundColor: "#69C8C7", width: "50%" }}
             className="w-full bg-black text-white px-4 py-2 mt-6 rounded hover:bg-gray-800"
           >
             Submit
-          </button>
-          <button
-            onClick={onClose}
-            style={{ backgroundColor: "gray", marginLeft: "12px" }}
-            className="w-full bg-black text-white px-4 py-2 mt-6 rounded hover:bg-gray-800"
-          >
-            Close
           </button>
         </div>
       </div>

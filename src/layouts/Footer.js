@@ -43,16 +43,42 @@ const Footer = () => {
     setIsPopupOpen(false); // Close the popup
   };
 
-  const handleButtonClick = () => {
-    if (!mounted) return;
+  const [isMobile, setIsMobile] = useState(false);
 
-    const userInfo = sessionStorage.getItem("userInfo");
-    if (!userInfo) {
-      setIsPopupOpen(true);
-    } else {
-      handleWhatsApp();
-    }
+  const isMobileDevice = () => {
+    // Check user agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobileUserAgent =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        userAgent
+      );
+
+    // Check screen width
+    const isMobileScreen = window.innerWidth <= 768;
+
+    // Check if device has touch capability
+    const hasTouchScreen =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    return isMobileUserAgent || (isMobileScreen && hasTouchScreen);
   };
+
+  useEffect(() => {
+    // Initial check
+    setIsMobile(isMobileDevice());
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(isMobileDevice());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <footer className="footer-area">
@@ -222,14 +248,23 @@ const Footer = () => {
                         className="main-btn"
                         onClick={() => {
                           const userInfo = sessionStorage.getItem("userInfo");
-                          if (!userInfo) {
-                            setIsPopupOpen(true); // Open the popup if session data is not available
-                          } else {
+                          if (isMobile) {
                             const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
                             const message = writtenMessage;
                             const encodedMessage = encodeURIComponent(message);
                             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
                             window.open(whatsappURL, "_blank");
+                          } else {
+                            if (!userInfo) {
+                              setIsPopupOpen(true); // Open the popup if session data is not available
+                            } else {
+                              const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
+                              const message = writtenMessage;
+                              const encodedMessage =
+                                encodeURIComponent(message);
+                              const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                              window.open(whatsappURL, "_blank");
+                            }
                           }
                         }}
                         style={{ backgroundColor: "#fff" }}

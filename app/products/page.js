@@ -101,101 +101,6 @@ const Products = () => {
               alignItems: "center",
             }}
           >
-            {/* <div
-              className="row"
-              style={{
-                justifyContent: "space-between",
-                width: "100%",
-                // alignItems: "center",
-                display: "flex",
-              }}
-            >
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleCall}>
-                    <img
-                      src="/assets/images/icons/call.webp"
-                      alt="Call"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Call Us
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleLocation}>
-                    <img
-                      src="/assets/images/icons/g-map.png"
-                      alt="Location"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    Location
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleWhatsApp}>
-                    <img
-                      src="/assets/images/icons/whatsapp.png"
-                      alt="WhatsApp"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    WhatsApp
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleMail}>
-                    <img
-                      src="/assets/images/icons/gmail.png"
-                      alt="Mail"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Mail
-                  </button>
-                </div>
-              <div className="col-auto">
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#3A559F",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#D03B98",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
-                  />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#0B63BD",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
-                </button>
-              </div>
-            </div> */}
             <div
               style={{
                 display: "flex",
@@ -207,36 +112,136 @@ const Products = () => {
             >
               {/* Left Section: Main Social Buttons */}
               <div style={{ display: "flex", gap: "12px" }}>
-                <button className="social-main-btn" onClick={handleCall} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <img
-                    src="/assets/images/icons/call.png"
-                    alt="Call"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                <button
+                  className="social-main-btn"
+                  onClick={handleCall}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flex: 1,
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/phone_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Call Us
                 </button>
-                <button className="social-main-btn" onClick={handleLocation} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <img
-                    src="/assets/images/icons/GMap.png"
-                    alt="Location"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                <button
+                  className="social-main-btn"
+                  onClick={handleLocation}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/location_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Location
                 </button>
-                <button className="social-main-btn" onClick={handleWhatsApp} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <img
-                    src="/assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
-                    style={{ height: "23px", width: "23px", marginRight: 10 }}
-                  />
+                <button
+                  className="social-main-btn"
+                  onClick={() => {
+                    const userInfo = sessionStorage.getItem("userInfo");
+                    if (isMobile) {
+                      handleWhatsApp(); // Directly open WhatsApp on mobile
+                    } else {
+                      if (!userInfo) {
+                        setIsPopupOpen(true); // Open the popup if session data is not available
+                      } else {
+                        handleWhatsApp();
+                      }
+                    }
+                  }}
+                  style={{
+                    width: "160px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/whatsapp_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   WhatsApp
                 </button>
-                <button className="social-main-btn" onClick={handleMail} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <img
-                    src="/assets/images/icons/gmail.png"
-                    alt="Mail"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
+                <button
+                  className="social-main-btn"
+                  onClick={handleMail}
+                  style={{
+                    width: "150px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/gmail_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Mail Us
                 </button>
               </div>
@@ -554,53 +559,81 @@ const Products = () => {
                             alt="TV Product Image"
                           />
                         </Link>
-                        <span className="featured-btn" style={{ borderRadius: "5px" }}>Featured</span>
+                        <span
+                          className="featured-btn"
+                          style={{ borderRadius: "5px" }}
+                        >
+                          Featured
+                        </span>
                       </div>
                       <div className="listing-content">
                         <h3 className="title">
-                          <Link href={`/product-details/${val.slug}`}>{val.name}</Link>{" "}
+                          <Link href={`/product-details/${val.slug}`}>
+                            {val.name}
+                          </Link>{" "}
                         </h3>
-                        <p style={{
-                          display: '-webkit-box',
-                          WebkitBoxOrient: 'vertical',
-                          WebkitLineClamp: 3,
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          maxWidth: '300px',
-                          lineHeight: '1.5',
-                          marginBottom: "15px",
-                        }}>
+                        <p
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 3,
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            maxWidth: "300px",
+                            lineHeight: "1.5",
+                            marginBottom: "15px",
+                          }}
+                        >
                           {val.detail}
                         </p>{" "}
                         <div className="features-list">
-
-                          <ul> <li style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>{"Smart TV"}</li></ul>
-
+                          <ul>
+                            {" "}
+                            <li
+                              style={{
+                                color: "#000",
+                                fontSize: "16px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {"Smart TV"}
+                            </li>
+                          </ul>
                         </div>
-                        <span className="phone-meta">
-                        </span>
+                        <span className="phone-meta"></span>
                         <div className="listing-meta">
-                          <ul style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                            <li style={{ width: '100%' }}>
+                          <ul
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              width: "100%",
+                            }}
+                          >
+                            <li style={{ width: "100%" }}>
                               <Link
                                 href={`/product-details/${val.slug}`}
-                                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  width: "100%",
+                                }}
                               >
                                 <div
                                   className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
                                   style={{
-                                    backgroundColor: '#69C8C7',
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    marginBottom: '30px',
-                                    width: '100%', // Makes the button take full width
+                                    backgroundColor: "#69C8C7",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    marginBottom: "30px",
+                                    width: "100%", // Makes the button take full width
                                   }}
                                 >
                                   <span
                                     className="underline text-white"
-                                    style={{ fontSize: '20px' }}
+                                    style={{ fontSize: "20px" }}
                                   >
                                     View Details
                                   </span>

@@ -14,6 +14,23 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const item = products.find((item) => item.slug === slug);
+
+  return {
+    title: item?.name || 'Product Details',
+    description: item?.detail || 'Product details page',
+    openGraph: {
+      title: item?.name || 'Product Details',
+      description: item?.detail || 'Product details page',
+      images: [item?.image || ''],
+      url: `https://plixon.in/product/${slug}`,
+      type: 'website',
+    },
+  };
+}
+
 const ProductDetails = ({ params }) => {
   const { slug } = params;
   const item = products.find((item) => item.slug === slug);

@@ -11,6 +11,44 @@ import UserInfoPopup from "./userDetailPopup";
 
 const ProductDetailsClient = ({ item }) => {
   const [showBar, setShowBar] = useState(false);
+  const [activeTab, setActiveTab] = useState("description");
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  const isMobileDevice = () => {
+    // Check user agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobileUserAgent =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        userAgent
+      );
+
+    // Check screen width
+    const isMobileScreen = window.innerWidth <= 768;
+
+    // Check if device has touch capability
+    const hasTouchScreen =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    return isMobileUserAgent || (isMobileScreen && hasTouchScreen);
+  };
+
+  useEffect(() => {
+    // Initial check
+    setIsMobile(isMobileDevice());
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(isMobileDevice());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -104,18 +142,73 @@ const ProductDetailsClient = ({ item }) => {
     }
   };
 
-  const getPriseButton = (productName) => {
+  const getPriceButton = (item) => {
     if (!mounted) return;
 
     const userInfo = sessionStorage.getItem("userInfo");
-    if (!userInfo) {
-      setIsPopupOpen(true);
-    } else {
-      const phoneNumber = "917779096777"; // Retailer's WhatsApp number
-      const message = `Hello, I’m interested in the product "${productName}". Could you please share the price and availability?`;
+    if (isMobile) {
+      const phoneNumber = "917779096777";
+      const imageUrl = `https://plixon.in/${item?.image}`;
+
+      // Create a message with product details and image URL
+      const message = `*Product Inquiry*
+
+  ${imageUrl}
+  
+  *Product Details:*
+  • Name: ${item?.name}
+  • Description: ${item?.detail}
+
+  *Usability:*
+  ${item?.usability?.map((use) => `• ${use}`).join("\n")}
+  
+  *Specifications:*
+  ${item?.specification?.map((spec) => `• ${spec}`).join("\n")}
+  
+  Please provide information about:
+  • Current price
+  • Availability
+  • Delivery options
+  • Warranty details
+  
+  Thank you!`;
+
       const encodedMessage = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       window.open(whatsappURL, "_blank");
+    } else {
+      if (!userInfo) {
+        setIsPopupOpen(true);
+      } else {
+        const phoneNumber = "917779096777";
+
+        // Create a message with product details and image URL
+        const message = `*Product Inquiry*
+
+  ${item?.image}
+  
+  *Product Details:*
+  • Name: ${item?.name}
+  • Description: ${item?.detail}
+
+  *Usability:*
+  ${item?.usability?.map((use) => `• ${use}`).join("\n")}
+  
+  *Specifications:*
+  ${item?.specification?.map((spec) => `• ${spec}`).join("\n")}
+  
+  Please provide information about:
+  • Current price
+  • Availability
+  • Delivery options
+  • Warranty details
+  
+  Thank you!`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappURL, "_blank");
+      }
     }
   };
 
@@ -170,101 +263,6 @@ const ProductDetailsClient = ({ item }) => {
               alignItems: "center",
             }}
           >
-            {/* <div
-              className="row"
-              style={{
-                justifyContent: "space-between",
-                width: "100%",
-                // alignItems: "center",
-                display: "flex",
-              }}
-            >
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleCall}>
-                    <img
-                      src="/assets/images/icons/call.webp"
-                      alt="Call"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Call Us
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleLocation}>
-                    <img
-                      src="/assets/images/icons/g-map.png"
-                      alt="Location"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    Location
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleWhatsApp}>
-                    <img
-                      src="/assets/images/icons/whatsapp.png"
-                      alt="WhatsApp"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    WhatsApp
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleMail}>
-                    <img
-                      src="/assets/images/icons/gmail.png"
-                      alt="Mail"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Mail
-                  </button>
-                </div>
-              <div className="col-auto">
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#3A559F",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#D03B98",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
-                  />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#0B63BD",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
-                </button>
-              </div>
-            </div> */}
             <div
               style={{
                 display: "flex",
@@ -284,13 +282,27 @@ const ProductDetailsClient = ({ item }) => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    flex: 1,
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/call.png"
-                    alt="Call"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/phone_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Call Us
                 </button>
                 <button
@@ -303,28 +315,65 @@ const ProductDetailsClient = ({ item }) => {
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/GMap.png"
-                    alt="Location"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/location_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Location
                 </button>
                 <button
                   className="social-main-btn"
-                  onClick={handleButtonClick}
+                  onClick={() => {
+                    const userInfo = sessionStorage.getItem("userInfo");
+                    if (isMobile) {
+                      handleWhatsApp(); // Directly open WhatsApp on mobile
+                    } else {
+                      if (!userInfo) {
+                        setIsPopupOpen(true); // Open the popup if session data is not available
+                      } else {
+                        handleWhatsApp();
+                      }
+                    }
+                  }}
                   style={{
-                    width: "150px",
+                    width: "160px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
-                    style={{ height: "23px", width: "23px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/whatsapp_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   WhatsApp
                 </button>
                 <button
@@ -337,11 +386,24 @@ const ProductDetailsClient = ({ item }) => {
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/gmail.png"
-                    alt="Mail"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/gmail_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Mail Us
                 </button>
               </div>
@@ -405,9 +467,9 @@ const ProductDetailsClient = ({ item }) => {
                   <span>{item?.detail}</span>
                   <button
                     onClick={() => {
-                      getPriseButton(item?.name);
+                      getPriceButton(item);
                     }}
-                    className="flex items-center gap-2 px-3 py-2 mt-3 mb-3 border border-gray-300 rounded-lg transition"
+                    className="flex items-center justify-center gap-2 px-4 py-1 mt-3 mb-3 border border-gray-300 rounded-lg transition"
                     style={{
                       backgroundColor: "#24D07A",
                       display: "flex",
@@ -419,14 +481,14 @@ const ProductDetailsClient = ({ item }) => {
                       src="/assets/images/WhatsApp_Image.png"
                       alt="WhatsApp Icon"
                       style={{
-                        height: "30px",
-                        width: "30px",
+                        height: "17px",
+                        width: "17px",
                         marginRight: "8px",
                       }}
                     />
                     <span
                       className="underline text-white"
-                      style={{ fontSize: "20px" }}
+                      style={{ fontSize: "18px" }}
                     >
                       Get Price
                     </span>
@@ -464,47 +526,133 @@ const ProductDetailsClient = ({ item }) => {
           <div className="description-wrapper mb-45">
             <div className="row">
               <div className="col-lg-12">
-                <Tab.Container defaultActiveKey="description">
-                  <div className="description-tabs">
-                    <Nav as="ul" className="nav nav-tabs">
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          href="#description"
-                          eventKey="description"
-                        >
-                          Description
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link as="a" href="#reviews" eventKey="reviews">
-                          Reviews
-                        </Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                  </div>
-                  <Tab.Content className="tab-content mt-30">
-                    <Tab.Pane eventKey="description">
-                      <div className="description-content-box">
-                        <p>{item?.discription}</p>
+                <div className="description-tabs">
+                  <Nav as="ul" className="nav nav-tabs">
+                    <Nav.Item as="li">
+                      <Nav.Link
+                        as="a"
+                        href="#description"
+                        eventKey="description"
+                        active={activeTab === "description"}
+                        onClick={() => setActiveTab("description")}
+                      >
+                        Description
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                      <Nav.Link
+                        as="a"
+                        href="#reviews"
+                        eventKey="reviews"
+                        active={activeTab === "reviews"}
+                        onClick={() => setActiveTab("reviews")}
+                      >
+                        Reviews
+                      </Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                </div>
+                <div className="tab-content mt-30">
+                  {activeTab === "description" && (
+                    <div className="description-content-box">
+                      <p>{item?.discription}</p>
+                    </div>
+                  )}
+                  {activeTab === "reviews" && (
+                    <div className="products-review-wrapper mb-25">
+                      <div className="products-review-area mb-45">
+                        <h4 className="title">People Reviews</h4>
+                        <ul className="review-list">
+                          <li className="review">
+                            <div className="review-thumb">
+                              <img
+                                src="/assets/images/products/review-thumb-1.jpg"
+                                alt="review thumb"
+                              />
+                            </div>
+                            <div className="review-content">
+                              <h4>John F. Medina</h4>
+                              <span className="date">25 May 2021</span>
+                              <ul className="ratings ratings-four">
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                              </ul>
+                              <p>
+                                Sed ut perspiciatis unde omnis iste natus error
+                                sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae
+                                ab illo inventore veritatis et quasi architecto
+                                beatae vitae dicta sunt explicabo.
+                              </p>
+                              <a href="#" className="reply">
+                                Reply
+                              </a>
+                            </div>
+                          </li>
+                          <li className="review">
+                            <div className="review-thumb">
+                              <img
+                                src="/assets/images/products/review-thumb-2.jpg"
+                                alt="review thumb"
+                              />
+                            </div>
+                            <div className="review-content">
+                              <h4>John F. Medina</h4>
+                              <span className="date">25 May 2021</span>
+                              <ul className="ratings ratings-five">
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                                <li className="star">
+                                  <i className="flaticon-star-1" />
+                                </li>
+                              </ul>
+                              <p>
+                                Sed ut perspiciatis unde omnis iste natus error
+                                sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae
+                                ab illo inventore veritatis et quasi architecto
+                                beatae vitae dicta sunt explicabo.
+                              </p>
+                              <a href="#" className="reply">
+                                Reply
+                              </a>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="reviews">
-                      <div className="products-review-wrapper mb-25">
-                        <div className="products-review-area mb-45">
-                          <h4 className="title">People Reviews</h4>
-                          <ul className="review-list">
-                            <li className="review">
-                              <div className="review-thumb">
-                                <img
-                                  src="/assets/images/products/review-thumb-1.jpg"
-                                  alt="review thumb"
-                                />
-                              </div>
-                              <div className="review-content">
-                                <h4>John F. Medina</h4>
-                                <span className="date">25 May 2021</span>
-                                <ul className="ratings ratings-four">
+                      <div className="products-review-form">
+                        <h4 className="title">Leave Your Reviews</h4>
+                        <form onSubmit={(e) => e.preventDefault()}>
+                          <div className="row">
+                            <div className="col-lg-12">
+                              <div className="form_group">
+                                <ul className="ratings mb-20">
+                                  <li>
+                                    <span>Your Rating</span>
+                                  </li>
                                   <li className="star">
                                     <i className="flaticon-star-1" />
                                   </li>
@@ -521,130 +669,50 @@ const ProductDetailsClient = ({ item }) => {
                                     <i className="flaticon-star-1" />
                                   </li>
                                 </ul>
-                                <p>
-                                  Sed ut perspiciatis unde omnis iste natus
-                                  error sit voluptatem accusantium doloremque
-                                  laudantium, totam rem aperiam, eaque ipsa quae
-                                  ab illo inventore veritatis et quasi
-                                  architecto beatae vitae dicta sunt explicabo.
-                                </p>
-                                <a href="#" className="reply">
-                                  Reply
-                                </a>
-                              </div>
-                            </li>
-                            <li className="review">
-                              <div className="review-thumb">
-                                <img
-                                  src="/assets/images/products/review-thumb-2.jpg"
-                                  alt="review thumb"
-                                />
-                              </div>
-                              <div className="review-content">
-                                <h4>John F. Medina</h4>
-                                <span className="date">25 May 2021</span>
-                                <ul className="ratings ratings-five">
-                                  <li className="star">
-                                    <i className="flaticon-star-1" />
-                                  </li>
-                                  <li className="star">
-                                    <i className="flaticon-star-1" />
-                                  </li>
-                                  <li className="star">
-                                    <i className="flaticon-star-1" />
-                                  </li>
-                                  <li className="star">
-                                    <i className="flaticon-star-1" />
-                                  </li>
-                                  <li className="star">
-                                    <i className="flaticon-star-1" />
-                                  </li>
-                                </ul>
-                                <p>
-                                  Sed ut perspiciatis unde omnis iste natus
-                                  error sit voluptatem accusantium doloremque
-                                  laudantium, totam rem aperiam, eaque ipsa quae
-                                  ab illo inventore veritatis et quasi
-                                  architecto beatae vitae dicta sunt explicabo.
-                                </p>
-                                <a href="#" className="reply">
-                                  Reply
-                                </a>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="products-review-form">
-                          <h4 className="title">Leave Your Reviews</h4>
-                          <form onSubmit={(e) => e.preventDefault()}>
-                            <div className="row">
-                              <div className="col-lg-12">
-                                <div className="form_group">
-                                  <ul className="ratings mb-20">
-                                    <li>
-                                      <span>Your Rating</span>
-                                    </li>
-                                    <li className="star">
-                                      <i className="flaticon-star-1" />
-                                    </li>
-                                    <li className="star">
-                                      <i className="flaticon-star-1" />
-                                    </li>
-                                    <li className="star">
-                                      <i className="flaticon-star-1" />
-                                    </li>
-                                    <li className="star">
-                                      <i className="flaticon-star-1" />
-                                    </li>
-                                    <li className="star">
-                                      <i className="flaticon-star-1" />
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div className="col-lg-6">
-                                <div className="form_group">
-                                  <input
-                                    type="text"
-                                    className="form_control"
-                                    placeholder="Full Name"
-                                    name="name"
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                              <div className="col-lg-6">
-                                <div className="form_group">
-                                  <input
-                                    type="email"
-                                    className="form_control"
-                                    placeholder="Email Address"
-                                    name="email"
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="form_group">
-                                  <textarea
-                                    className="form_control"
-                                    placeholder="Write Message"
-                                    name="comment"
-                                  />
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="form_group">
-                                  <button className="main-btn">Submit</button>
-                                </div>
                               </div>
                             </div>
-                          </form>
-                        </div>
+                            <div className="col-lg-6">
+                              <div className="form_group">
+                                <input
+                                  type="text"
+                                  className="form_control"
+                                  placeholder="Full Name"
+                                  name="name"
+                                  required=""
+                                />
+                              </div>
+                            </div>
+                            <div className="col-lg-6">
+                              <div className="form_group">
+                                <input
+                                  type="email"
+                                  className="form_control"
+                                  placeholder="Email Address"
+                                  name="email"
+                                  required=""
+                                />
+                              </div>
+                            </div>
+                            <div className="col-lg-12">
+                              <div className="form_group">
+                                <textarea
+                                  className="form_control"
+                                  placeholder="Write Message"
+                                  name="comment"
+                                />
+                              </div>
+                            </div>
+                            <div className="col-lg-12">
+                              <div className="form_group">
+                                <button className="main-btn">Submit</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
                       </div>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -756,201 +824,6 @@ const ProductDetailsClient = ({ item }) => {
                   </div>
                 </div>
               ))}
-              {/* <div className="products-item products-item-one">
-                <div className="product-img">
-                  <img
-                    src="/assets/images/details-images/product-detail-1.jpg"
-                    alt="products Image"
-                    style={{ height: "500px" }}
-                  />
-                  <div className="product-overlay d-flex align-items-end justify-content-center">
-                    <div className="product-meta">
-                      <a
-                        href="/assets/images/details-images/product-detail-1.jpg"
-                        className="icon img-popup"
-                      >
-                        <i className="ti-zoom-in" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-info text-center">
-                  <h3 className="title">
-                    <Link href="/products-details">Hand Dumbell</Link>
-                  </h3>
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <button
-                      onClick={() => { }}
-                      className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
-                      style={{
-                        backgroundColor: "#24D07A",
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        // paddingBottom: "20px",
-                      }}
-                    >
-                      <img
-                        src="/assets/images/WhatsApp_Image.png"
-                        alt="WhatsApp Icon"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "8px",
-                        }}
-                      />
-                      <span className="underline text-white">Get Price</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="products-item products-item-one">
-                <div className="product-img">
-                  <img
-                    src="/assets/images/details-images/product-detail-2.jpg"
-                    alt="products Image"
-                    style={{ height: "500px" }}
-                  />
-                  <div className="product-overlay d-flex align-items-end justify-content-center">
-                    <div className="product-meta">
-                      <a
-                        href="/assets/images/details-images/product-detail-2.jpg"
-                        className="icon img-popup"
-                      >
-                        <i className="ti-zoom-in" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-info text-center">
-                  <h3 className="title">
-                    <Link href="/products-details">Hand Dumbell</Link>
-                  </h3>
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <button
-                      onClick={() => { }}
-                      className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
-                      style={{
-                        backgroundColor: "#24D07A",
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        // paddingBottom: "20px",
-                      }}
-                    >
-                      <img
-                        src="/assets/images/WhatsApp_Image.png"
-                        alt="WhatsApp Icon"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "8px",
-                        }}
-                      />
-                      <span className="underline text-white">Get Price</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="products-item products-item-one">
-                <div className="product-img">
-                  <img
-                    src="/assets/images/details-images/product-detail-4.jpg"
-                    alt="products Image"
-                    style={{ height: "500px" }}
-                  />
-                  <div className="product-overlay d-flex align-items-end justify-content-center">
-                    <div className="product-meta">
-                      <a
-                        href="/assets/images/details-images/product-detail-4.jpg"
-                        className="icon img-popup"
-                      >
-                        <i className="ti-zoom-in" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-info text-center">
-                  <h3 className="title">
-                    <Link href="/products-details">Hand Dumbell</Link>
-                  </h3>
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <button
-                      onClick={() => { }}
-                      className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
-                      style={{
-                        backgroundColor: "#24D07A",
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        // paddingBottom: "20px",
-                      }}
-                    >
-                      <img
-                        src="/assets/images/WhatsApp_Image.png"
-                        alt="WhatsApp Icon"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "8px",
-                        }}
-                      />
-                      <span className="underline text-white">Get Price</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="products-item products-item-one">
-                <div className="product-img">
-                  <img
-                    src="/assets/images/details-images/product-detail-7.jpg"
-                    alt="products Image"
-                    style={{ height: "500px" }}
-                  />
-                  <div className="product-overlay d-flex align-items-end justify-content-center">
-                    <div className="product-meta">
-                      <a
-                        href="/assets/images/details-images/product-detail-7.jpg"
-                        className="icon img-popup"
-                      >
-                        <i className="ti-zoom-in" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-info text-center">
-                  <h3 className="title">
-                    <Link href="/products-details">Hand Dumbell</Link>
-                  </h3>
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <button
-                      onClick={() => { }}
-                      className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
-                      style={{
-                        backgroundColor: "#24D07A",
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        // paddingBottom: "20px",
-                      }}
-                    >
-                      <img
-                        src="/assets/images/WhatsApp_Image.png"
-                        alt="WhatsApp Icon"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "8px",
-                        }}
-                      />
-                      <span className="underline text-white">Get Price</span>
-                    </button>
-                  </div>
-                </div>
-              </div> */}
             </Slider>
           </div>
         </div>

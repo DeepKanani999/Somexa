@@ -9,6 +9,42 @@ import { useEffect, useState } from "react";
 const About = () => {
   const [showBar, setShowBar] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const isMobileDevice = () => {
+    // Check user agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobileUserAgent =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        userAgent
+      );
+
+    // Check screen width
+    const isMobileScreen = window.innerWidth <= 768;
+
+    // Check if device has touch capability
+    const hasTouchScreen =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    return isMobileUserAgent || (isMobileScreen && hasTouchScreen);
+  };
+
+  useEffect(() => {
+    // Initial check
+    setIsMobile(isMobileDevice());
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(isMobileDevice());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     setIsClient(true); // Set to true when component mounts on client
@@ -93,12 +129,16 @@ const About = () => {
 
   const handleButtonClick = () => {
     if (!mounted) return;
-    
+
     const userInfo = sessionStorage.getItem("userInfo");
-    if (!userInfo) {
-      setIsPopupOpen(true);
+    if (isMobile) {
+      handleWhatsApp(); // Directly open WhatsApp on mobile
     } else {
-      handleWhatsApp();
+      if (!userInfo) {
+        setIsPopupOpen(true);
+      } else {
+        handleWhatsApp();
+      }
     }
   };
 
@@ -155,101 +195,6 @@ const About = () => {
                 alignItems: "center",
               }}
             >
-              {/* <div
-              className="row"
-              style={{
-                justifyContent: "space-between",
-                width: "100%",
-                // alignItems: "center",
-                display: "flex",
-              }}
-            >
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleCall}>
-                    <img
-                      src="/assets/images/icons/call.webp"
-                      alt="Call"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Call Us
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleLocation}>
-                    <img
-                      src="/assets/images/icons/g-map.png"
-                      alt="Location"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    Location
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleWhatsApp}>
-                    <img
-                      src="/assets/images/icons/whatsapp.png"
-                      alt="WhatsApp"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
-                    WhatsApp
-                  </button>
-                </div>
-                <div className="col-auto">
-                  <button className="social-main-btn" onClick={handleMail}>
-                    <img
-                      src="/assets/images/icons/gmail.png"
-                      alt="Mail"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
-                    Mail
-                  </button>
-                </div>
-              <div className="col-auto">
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#3A559F",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#D03B98",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
-                  />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{
-                    padding: "8px",
-                    backgroundColor: "#0B63BD",
-                    marginRight: "10px",
-                  }}
-                >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
-                </button>
-              </div>
-            </div> */}
               <div
                 style={{
                   display: "flex",
@@ -269,13 +214,27 @@ const About = () => {
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
+                      flex: 1,
                     }}
                   >
-                    <img
-                      src="/assets/images/icons/call.png"
-                      alt="Call"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/phone_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     Call Us
                   </button>
                   <button
@@ -288,20 +247,65 @@ const About = () => {
                       alignItems: "center",
                     }}
                   >
-                    <img
-                      src="/assets/images/icons/GMap.png"
-                      alt="Location"
-                      style={{ height: "25px", width: "25px", marginRight: 10 }}
-                    />
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/location_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     Location
                   </button>
-                  <button className="social-main-btn" onClick={handleButtonClick}>
-                    {/* <button className="social-main-btn" onClick={handleButtonClick} style={{ width: "150px", display: "flex", justifyContent: "center", alignItems: "center" }}> */}
-                    <img
-                      src="/assets/images/icons/whatsapp.png"
-                      alt="WhatsApp"
-                      style={{ height: "23px", width: "23px", marginRight: 10 }}
-                    />
+                  <button
+                    className="social-main-btn"
+                    onClick={() => {
+                      const userInfo = sessionStorage.getItem("userInfo");
+                      if (isMobile) {
+                        handleWhatsApp(); // Directly open WhatsApp on mobile
+                      } else {
+                        if (!userInfo) {
+                          setIsPopupOpen(true); // Open the popup if session data is not available
+                        } else {
+                          handleWhatsApp();
+                        }
+                      }
+                    }}
+                    style={{
+                      width: "160px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/whatsapp_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     WhatsApp
                   </button>
                   <button
@@ -314,11 +318,24 @@ const About = () => {
                       alignItems: "center",
                     }}
                   >
-                    <img
-                      src="/assets/images/icons/gmail.png"
-                      alt="Mail"
-                      style={{ height: "30px", width: "30px", marginRight: 10 }}
-                    />
+                    <div
+                      style={{
+                        height: "32px",
+                        width: "32px",
+                        backgroundColor: "#FFF",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
+                        marginRight: 10,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <img
+                        src="/assets/images/black-icons/gmail_black.png"
+                        alt="Call"
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
                     Mail Us
                   </button>
                 </div>
@@ -695,18 +712,22 @@ const About = () => {
                       style={{ backgroundColor: "#69C8C7" }}
                       onClick={() => {
                         const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
-                        if (!userInfo) {
-                          setIsPopupOpen(true); // Open the popup if session data is not available
+                        if (isMobile) {
+                          handleWhatsApp(); // Directly open WhatsApp on mobile
                         } else {
-                        const message =
-                          document.getElementById("whatsappMessage").value;
-                        const encodedMessage = encodeURIComponent(message);
-                        // Replace with your actual WhatsApp number (with country code, remove +)
-                        const whatsappNumber = "917779096777";
-                        window.open(
-                          `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
-                          "_blank"
-                        );
+                          if (!userInfo) {
+                            setIsPopupOpen(true); // Open the popup if session data is not available
+                          } else {
+                            const message =
+                              document.getElementById("whatsappMessage").value;
+                            const encodedMessage = encodeURIComponent(message);
+                            // Replace with your actual WhatsApp number (with country code, remove +)
+                            const whatsappNumber = "917779096777";
+                            window.open(
+                              `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+                              "_blank"
+                            );
+                          }
                         }
                       }}
                     >

@@ -6,6 +6,43 @@ const ListingDetailsRight = () => {
   const [number, setNumber] = useState("");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  const isMobileDevice = () => {
+    // Check user agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobileUserAgent =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        userAgent
+      );
+
+    // Check screen width
+    const isMobileScreen = window.innerWidth <= 768;
+
+    // Check if device has touch capability
+    const hasTouchScreen =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    return isMobileUserAgent || (isMobileScreen && hasTouchScreen);
+  };
+
+  useEffect(() => {
+    // Initial check
+    setIsMobile(isMobileDevice());
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(isMobileDevice());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
@@ -15,7 +52,9 @@ const ListingDetailsRight = () => {
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:info.plixon.in"; // Replace with your email
+    const subject = encodeURIComponent("Product Inquiry");
+    const body = encodeURIComponent("Hello, I am interested in your products. Please share more details.");
+    window.location.href = `mailto:info.plixon.in?subject=${subject}&body=${body}`;
   };
 
   const handleShare = async () => {
@@ -51,7 +90,7 @@ const ListingDetailsRight = () => {
           width: "90%",
           maxWidth: "400px",
           textAlign: "center",
-          display: isPopupOpen ? "block" : "none"
+          display: isPopupOpen ? "block" : "none",
         }}
       >
         <UserInfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
@@ -71,23 +110,23 @@ const ListingDetailsRight = () => {
             <h3>Get our latest product list</h3>
             <a
               onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/assets/images/Plixon-Catalogue-Digital.pdf';
-                link.target = '_blank'; // Open in a new tab
-                link.rel = 'noopener noreferrer'; // Security best practice
+                const link = document.createElement("a");
+                link.href = "/assets/images/Plixon-Catalogue-Digital.pdf";
+                link.target = "_blank"; // Open in a new tab
+                link.rel = "noopener noreferrer"; // Security best practice
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
               }}
               className="main-btn"
               style={{
-                display: 'inline-block',
-                padding: '10px 20px',
-                backgroundColor: '#69C8C7',
-                color: '#FFF',
-                textDecoration: 'none',
-                borderRadius: '5px',
-                marginTop: '10px',
+                display: "inline-block",
+                padding: "10px 20px",
+                backgroundColor: "#69C8C7",
+                color: "#FFF",
+                textDecoration: "none",
+                borderRadius: "5px",
+                marginTop: "10px",
               }}
             >
               View Catalogue
@@ -98,7 +137,7 @@ const ListingDetailsRight = () => {
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
           <h5 className="widget-title">Get the List of TV Brands</h5>
           <span style={{ marginBottom: "10px", marginTop: "10px" }}>
-            Get the latest options and prices instantly for free
+            Get the latest options and prices instantly <br /> for free
           </span>
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form_group">
@@ -127,15 +166,28 @@ const ListingDetailsRight = () => {
                 className="main-btn"
                 onClick={() => {
                   const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
-                  if (!userInfo) {
-                    setIsPopupOpen(true); // Open the popup if session data is not available
-                  } else {
+                  if (isMobile) {
                     const phoneNumber = "917779096777"; // Replace with your WhatsApp number (in international format without '+')
                     const message = `Hi, I'm ${name} and my mobile number is ${number}. I want the best price list.`;
-                    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                      message
+                    )}`;
                     setName("");
                     setNumber("");
                     window.open(url, "_blank");
+                  } else {
+                    if (!userInfo) {
+                      setIsPopupOpen(true); // Open the popup if session data is not available
+                    } else {
+                      const phoneNumber = "917779096777"; // Replace with your WhatsApp number (in international format without '+')
+                      const message = `Hi, I'm ${name} and my mobile number is ${number}. I want the best price list.`;
+                      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                        message
+                      )}`;
+                      setName("");
+                      setNumber("");
+                      window.open(url, "_blank");
+                    }
                   }
                 }}
               >
@@ -164,10 +216,7 @@ const ListingDetailsRight = () => {
               <div className="info-list my-3">
                 <p>
                   <i className="ti-email" />
-                  <a
-                    style={{ fontSize: "16px" }}
-                    href="mailto:info@plixon.in"
-                  >
+                  <a style={{ fontSize: "16px" }} href="mailto:info@plixon.in">
                     info@plixon.in
                   </a>
                 </p>
@@ -197,21 +246,39 @@ const ListingDetailsRight = () => {
                   className="btn p-0 text-decoration-none d-flex align-items-center"
                   onClick={() => {
                     const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
-                  if (!userInfo) {
-                    setIsPopupOpen(true); // Open the popup if session data is not available
-                  } else {
-                    const whatsappNumber = "917779096777"; // WhatsApp number in international format (without '+')
-                    const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in receiving your best price list.`;
+                    if (isMobile) {
+                      const whatsappNumber = "917779096777"; // WhatsApp number in international format (without '+')
+                      const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in receiving your best price list.`;
 
-                    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(enquiryMessage)}`;
+                      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                        enquiryMessage
+                      )}`;
 
-                    // Clear form fields after sending
-                    setName("");
-                    setNumber("");
+                      // Clear form fields after sending
+                      setName("");
+                      setNumber("");
 
-                    // Open WhatsApp chat in a new tab
-                    window.open(whatsappURL, "_blank");
-                  }
+                      // Open WhatsApp chat in a new tab
+                      window.open(whatsappURL, "_blank");
+                    } else {
+                      if (!userInfo) {
+                        setIsPopupOpen(true); // Open the popup if session data is not available
+                      } else {
+                        const whatsappNumber = "917779096777"; // WhatsApp number in international format (without '+')
+                        const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in receiving your best price list.`;
+
+                        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                          enquiryMessage
+                        )}`;
+
+                        // Clear form fields after sending
+                        setName("");
+                        setNumber("");
+
+                        // Open WhatsApp chat in a new tab
+                        window.open(whatsappURL, "_blank");
+                      }
+                    }
                   }}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
@@ -219,7 +286,8 @@ const ListingDetailsRight = () => {
                       src="/assets/images/icons/whatsapp_black.png"
                       className="me-2 mx-2"
                       alt="WhatsApp"
-                      style={{ width: "17px", height: "17px" }} />
+                      style={{ width: "17px", height: "17px" }}
+                    />
                     <span className="underline">Send Enquiry on WhatsApp</span>
                   </div>
                 </button>
@@ -228,13 +296,11 @@ const ListingDetailsRight = () => {
               <div className="my-3">
                 <button
                   className="btn p-0 text-decoration-none d-flex align-items-center"
-                  onClick={handleLocation}
+                  onClick={handleMail}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
                     <i className="ti-email me-2 mx-2" />
-                    <span className="underline">
-                      Get information by Email
-                    </span>
+                    <span className="underline">Get information by Email</span>
                   </div>
                 </button>
               </div>
@@ -302,7 +368,9 @@ const ListingDetailsRight = () => {
         </div>
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
-          <h5 className="widget-title" style={{ marginBottom: "10px" }}>Get the List of TV Brands</h5>
+          <h5 className="widget-title" style={{ marginBottom: "10px" }}>
+            Get the List of TV Brands
+          </h5>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 mr-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"

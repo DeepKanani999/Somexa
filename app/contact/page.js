@@ -6,6 +6,42 @@ import { useEffect, useState } from "react";
 
 const Contact = () => {
   const [showBar, setShowBar] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const isMobileDevice = () => {
+    // Check user agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobileUserAgent =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        userAgent
+      );
+
+    // Check screen width
+    const isMobileScreen = window.innerWidth <= 768;
+
+    // Check if device has touch capability
+    const hasTouchScreen =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    return isMobileUserAgent || (isMobileScreen && hasTouchScreen);
+  };
+
+  useEffect(() => {
+    // Initial check
+    setIsMobile(isMobileDevice());
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(isMobileDevice());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -88,11 +124,31 @@ const Contact = () => {
 
     try {
       setIsSubmitting(true);
-      const userInfo = typeof window !== "undefined" && sessionStorage.getItem("userInfo");
-      
-      if (!userInfo) {
-        setIsPopupOpen(true);
-        return;
+      const userInfo =
+        typeof window !== "undefined" && sessionStorage.getItem("userInfo");
+
+      if (isMobile) {
+        const form = e.target;
+        const firstName = form.elements["name"][0].value;
+        const lastName = form.elements["name"][1].value;
+        const phone = form.elements["phone"].value;
+        const email = form.elements["email"].value;
+        const subject = form.elements["subject"].value;
+        const message = form.elements["message"].value;
+
+        // Construct the mailto link
+        const body = `First Name: ${firstName}%0D%0ALast Name: ${lastName}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+        const mailtoLink = `mailto:info@plixon.in?subject=${encodeURIComponent(
+          subject
+        )}&body=${body}`;
+
+        // Open default email client
+        window.location.href = mailtoLink;
+      } else {
+        if (!userInfo) {
+          setIsPopupOpen(true);
+          return;
+        }
       }
 
       const form = e.target;
@@ -105,7 +161,9 @@ const Contact = () => {
 
       // Construct the mailto link
       const body = `First Name: ${firstName}%0D%0ALast Name: ${lastName}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-      const mailtoLink = `mailto:info@plixon.in?subject=${encodeURIComponent(subject)}&body=${body}`;
+      const mailtoLink = `mailto:info@plixon.in?subject=${encodeURIComponent(
+        subject
+      )}&body=${body}`;
 
       // Open default email client
       window.location.href = mailtoLink;
@@ -189,13 +247,27 @@ const Contact = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    flex: 1,
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/call.png"
-                    alt="Call"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/phone_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Call Us
                 </button>
                 <button
@@ -208,28 +280,65 @@ const Contact = () => {
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/GMap.png"
-                    alt="Location"
-                    style={{ height: "25px", width: "25px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/location_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Location
                 </button>
                 <button
                   className="social-main-btn"
-                  onClick={handleWhatsApp}
+                  onClick={() => {
+                    const userInfo = sessionStorage.getItem("userInfo");
+                    if (isMobile) {
+                      handleWhatsApp(); // Directly open WhatsApp on mobile
+                    } else {
+                      if (!userInfo) {
+                        setIsPopupOpen(true); // Open the popup if session data is not available
+                      } else {
+                        handleWhatsApp();
+                      }
+                    }
+                  }}
                   style={{
-                    width: "150px",
+                    width: "160px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/whatsapp.png"
-                    alt="WhatsApp"
-                    style={{ height: "23px", width: "23px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/whatsapp_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   WhatsApp
                 </button>
                 <button
@@ -242,11 +351,24 @@ const Contact = () => {
                     alignItems: "center",
                   }}
                 >
-                  <img
-                    src="/assets/images/icons/gmail.png"
-                    alt="Mail"
-                    style={{ height: "30px", width: "30px", marginRight: 10 }}
-                  />
+                  <div
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      backgroundColor: "#FFF",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
+                      marginRight: 10,
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/black-icons/gmail_black.png"
+                      alt="Call"
+                      style={{ height: "20px", width: "20px" }}
+                    />
+                  </div>
                   Mail Us
                 </button>
               </div>
@@ -408,8 +530,8 @@ const Contact = () => {
                       </div>
                       <div className="col-lg-12">
                         <div className="form_group">
-                          <button 
-                            type="submit" 
+                          <button
+                            type="submit"
                             className="main-btn"
                             disabled={isSubmitting}
                             style={{ opacity: isSubmitting ? 0.7 : 1 }}

@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Header from "./headers/Header";
 import MobileMenu from "./MobileMenu";
 import ScrollTop from "./ScrollTop";
+import MobilePopupWrapper from "../components/MobilePopupWrapper";
 import '../../app/globals.css';
 
 const Layout = ({ children, header }) => {
@@ -24,6 +25,7 @@ const Layout = ({ children, header }) => {
       <Header header={header} />
       {children} <Footer />
       <ScrollTop />
+      <MobilePopupWrapper />
     </Fragment>
   );
 };
