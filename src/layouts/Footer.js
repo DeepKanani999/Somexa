@@ -178,9 +178,10 @@ const Footer = () => {
                         </span>
                         <h6 className="title">
                           <Link href="#" style={{ color: "#fff" }}>
-                            Discover premium TVs with stunning 4K visuals,
-                            smooth refresh rates, and smart streaming, designed
-                            for immersive home entertainment.
+                            Discover premium HR solutions designed to streamline
+                            hiring, enhance employee engagement, and ensure
+                            compliance—empowering your business with a smarter
+                            workforce strategy.
                           </Link>
                         </h6>
                       </div>

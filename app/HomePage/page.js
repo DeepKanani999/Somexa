@@ -21,21 +21,20 @@ const heroImages = [
 ];
 
 const populerSearches = [
-  "Best TVs 2025",
-  "TVs under $500",
-  "OLED vs QLED",
-  "Gaming smart TV",
-  "Top TV brands",
-  "TV buying guide",
-  "TVs with great sound",
-  "Best for streaming",
-  "TV with Wi-Fi & BT",
-  "Mirror phone to TV",
-  "Alexa/Google TV",
-  "Connect soundbar",
-  "Reset smart TV",
-  "Best 4K HDR TV",
-  "Dolby vs HDR10",
+  "HR services 2025",
+  "Hire top talent",
+  "Recruitment help",
+  "Payroll solutions",
+  "HR for startups",
+  "Compliance guide",
+  "Onboarding tips",
+  "Remote HR tools",
+  "HR outsourcing",
+  "Team management",
+  "Build company culture",
+  "Employee policies",
+  "Talent strategy",
+  "Labor law support",
 ];
 
 const carouselSettings = {
@@ -124,24 +123,29 @@ export function SocialStoriesSection() {
 
 const faqs = [
   {
-    question: "What makes Plixon Smart TVs different from other brands?",
+    question: "What services does your HR consultancy provide?",
     answer:
-      "Plixon Smart TVs offer cutting-edge display technology, intuitive user interfaces, and seamless integration with popular streaming platforms—all at an affordable price.",
+      "We offer end-to-end HR solutions including recruitment, payroll management, employee onboarding, compliance support, and strategic HR consulting tailored to your business needs.",
   },
   {
-    question: "Do Plixon Smart TVs support 4K and HDR?",
+    question: "How do you help with recruitment and talent acquisition?",
     answer:
-      "Yes! Most Plixon models support 4K Ultra HD resolution and HDR10, delivering stunning picture quality with vibrant colors and crisp details.",
+      "We streamline the hiring process by sourcing qualified candidates, conducting preliminary screenings, and providing interview support to ensure you hire the best talent efficiently.",
   },
   {
-    question: "What operating system do Plixon TVs use?",
+    question: "Can small businesses benefit from your services?",
     answer:
-      "Plixon Smart TVs run on PlixonOS, a user-friendly, fast, and secure smart TV platform designed to give you easy access to your favorite content.",
+      "Absolutely. Our services are scalable and tailored to fit businesses of all sizes. Whether you’re a startup or a growing SME, we provide cost-effective HR solutions to support your growth.",
   },
   {
-    question: "Can I install apps on my Plixon Smart TV?",
+    question: "Do you offer compliance and legal support?",
     answer:
-      "Absolutely. Plixon Smart TVs come with an app store where you can download apps like YouTube, Netflix, Amazon Prime Video, Spotify, and more.",
+      "Yes, we help businesses stay compliant with local labor laws and HR regulations, reducing legal risks and ensuring proper documentation and processes are in place.",
+  },
+  {
+    question: "Is your consultancy available for remote or hybrid teams?",
+    answer:
+      "Yes, we provide HR support for remote, hybrid, and in-office teams, helping you manage workforce operations seamlessly regardless of your work model.",
   },
 ];
 
@@ -1068,6 +1072,45 @@ const HomeScreen = () => {
                     <img src="/assets/images/icons/share.png" alt="Share" />
                   </button>
                 </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginLeft: "20px",
+                  }}
+                >
+                  <button
+                    onClick={() =>
+                      window.open(
+                        "https://www.google.com/maps/place/Rajkot,+Gujarat",
+                        "_blank"
+                      )
+                    }
+                    style={{
+                      padding: "12px 20px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: "8px",
+                      backgroundColor: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      color: "#333",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                    }}
+                  >
+                    <img
+                      src="/assets/images/icons/google.png"
+                      alt="Google Reviews"
+                      style={{
+                        height: "30px",
+                        width: "30px",
+                        marginRight: "12px",
+                      }}
+                    />
+                    Rate Us
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -1286,15 +1329,16 @@ const HomeScreen = () => {
                       </div>
                     </div>
                   </div>
-                  <h3 className="title">{`Plixon – Smart Way to View On`}</h3>
+                  <h3 className="title">{`HR Consultancy – Smart Solutions for Your Workforce`}</h3>
                   <p>
-                    At Plixon, we redefine home entertainment by blending
-                    innovation, quality, and design. Our premium range of Smart
-                    TVs delivers cinematic visuals, cutting-edge features, and
-                    seamless streaming - all designed to create a stunning,
-                    immersive viewing experience for every kind of viewer.
-                    Whether you're a movie enthusiast, a sports fan, or a gamer,
-                    Plixon has the perfect screen for your lifestyle.
+                    HR Consultancy – Smart Solutions for Your Workforce At HR
+                    Consultancy, we redefine human resource management by
+                    blending expertise, innovation, and personalized service.
+                    Our comprehensive range of HR solutions is designed to
+                    support businesses of all sizes in building efficient,
+                    compliant, and high-performing teams. Whether you're a
+                    growing startup or an established enterprise, we provide
+                    tailored services to meet your workforce needs.
                   </p>
                   <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12">
@@ -1306,7 +1350,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>OLED Technology</h6>
+                          <h6>Talent Optimization</h6>
                         </div>
                       </div>
                     </div>
@@ -1319,7 +1363,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Smart Voice Control</h6>
+                          <h6>HR Automation Tools</h6>
                         </div>
                       </div>
                     </div>
@@ -1332,7 +1376,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>HD Resolution</h6>
+                          <h6>Clear Workforce Insights</h6>
                         </div>
                       </div>
                     </div>
@@ -1345,7 +1389,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Smart TV</h6>
+                          <h6>Smart HR Solutions</h6>
                         </div>
                       </div>
                     </div>
@@ -1358,7 +1402,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Alexa/Google TV</h6>
+                          <h6>Integrated HR Systems</h6>
                         </div>
                       </div>
                     </div>
@@ -1371,21 +1415,20 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Best for streaming</h6>
+                          <h6>Ideal for Growing Teams</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                   <p>
-                    Discover the future of entertainment with our premium
-                    selection of televisions. Engineered for excellence, our TVs
-                    combine stunning visuals with cutting-edge technology,
-                    delivering an immersive experience for every home. Whether
-                    you're looking for cinematic 4K displays, ultra-smooth
-                    refresh rates, or smart features for effortless streaming,
-                    we offer models to match every lifestyle. Trust in our
-                    commitment to quality, innovation, and customer
-                    satisfaction.{" "}
+                    Discover the future of HR with our premium consultancy
+                    services. Built on a foundation of industry knowledge and
+                    modern HR practices, we help organizations streamline
+                    recruitment, enhance employee engagement, and ensure legal
+                    compliance. Whether you need strategic hiring support,
+                    payroll management, or end-to-end HR outsourcing, we offer
+                    solutions aligned with your goals. Trust in our commitment
+                    to professionalism, efficiency, and client satisfaction.
                     <a
                       href="/about"
                       style={{
@@ -1403,7 +1446,7 @@ const HomeScreen = () => {
                 </div>
 
                 <div className="releted-listing-area wow fadeInUp mb-10">
-                  <h3 className="title mb-40">Similar TV Products</h3>
+                  <h3 className="title mb-40">Related HR Services</h3>
                   <Slider
                     {...reletedListingSlider2}
                     className="releted-listing-slider-one"
@@ -1429,16 +1472,16 @@ const HomeScreen = () => {
                           </span>
                         </div>
                         <div className="listing-content">
-                          <h3 className="title">
+                          {/* <h3 className="title">
                             <Link href={`/product-details/${product.slug}`}>
                               {product.name}
                             </Link>
-                          </h3>
+                          </h3> */}
                           <p
                             style={{
                               display: "-webkit-box",
                               WebkitBoxOrient: "vertical",
-                              WebkitLineClamp: 3,
+                              WebkitLineClamp:6,
                               overflow: "hidden",
                               textOverflow: "ellipsis",
                               maxWidth: "300px",
@@ -1448,12 +1491,12 @@ const HomeScreen = () => {
                           >
                             {product.detail}
                           </p>
-                          <div className="features-list">
+                          {/* <div className="features-list">
                             <ul>
                               <li>AI Upscaling</li>
                               <li>8K Ultra HD</li>
                             </ul>
-                          </div>
+                          </div> */}
                           <span className="phone-meta"></span>
                           <div
                             className="listing-meta"
@@ -1475,9 +1518,11 @@ const HomeScreen = () => {
                                       }
                                     }
                                   }}
-                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
+                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 rounded-lg transition"
                                   style={{
-                                    backgroundColor: "#24D07A",
+                                    backgroundColor: "#FFF",
+                                    border: "1px solid #24D07A",
+                                    borderColor: "#24D07A",
                                     display: "flex",
                                     flexDirection: "row",
                                     alignItems: "center",
@@ -1487,7 +1532,7 @@ const HomeScreen = () => {
                                   }}
                                 >
                                   <img
-                                    src="/assets/images/WhatsApp_Image.png"
+                                    src="/assets/images/whatsapp-image-green.png"
                                     alt="WhatsApp Icon"
                                     style={{
                                       height: "15px",
@@ -1495,8 +1540,8 @@ const HomeScreen = () => {
                                       marginRight: "8px",
                                     }}
                                   />
-                                  <span className="underline text-white">
-                                    Get Price
+                                  <span className="underline" style={{color: "#24D07A"}}>
+                                    Get Services
                                   </span>
                                 </button>
                               </li>
@@ -1505,155 +1550,9 @@ const HomeScreen = () => {
                         </div>
                       </div>
                     ))}
-
-                    {/* <div className="listing-item listing-grid-item-two">
-                      <div
-                        className="listing-thumbnail"
-                        style={{
-                          backgroundColor: "#7D5BA6",
-                          borderTopLeftRadius: "10px",
-                          borderTopRightRadius: "10px",
-                        }}
-                      >
-                        <img
-                          src="/assets/images/products/tv3.png" // <-- Update TV image here
-                          alt="TV Product Image"
-                        />
-                        <span className="featured-btn">Featured</span>
-                      </div>
-                      <div className="listing-content">
-                        <h3 className="title">
-                          <Link href="/">NeoVision 8K Smart TV</Link>
-                        </h3>
-                        <p>
-                          Unmatched 8K clarity, AI-powered upscaling, and sleek
-                          minimalist design.
-                        </p>
-                        <div className="features-list">
-                          <ul>
-                            <li>AI Upscaling</li>
-                            <li>8K Ultra HD</li>
-                          </ul>
-                        </div>
-                        <span className="phone-meta"></span>
-                        <div className="listing-meta">
-                          <ul>
-                            <li>
-                              <span>
-                                <button
-                                  onClick={() => {
-                                    const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
-                                    const message = `Hello, I am interested in knowing the price details for the product. Please share more information.`;
-                                    const encodedMessage =
-                                      encodeURIComponent(message);
-                                    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                                    window.open(whatsappURL, "_blank");
-                                  }}
-                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
-                                  style={{
-                                    backgroundColor: "#24D07A",
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    alignItems: "center",
-                                    // paddingBottom: "20px",
-                                  }}
-                                >
-                                  <img
-                                    src="/assets/images/WhatsApp_Image.png"
-                                    alt="WhatsApp Icon"
-                                    style={{
-                                      height: "15px",
-                                      width: "15px",
-                                      marginRight: "8px",
-                                    }}
-                                  />
-                                  <span className="underline text-white">
-                                    Get Price
-                                  </span>
-                                </button>
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="listing-item listing-grid-item-two">
-                      <div
-                        className="listing-thumbnail"
-                        style={{
-                          backgroundColor: "#FFC857",
-                          borderTopLeftRadius: "10px",
-                          borderTopRightRadius: "10px",
-                        }}
-                      >
-                        <img
-                          src="/assets/images/products/tv2.png" // <-- Update TV image here
-                          alt="TV Product Image"
-                        />
-                        <span className="featured-btn">Featured</span>
-                      </div>
-                      <div className="listing-content">
-                        <h3 className="title">
-                          <Link href="/">
-                            MaxiView Quantum OLED TV
-                          </Link>
-                        </h3>
-                        <p>
-                          Deep blacks, dazzling colors, and smart voice control
-                          built-in.
-                        </p>
-                        <div className="features-list">
-                          <ul>
-                            <li>Quantum Dot Display</li>
-                            <li>Smart Voice Assistant</li>
-                          </ul>
-                        </div>
-                        <span className="phone-meta"></span>
-                        <div className="listing-meta">
-                          <ul>
-                            <li>
-                              <span>
-                                <button
-                                  onClick={() => {
-                                    const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
-                                    const message = `Hello, I am interested in knowing the price details for the product. Please share more information.`;
-                                    const encodedMessage =
-                                      encodeURIComponent(message);
-                                    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                                    window.open(whatsappURL, "_blank");
-                                  }}
-                                  className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 border border-gray-300 rounded-lg transition"
-                                  style={{
-                                    backgroundColor: "#24D07A",
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    alignItems: "center",
-                                    // paddingBottom: "20px",
-                                  }}
-                                >
-                                  <img
-                                    src="/assets/images/WhatsApp_Image.png"
-                                    alt="WhatsApp Icon"
-                                    style={{
-                                      height: "15px",
-                                      width: "15px",
-                                      marginRight: "8px",
-                                    }}
-                                  />
-                                  <span className="underline text-white">
-                                    Get Price
-                                  </span>
-                                </button>
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div> */}
                   </Slider>
                 </div>
-                <div className="listing-gallery-box mb-30 wow fadeInUp">
+                {/* <div className="listing-gallery-box mb-30 wow fadeInUp">
                   <h4 className="title" style={{ marginBottom: "40px" }}>
                     Features Gallery
                   </h4>
@@ -1702,7 +1601,7 @@ const HomeScreen = () => {
                     </div>
                   </Slider>
                 </div>
-                <SocialStoriesSection />
+                <SocialStoriesSection /> */}
                 <FAQSection />
                 <div
                   className="d-flex align-items-center justify-content-between p-3 rounded"
@@ -1778,7 +1677,7 @@ const HomeScreen = () => {
                           if (!userInfo) {
                             setIsPopupOpen(true); // Open the popup if session data is not available
                           } else {
-                            const phoneNumber = "917779096777"; // Replace with your retailer's WhatsApp number
+                            const phoneNumber = "917984348404"; // Replace with your retailer's WhatsApp number
                             const message = `${requirementInput}`;
                             const encodedMessage = encodeURIComponent(message);
                             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -1795,7 +1694,7 @@ const HomeScreen = () => {
                     >
                       Or connect with seller instantly
                       <a
-                        href="tel:77790 96777"
+                        href="tel:79843 48404"
                         className="text-decoration-none ms-1"
                       >
                         <strong
@@ -1805,7 +1704,7 @@ const HomeScreen = () => {
                             marginLeft: "5px",
                           }}
                         >
-                          77790 96777
+                          79843 48404
                         </strong>
                       </a>
                     </div>
@@ -1825,68 +1724,6 @@ const HomeScreen = () => {
                     );
                   })}
                 </div>
-
-                {/* <div className="listing-rating-box wow fadeInUp">
-                  <h4 className="title">Average Review (10 Reviews)</h4>
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <div className="single-average-rating">
-                        <h5 className="title">Service</h5>
-                        <div className="single-average-wrap d-flex align-items-center">
-                          <div className="progress flex-grow-1">
-                            <div
-                              className="progress-bar"
-                              style={{ width: "80%" }}
-                            />
-                          </div>
-                          <span className="rating">4.5</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="single-average-rating">
-                        <h5 className="title">Quality</h5>
-                        <div className="single-average-wrap d-flex align-items-center">
-                          <div className="progress flex-grow-1">
-                            <div
-                              className="progress-bar"
-                              style={{ width: "80%" }}
-                            />
-                          </div>
-                          <span className="rating">4.5</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="single-average-rating">
-                        <h5 className="title">Location</h5>
-                        <div className="single-average-wrap d-flex align-items-center">
-                          <div className="progress flex-grow-1">
-                            <div
-                              className="progress-bar"
-                              style={{ width: "80%" }}
-                            />
-                          </div>
-                          <span className="rating">4.5</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="single-average-rating">
-                        <h5 className="title">Price</h5>
-                        <div className="single-average-wrap d-flex align-items-center">
-                          <div className="progress flex-grow-1">
-                            <div
-                              className="progress-bar"
-                              style={{ width: "80%" }}
-                            />
-                          </div>
-                          <span className="rating">4.5</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
 
                 <div className="listing-review-box mb-50 wow fadeInUp">
                   <h4 className="title">Customer Review</h4>
