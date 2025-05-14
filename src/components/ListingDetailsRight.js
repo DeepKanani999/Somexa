@@ -48,13 +48,15 @@ const ListingDetailsRight = () => {
   };
 
   const handleLocation = () => {
-    window.open("https://g.co/kgs/BLYuxDA", "_blank");
+    window.open("https://g.co/kgs/NVpSRxo", "_blank");
   };
 
   const handleMail = () => {
     const subject = encodeURIComponent("Product Inquiry");
-    const body = encodeURIComponent("Hello, I am interested in your products. Please share more details.");
-    window.location.href = `mailto:info.plixon.in?subject=${subject}&body=${body}`;
+    const body = encodeURIComponent(
+      "Hello, I am interested in your products. Please share more details."
+    );
+    window.location.href = `mailto:info@shapingteam.com?subject=${subject}&body=${body}`;
   };
 
   const handleShare = async () => {
@@ -107,11 +109,11 @@ const ListingDetailsRight = () => {
             }}
           >
             <i className="ti-book" />
-            <h3>Get our latest product list</h3>
+            <h3>Get the List of HR Services</h3>
             <a
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = "/assets/images/Plixon-Catalogue-Digital.pdf";
+                link.href = "/assets/images/HR_Consultancy.pptx";
                 link.target = "_blank"; // Open in a new tab
                 link.rel = "noopener noreferrer"; // Security best practice
                 document.body.appendChild(link);
@@ -135,9 +137,9 @@ const ListingDetailsRight = () => {
         </div>
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
-          <h5 className="widget-title">Get the List of TV Brands</h5>
+          <h5 className="widget-title">Check Out Our HR Support Packages</h5>
           <span style={{ marginBottom: "10px", marginTop: "10px" }}>
-            Get the latest options and prices instantly <br /> for free
+          Discover the right solutions and pricing tailored to your business — absolutely free
           </span>
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form_group">
@@ -167,8 +169,8 @@ const ListingDetailsRight = () => {
                 onClick={() => {
                   const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
                   if (isMobile) {
-                    const phoneNumber = "917779096777"; // Replace with your WhatsApp number (in international format without '+')
-                    const message = `Hi, I'm ${name} and my mobile number is ${number}. I want the best price list.`;
+                    const phoneNumber = "917984348404"; // Replace with your WhatsApp number (in international format without '+')
+                    const message = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
                     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                       message
                     )}`;
@@ -179,8 +181,8 @@ const ListingDetailsRight = () => {
                     if (!userInfo) {
                       setIsPopupOpen(true); // Open the popup if session data is not available
                     } else {
-                      const phoneNumber = "917779096777"; // Replace with your WhatsApp number (in international format without '+')
-                      const message = `Hi, I'm ${name} and my mobile number is ${number}. I want the best price list.`;
+                      const phoneNumber = "917984348404"; // Replace with your WhatsApp number (in international format without '+')
+                      const message = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
                       const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                         message
                       )}`;
@@ -191,7 +193,7 @@ const ListingDetailsRight = () => {
                   }
                 }}
               >
-                Get Best Price
+                Request Free Consultation
               </button>
             </div>
           </form>
@@ -199,8 +201,8 @@ const ListingDetailsRight = () => {
         <div className="widget contact-info-widget mb-30 wow fadeInUp">
           <div className="contact-info-widget-wrap">
             <div className="contact-map">
-              <iframe src="https://maps.google.com/maps?q=rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed" />
-              <a href="https://g.co/kgs/BLYuxDA" className="support-icon">
+              <iframe src="https://maps.google.com/maps?q=ahmedabad+gota&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+              <a href="https://g.co/kgs/NVpSRxo" className="support-icon">
                 <i className="ti-location-pin" />
               </a>
             </div>
@@ -209,15 +211,18 @@ const ListingDetailsRight = () => {
                 <h5 className="widget-title my-2">Contact Info</h5>
                 <p>
                   <i className="ti-mobile" />
-                  <a href="tel:+91 77790 96777">+91 77790 96777</a>
+                  <a href="tel:+91 79843 48404">+91 79843 48404</a>
                 </p>
                 <hr className="my-2 opacity-25" />
               </div>
               <div className="info-list my-3">
                 <p>
                   <i className="ti-email" />
-                  <a style={{ fontSize: "16px" }} href="mailto:info@plixon.in">
-                    info@plixon.in
+                  <a
+                    style={{ fontSize: "16px" }}
+                    href="mailto:info@shapingteam.com"
+                  >
+                    info@shapingteam.com
                   </a>
                 </p>
                 <hr className="my-2 opacity-25" />
@@ -226,8 +231,8 @@ const ListingDetailsRight = () => {
                 <h5 className="widget-title my-2">Address</h5>
                 <p>
                   <a>
-                    M-167, 4, Gujarat Housing Board Society, Bh. Angle Madras,
-                    Cafe Akshar Marg, Near Amin Marg, Rajkot - 360001
+                    D-103, Silver Hormony, S.G. Highway, Gota, Ahmedabad.
+                    Gujarat, India - 382481
                   </a>
                   <button
                     className="btn p-0 text-decoration-none d-flex align-items-center"
@@ -247,8 +252,8 @@ const ListingDetailsRight = () => {
                   onClick={() => {
                     const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
                     if (isMobile) {
-                      const whatsappNumber = "917779096777"; // WhatsApp number in international format (without '+')
-                      const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in receiving your best price list.`;
+                      const whatsappNumber = "917984348404"; // WhatsApp number in international format (without '+')
+                      const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
 
                       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
                         enquiryMessage
@@ -264,8 +269,8 @@ const ListingDetailsRight = () => {
                       if (!userInfo) {
                         setIsPopupOpen(true); // Open the popup if session data is not available
                       } else {
-                        const whatsappNumber = "917779096777"; // WhatsApp number in international format (without '+')
-                        const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in receiving your best price list.`;
+                        const whatsappNumber = "917984348404"; // WhatsApp number in international format (without '+')
+                        const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
 
                         const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
                           enquiryMessage
@@ -321,7 +326,10 @@ const ListingDetailsRight = () => {
                 <button
                   className="btn p-0 text-decoration-none d-flex align-items-center"
                   onClick={() => {
-                    alert("Rate Us!!");
+                    window.open(
+                      "https://www.google.com/maps/place/Rajkot,+Gujarat",
+                      "_blank"
+                    );
                   }}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
@@ -369,37 +377,37 @@ const ListingDetailsRight = () => {
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
           <h5 className="widget-title" style={{ marginBottom: "10px" }}>
-            Get the List of TV Brands
+            Key HR Services for Success
           </h5>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 mr-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            4K UltraHD
+            Recruitment Solutions
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Smart TV
+            Employee Engagement
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            OLED Technology
+            Payroll Management
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            8K Resolution
+            Performance Tracking
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Smart Voice Control
+            HR Compliance & Audits
           </span>
         </div>
       </div>
