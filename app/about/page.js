@@ -603,58 +603,69 @@ const About = () => {
           className="cta-wrapper-two bg_cover b"
           style={{
             backgroundImage: "url(assets/images/bg/cta-bg-2.jpg)",
-            height: "50vh",
+            height: "40vh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-lg-7">
+          {/* <div className="container "> */}
+          <div className="row align-items-center justify-content-center p-3">
+            {/* <div className="col-lg-7">
                 <div
                   className="company-name wow fadeInLeft"
                   style={{
-                    fontSize: "160px",
+                    // fontSize: "160px",
                     fontWeight: "bold",
                     color: "#FFF",
                   }}
                 >
                   Decora
                 </div>
-              </div>
-              <div className="col-lg-5">
-                <div className="cta-content-box wow fadeInRight">
-                  <h2>Experience the Art of Comfortable Living</h2>
-                  <p>
-                    Premium furniture collection crafted with top-quality
-                    materials and stylish designs that transform your space into
-                    a comfortable and elegant retreat.
-                  </p>
-                  <a
-                    onClick={() => {
-                      const link = document.createElement("a");
-                      link.href = "/assets/images/Plixon-Catalogue-Digital.pdf";
-                      link.download = "Plixon-Catalogue-Digital.pdf"; // Optional: Specify the file name
-                      link.click();
-                    }}
-                    className="main-btn"
-                    style={{
-                      display: "inline-block",
-                      padding: "10px 20px",
-                      backgroundColor: "#69C8C7",
-                      color: "#FFF",
-                      textDecoration: "none",
-                      borderRadius: "5px",
-                      marginTop: "10px",
-                    }}
-                  >
-                    Download Catalogue
-                  </a>
-                </div>
+              </div> */}
+            <div className="col-lg-5">
+              <div
+                className="cta-content-box wow fadeInRight"
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <h2 style={{ textAlign: "center" }}>
+                  Experience the Art of Comfortable Living
+                </h2>
+                <p style={{ textAlign: "center" }}>
+                  Premium furniture collection crafted with top-quality
+                  materials and stylish designs that transform your space into a
+                  comfortable and elegant retreat.
+                </p>
+                <a
+                  onClick={() => {
+                    const link = document.createElement("a");
+                    link.href = "/assets/images/Plixon-Catalogue-Digital.pdf";
+                    link.download = "Plixon-Catalogue-Digital.pdf"; // Optional: Specify the file name
+                    link.click();
+                  }}
+                  className="main-btn"
+                  style={{
+                    display: "inline-block",
+                    padding: "10px 20px",
+                    backgroundColor: "#0091C9",
+                    color: "#FFF",
+                    textDecoration: "none",
+                    borderRadius: "5px",
+                    marginTop: "10px",
+                    alignSelf: "center",
+                  }}
+                >
+                  Download Catalogue
+                </a>
               </div>
             </div>
           </div>
+          {/* </div> */}
         </div>
       </section>
       {/*====== End CTA Section ======*/}
@@ -731,7 +742,7 @@ const About = () => {
                     />
                     <button
                       className="main-btn"
-                      style={{ backgroundColor: "#69C8C7" }}
+                      style={{ backgroundColor: "#0091C9" }}
                       onClick={() => {
                         const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
                         if (isMobile) {

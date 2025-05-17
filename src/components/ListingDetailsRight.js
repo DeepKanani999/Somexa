@@ -124,7 +124,7 @@ const ListingDetailsRight = () => {
               style={{
                 display: "inline-block",
                 padding: "10px 20px",
-                backgroundColor: "#69C8C7",
+                backgroundColor: "#0091C9",
                 color: "#FFF",
                 textDecoration: "none",
                 borderRadius: "5px",

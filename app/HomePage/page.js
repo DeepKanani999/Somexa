@@ -172,7 +172,7 @@ export function FAQSection() {
               onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
             >
               <span className="flex-1">{faq.question}</span>
-              <span className="text-3xl ml-4" style={{ color: "#69C8C7" }}>
+              <span className="text-3xl ml-4" style={{ color: "#0091C9" }}>
                 {openIndex === idx ? "−" : "+"}
               </span>
             </button>
@@ -1347,7 +1347,7 @@ const HomeScreen = () => {
                         <div className="icon">
                           <i
                             className="ti-desktop"
-                            style={{ color: "#69C8C7" }}
+                            style={{ color: "#0091C9" }}
                           />
                         </div>
                         <div className="info">
@@ -1360,7 +1360,7 @@ const HomeScreen = () => {
                         <div className="icon">
                           <i
                             className="ti-volume"
-                            style={{ color: "#69C8C7" }}
+                            style={{ color: "#0091C9" }}
                           />
                         </div>
                         <div className="info">
@@ -1373,7 +1373,7 @@ const HomeScreen = () => {
                         <div className="icon">
                           <i
                             className="ti-desktop"
-                            style={{ color: "#69C8C7" }}
+                            style={{ color: "#0091C9" }}
                           />
                         </div>
                         <div className="info">
@@ -1386,7 +1386,7 @@ const HomeScreen = () => {
                         <div className="icon">
                           <i
                             className="ti-desktop"
-                            style={{ color: "#69C8C7" }}
+                            style={{ color: "#0091C9" }}
                           />
                         </div>
                         <div className="info">
@@ -1399,7 +1399,7 @@ const HomeScreen = () => {
                         <div className="icon">
                           <i
                             className="ti-volume"
-                            style={{ color: "#69C8C7" }}
+                            style={{ color: "#0091C9" }}
                           />
                         </div>
                         <div className="info">
@@ -1412,7 +1412,7 @@ const HomeScreen = () => {
                         <div className="icon">
                           <i
                             className="ti-desktop"
-                            style={{ color: "#69C8C7" }}
+                            style={{ color: "#0091C9" }}
                           />
                         </div>
                         <div className="info">
@@ -1433,7 +1433,7 @@ const HomeScreen = () => {
                     <a
                       href="/about"
                       style={{
-                        color: "#69C8C7",
+                        color: "#0091C9",
                         cursor: "pointer",
                         fontSize: "15px",
                         whiteSpace: "nowrap",
