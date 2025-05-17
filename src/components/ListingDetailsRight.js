@@ -48,7 +48,7 @@ const ListingDetailsRight = () => {
   };
 
   const handleLocation = () => {
-    window.open("https://g.co/kgs/NVpSRxo", "_blank");
+    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
   };
 
   const handleMail = () => {
@@ -56,7 +56,7 @@ const ListingDetailsRight = () => {
     const body = encodeURIComponent(
       "Hello, I am interested in your products. Please share more details."
     );
-    window.location.href = `mailto:info@shapingteam.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:decorafurniture@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const handleShare = async () => {
@@ -109,7 +109,7 @@ const ListingDetailsRight = () => {
             }}
           >
             <i className="ti-book" />
-            <h3>Get the List of HR Services</h3>
+            <h3>View All Our Furniture Options</h3>
             <a
               onClick={() => {
                 const link = document.createElement("a");
@@ -137,9 +137,10 @@ const ListingDetailsRight = () => {
         </div>
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
-          <h5 className="widget-title">Check Out Our HR Support Packages</h5>
+          <h5 className="widget-title">Check Out Our Furniture Collections</h5>
           <span style={{ marginBottom: "10px", marginTop: "10px" }}>
-          Discover the right solutions and pricing tailored to your business — absolutely free
+            Explore stylish solutions and pricing tailored to your space —
+            absolutely free
           </span>
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form_group">
@@ -193,7 +194,7 @@ const ListingDetailsRight = () => {
                   }
                 }}
               >
-                Request Free Consultation
+                Style Guide
               </button>
             </div>
           </form>
@@ -201,8 +202,11 @@ const ListingDetailsRight = () => {
         <div className="widget contact-info-widget mb-30 wow fadeInUp">
           <div className="contact-info-widget-wrap">
             <div className="contact-map">
-              <iframe src="https://maps.google.com/maps?q=ahmedabad+gota&t=&z=13&ie=UTF8&iwloc=&output=embed" />
-              <a href="https://g.co/kgs/NVpSRxo" className="support-icon">
+              <iframe src="https://maps.google.com/maps?q=Dhebar+Road+Rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+              <a
+                href="https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A"
+                className="support-icon"
+              >
                 <i className="ti-location-pin" />
               </a>
             </div>
@@ -211,7 +215,7 @@ const ListingDetailsRight = () => {
                 <h5 className="widget-title my-2">Contact Info</h5>
                 <p>
                   <i className="ti-mobile" />
-                  <a href="tel:+91 79843 48404">+91 79843 48404</a>
+                  <a href="tel:+91 93757 19988">+91 93757 19988</a>
                 </p>
                 <hr className="my-2 opacity-25" />
               </div>
@@ -220,9 +224,9 @@ const ListingDetailsRight = () => {
                   <i className="ti-email" />
                   <a
                     style={{ fontSize: "16px" }}
-                    href="mailto:info@shapingteam.com"
+                    href="mailto:decorafurniture@gmail.com"
                   >
-                    info@shapingteam.com
+                    decorafurniture@gmail.com
                   </a>
                 </p>
                 <hr className="my-2 opacity-25" />
@@ -231,8 +235,8 @@ const ListingDetailsRight = () => {
                 <h5 className="widget-title my-2">Address</h5>
                 <p>
                   <a>
-                    D-103, Silver Hormony, S.G. Highway, Gota, Ahmedabad.
-                    Gujarat, India - 382481
+                    Decora Furniture, Near Grand Regency Hotel, Opposite Diwali
+                    Chamber, Dhebar Road-360002
                   </a>
                   <button
                     className="btn p-0 text-decoration-none d-flex align-items-center"
@@ -327,7 +331,7 @@ const ListingDetailsRight = () => {
                   className="btn p-0 text-decoration-none d-flex align-items-center"
                   onClick={() => {
                     window.open(
-                      "https://www.google.com/maps/place/Rajkot,+Gujarat",
+                      "https://g.page/r/CTjtIU0PHHR6EBM/review",
                       "_blank"
                     );
                   }}
@@ -377,37 +381,43 @@ const ListingDetailsRight = () => {
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
           <h5 className="widget-title" style={{ marginBottom: "10px" }}>
-            Key HR Services for Success
+            Key Furniture Solutions for Your Space
           </h5>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 mr-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Recruitment Solutions
+            Custom Furniture Designs
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Employee Engagement
+            Living Room Essentials
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Payroll Management
+            Bedroom Furniture Collections
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Performance Tracking
+            Office Furniture Solutions
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            HR Compliance & Audits
+            Smart Storage Options
+          </span>
+          <span
+            style={{ borderRadius: "20px" }}
+            className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
+          >
+            Interior Styling & Consultation
           </span>
         </div>
       </div>

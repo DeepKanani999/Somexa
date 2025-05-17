@@ -63,27 +63,27 @@ const Contact = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+917779096777"; // Replace with your number
+    window.location.href = "tel:+919375719988"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/DV8NxwoPHecb7eh4A", "_blank");
+    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/917779096777", "_blank"); // Replace with your number
+    window.open("https://wa.me/919375719988", "_blank"); // Replace with your number
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:info@plixon.in"; // Replace with your email
+    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
-    window.open("https://facebook.com/yourprofile", "_blank");
+    window.open("https://www.facebook.com/decorafurnitureofficial/?_rdr", "_blank");
   };
 
   const handleInstagram = () => {
-    window.open("https://instagram.com/yourprofile", "_blank");
+    window.open("https://www.instagram.com/decorafurniture_official/", "_blank");
   };
 
   const handleLinkedIn = () => {
@@ -138,7 +138,7 @@ const Contact = () => {
 
         // Construct the mailto link
         const body = `First Name: ${firstName}%0D%0ALast Name: ${lastName}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-        const mailtoLink = `mailto:info@plixon.in?subject=${encodeURIComponent(
+        const mailtoLink = `mailto:decorafurniture@gmail.com?subject=${encodeURIComponent(
           subject
         )}&body=${body}`;
 
@@ -161,7 +161,7 @@ const Contact = () => {
 
       // Construct the mailto link
       const body = `First Name: ${firstName}%0D%0ALast Name: ${lastName}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-      const mailtoLink = `mailto:info@plixon.in?subject=${encodeURIComponent(
+      const mailtoLink = `mailto:decorafurniture@gmail.com?subject=${encodeURIComponent(
         subject
       )}&body=${body}`;
 
@@ -429,8 +429,8 @@ const Contact = () => {
                   <div className="info">
                     <h5>Address</h5>
                     <p>
-                      M-167, 4, Gujarat Housing Board Society, Bh. Angle Madras,
-                      Cafe Akshar Marg, Near Amin Marg, Rajkot - 360001
+                    Decora Furniture, Near Grand Regency Hotel, Opposite Diwali
+                    Chamber, Dhebar Road-360002
                     </p>
                   </div>
                 </div>
@@ -441,7 +441,7 @@ const Contact = () => {
                   <div className="info">
                     <h5>Phone</h5>
                     <p>
-                      <a href="tel:+91 77790 96777">+91 77790 96777</a>
+                      <a href="tel:+91 93757 19988">+91 93757 19988</a>
                     </p>
                   </div>
                 </div>
@@ -452,7 +452,7 @@ const Contact = () => {
                   <div className="info">
                     <h5>Email</h5>
                     <p>
-                      <a href="mailto:info@plixon.in">info@plixon.in</a>
+                      <a href="mailto:decorafurniture@gmail.com">decorafurniture@gmail.com</a>
                     </p>
                   </div>
                 </div>
@@ -552,7 +552,7 @@ const Contact = () => {
       {/*====== Start Map section ======*/}
       <div className="contact-page-map">
         <div className="map-box">
-          <iframe src="https://maps.google.com/maps?q=rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+          <iframe src="https://maps.google.com/maps?q=Dhebar+Road+Rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed" />
         </div>
       </div>
       {/*====== End Map section ======*/}

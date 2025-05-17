@@ -2,8 +2,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Plixon - Premium Smart TVs",
-  description: "Discover premium Smart TVs with stunning visuals, advanced features, and unbeatable prices. Experience entertainment like never before with Plixon.",
+  title: "Decora - Furniture to match your moods",
+  description:
+    "At Decora, we believe your furniture should reflect how you live and feel. Whether you're looking for cozy comfort, bold style, or minimalist charm, our collections are thoughtfully designed to match every mood, space, and lifestyle.",
   manifest: "/manifest.json", // Path to the PWA manifest file
 };
 

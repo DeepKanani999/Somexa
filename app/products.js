@@ -1,49 +1,52 @@
 export const products = [
   {
-    id: "plx-001",
-    name: "PLXFHD-24N",
-    slug: "plxfhd-24n",
-    tag: "plxfhd-24n",
+    id: "dec-001",
+    name: "Urban Lounge Set",
+    slug: "urban-lounge-set",
+    tag: "urban-lounge-set",
     detail:
-      "The HR-SRV is an ideal solution for startups and small businesses looking for efficient hiring. It covers candidate sourcing, initial screenings, and interview coordination to streamline your recruitment process.",
+      "Perfect for living rooms and lounges, this package includes plush sofas, elegant center tables, and cozy recliners — all selected to balance comfort and class.",
     image: "/assets/images/products/tv3.png",
     discription:
-      "Experience stunning clarity and vibrant visuals with Plixon's Crystal-Clear HD Display, featuring a resolution of 1366 x 768 pixels. Whether you're watching your favorite movies, streaming shows, or diving into casual gaming, the HD display ensures sharp imagery and lifelike color reproduction that brings every scene to life. Designed with modern multimedia needs in mind, the TV offers a wide range of connectivity options to ensure seamless integration with your devices. It includes two HDMI ports, allowing you to effortlessly connect set-top boxes, gaming consoles, or streaming sticks for a more immersive viewing experience. Two USB ports enable quick access to your favorite music, videos, or photos, directly from your pen drive or hard drive. The AV input supports compatibility with older media players, such as DVD players, ensuring you don’t have to part with your classic devices. Additionally, the COAX input caters to traditional cable TV or RF-based connections, while the VGA port lets you connect your laptop or desktop for a bigger screen experience — ideal for presentations or entertainment. For personal audio enjoyment, the headphone out jack provides the convenience of private listening through headphones or external speakers. Altogether, this well-rounded configuration transforms your Plixon Smart TV into a central hub for entertainment, work, and leisure — blending versatility, performance, and ease of use into one smart display solution.",
-    usability: ["Small bedroom TV", "Compact Office", "Kitchen TV"],
-    specification: ["Smart TV"],
-    backgroundColor: "#D4AFB9"
+      "Transform your living area into a haven of style and relaxation with the Decora Urban Lounge Set. Designed with a keen eye for modern aesthetics and built using top-grade materials, this luxurious set includes deeply cushioned recliners upholstered in ultra-soft, wear-resistant fabric. The ergonomic contours provide superior lumbar support, making it perfect for unwinding after a long day. A sleek, contemporary center table ties the ensemble together, adding a functional and visual focal point to your room. Whether entertaining guests or enjoying a quiet evening, the Urban Lounge Set by Decora blends comfort and class in equal measure—ideal for today’s sophisticated urban homes.",
+    usability: ["Living Room", "Guest Area", "Lounge"],
+    specification: [
+      "Premium Upholstery",
+      "Ergonomic Design",
+      "Contemporary Style",
+    ],
+    // backgroundColor: "#D4AFB9",
   },
   {
-    id: "plx-002",
-    name: "PLXFHD-24S",
-    slug: "plxfhd-24s",
-    tag: "plxfhd-24s",
+    id: "dec-002",
+    name: "Smart Office Setup",
+    slug: "smart-office-setup",
+    tag: "smart-office-setup",
     detail:
-      "The HR-SRV is a comprehensive package that ensures accurate payroll processing and full legal compliance. It's perfect for companies that want hassle-free salary management and peace of mind regarding labor laws.",
+      "Designed for startups and home offices, this set includes ergonomic chairs, functional desks, and smart storage units — everything you need to create a productive environment.",
     image: "/assets/images/products/tv2.png",
-    discription: `Experience next-level entertainment with the Plixon Android Smart TV, designed to deliver exceptional clarity and performance. Featuring a Full HD resolution of 1920×1080 pixels, this TV offers crisp, detailed visuals and vibrant colors, making your viewing experience immersive and lifelike. Built on the Android 11 platform, it provides a smooth, intuitive interface with access to countless apps, streaming platforms, and games via the Google Play Store. With 512MB of RAM and 4GB of internal storage, it ensures stable performance for essential smart functions and app usage.
-Connectivity is a strong suit of this Smart TV, offering built-in Wi-Fi and Hotspot support, enabling seamless internet access and device tethering without the need for external dongles. With Screen Mirroring and TV Mirroring features, you can effortlessly cast content from your smartphone or tablet onto the big screen, perfect for sharing videos, photos, or presentations. The TV also supports USB-to-USB file transfer, allowing you to move or access files directly between USB drives without needing a PC.
-In terms of I/O options, the TV includes 2 USB ports, 2 HDMI ports for high-definition video/audio input, an RJ45 Ethernet port for wired internet connectivity, and AV input to connect traditional media players or consoles. Audio is delivered through stereo speakers, providing balanced and immersive sound for everyday entertainment.
-Overall, the Plixon Android Smart TV combines smart connectivity, user-friendly features, and a Full HD viewing experience, making it a versatile and reliable centerpiece for your home entertainment system.
-`,
-    usability: ["Small bedroom TV", "Compact Office", "Kitchen TV"],
-    specification: ["Android 11", "512MB-RAM", "4GB-ROM"],
-    backgroundColor: "#0471A6"
+    discription:
+      "Reimagine your workspace with the Decora Smart Office Setup, crafted specifically for the modern professional. This thoughtfully curated ensemble includes a height-adjustable, ergonomically designed chair that ensures all-day comfort, a minimalist desk that maximizes efficiency while conserving space, and modular storage solutions to keep your essentials organized and accessible. Built with high-quality engineered wood and sleek metal accents, each piece boasts durability and a contemporary finish. Whether you're working from home full-time or managing a side hustle, the Decora Smart Office Setup empowers productivity without compromising on visual appeal—bringing professional-grade functionality right into your home.",
+    usability: ["Home Office", "Startup Workspace", "Study Room"],
+    specification: [
+      "Adjustable Seating",
+      "Modular Storage",
+      "Compact Desk Design",
+    ],
+    // backgroundColor: "#0471A6",
   },
   {
-    id: "plx-003",
-    name: "PLXFHD-32N",
-    slug: "plxfhd-32n",
-    tag: "plxfhd-32n",
+    id: "dec-003",
+    name: "Space-Saver Essentials",
+    slug: "space-saver-essentials",
+    tag: "space-saver-essentials",
     detail:
-      "The HR-SRV offers end-to-end HR management including recruitment, onboarding, compliance, performance tracking, and employee engagement. It’s a complete solution for businesses looking to outsource all HR functions professionally.",
+      "Ideal for compact homes, this combo features multifunctional furniture like beds with storage, foldable tables, and modular wardrobes — helping you save space without compromising on style.",
     image: "/assets/images/products/tv1.png",
-    discription: `The Plixon TV is designed to deliver an engaging and enjoyable viewing experience with its HD display resolution of 1366×768 pixels. Whether you're watching your favorite shows, streaming videos, or playing games, the screen offers clear visuals with accurate color reproduction and sharp details — ideal for everyday entertainment.
-To enhance connectivity and versatility, this TV is equipped with multiple input options. It features 2 HDMI ports, allowing you to connect devices like set-top boxes, gaming consoles, or streaming devices with ease. 2 USB ports provide plug-and-play access to movies, music, and photos directly from USB drives. The AV In port supports older media devices such as DVD players, offering backward compatibility for your classic content. For those still using cable TV or RF-based sources, the COAX input ensures seamless connection. Additionally, the VGA port allows you to connect a computer or laptop, turning the TV into a large secondary monitor — perfect for work or presentations. The Headphone Out jack offers private listening, letting you enjoy your content without disturbing others by using wired headphones or external speakers.
-All in all, this feature-packed TV brings together reliable HD performance and versatile connectivity, making it a smart choice for modern households.
-`,
-    usability: ["Small bedroom TV", "Gaming monitor", "Guest room TV"],
-    specification: ["Smart TV"],
-    backgroundColor: "#F9DF74"
+    discription:
+      "Optimize every square foot of your home with the Decora Space-Saver Essentials Collection, perfect for compact apartments and studio lifestyles. This intelligently designed range includes multi-functional furniture such as platform beds with hidden under-bed storage, foldable dining tables that can be tucked away when not in use, and slim-profile wardrobes that offer ample space without overwhelming your room. Each piece is crafted from sturdy, long-lasting materials and finished with a sleek, modern touch that enhances your interior décor. With Decora's Space-Saver Essentials, you don’t have to choose between style and practicality—enjoy the best of both in your compact living space.",
+    usability: ["Studio Apartment", "Guest Room", "Small Bedroom"],
+    specification: ["Storage Bed", "Foldable Table", "Modular Wardrobe"],
+    // backgroundColor: "#F9DF74",
   },
 ];
