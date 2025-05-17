@@ -603,7 +603,7 @@ const About = () => {
           className="cta-wrapper-two bg_cover b"
           style={{
             backgroundImage: "url(assets/images/bg/cta-bg-2.jpg)",
-            height: "50vh",
+            height: "70vh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -615,7 +615,7 @@ const About = () => {
                 <div
                   className="company-name wow fadeInLeft"
                   style={{
-                    fontSize: "160px",
+                    // fontSize: "160px",
                     fontWeight: "bold",
                     color: "#FFF",
                   }}
@@ -642,7 +642,7 @@ const About = () => {
                     style={{
                       display: "inline-block",
                       padding: "10px 20px",
-                      backgroundColor: "#69C8C7",
+                      backgroundColor: "#0091C9",
                       color: "#FFF",
                       textDecoration: "none",
                       borderRadius: "5px",
@@ -731,7 +731,7 @@ const About = () => {
                     />
                     <button
                       className="main-btn"
-                      style={{ backgroundColor: "#69C8C7" }}
+                      style={{ backgroundColor: "#0091C9" }}
                       onClick={() => {
                         const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
                         if (isMobile) {

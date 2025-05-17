@@ -140,7 +140,7 @@ Pincode: ${form.pincode}`;
           </button>
           <button
             onClick={handleSubmit}
-            style={{ backgroundColor: "#69C8C7", width: "50%" }}
+            style={{ backgroundColor: "#0091C9", width: "50%" }}
             className="w-full bg-black text-white px-4 py-2 mt-6 rounded hover:bg-gray-800"
           >
             Submit

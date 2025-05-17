@@ -896,7 +896,7 @@ const ProductDetailsClient = ({ item }) => {
                             <div
                               className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
                               style={{
-                                backgroundColor: "#69C8C7",
+                                backgroundColor: "#0091C9",
                                 display: "flex",
                                 flexDirection: "row",
                                 alignItems: "center",

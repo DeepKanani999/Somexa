@@ -31,7 +31,7 @@ const PWAmodal = ({ handleInstall, handleCloseModal }) => {
         <div className="flex gap-3 mt-6">
           <button
             onClick={handleInstall}
-            style={{ backgroundColor: "#69C8C7" }}
+            style={{ backgroundColor: "#0091C9" }}
             className="flex-1 text-white px-4 py-2 rounded hover:bg-opacity-90"
           >
             Install Now
