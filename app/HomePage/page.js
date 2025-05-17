@@ -21,20 +21,20 @@ const heroImages = [
 ];
 
 const populerSearches = [
-  "HR services 2025",
-  "Hire top talent",
-  "Recruitment help",
-  "Payroll solutions",
-  "HR for startups",
-  "Compliance guide",
-  "Onboarding tips",
-  "Remote HR tools",
-  "HR outsourcing",
-  "Team management",
-  "Build company culture",
-  "Employee policies",
-  "Talent strategy",
-  "Labor law support",
+  "Furniture trends 2025",
+  "Buy modern sofa",
+  "Space-saving furniture",
+  "Affordable bedroom sets",
+  "Office furniture ideas",
+  "Home decor guide",
+  "Modular wardrobe designs",
+  "Dining table styles",
+  "Furniture for small spaces",
+  "Interior design tips",
+  "Living room makeover",
+  "Smart storage solutions",
+  "Custom furniture online",
+  "Wood vs metal furniture",
 ];
 
 const carouselSettings = {
@@ -123,29 +123,29 @@ export function SocialStoriesSection() {
 
 const faqs = [
   {
-    question: "What services does your HR consultancy provide?",
+    question: "What types of furniture do you offer?",
     answer:
-      "We offer end-to-end HR solutions including recruitment, payroll management, employee onboarding, compliance support, and strategic HR consulting tailored to your business needs.",
+      "We offer a wide range of home and office furniture including sofas, beds, dining sets, wardrobes, workstations, and custom-made pieces — all designed to suit different styles and spaces.",
   },
   {
-    question: "How do you help with recruitment and talent acquisition?",
+    question: "Can I customize furniture to fit my space?",
     answer:
-      "We streamline the hiring process by sourcing qualified candidates, conducting preliminary screenings, and providing interview support to ensure you hire the best talent efficiently.",
+      "Yes, we offer customization options for many of our products. From dimensions and finishes to materials and layouts, we help you personalize furniture to match your needs.",
   },
   {
-    question: "Can small businesses benefit from your services?",
+    question: "Do you cater to small spaces or studio apartments?",
     answer:
-      "Absolutely. Our services are scalable and tailored to fit businesses of all sizes. Whether you’re a startup or a growing SME, we provide cost-effective HR solutions to support your growth.",
+      "Absolutely. We specialize in space-saving and multifunctional furniture that’s perfect for compact homes, apartments, and studios without compromising on style or comfort.",
   },
   {
-    question: "Do you offer compliance and legal support?",
+    question: "What about delivery and installation?",
     answer:
-      "Yes, we help businesses stay compliant with local labor laws and HR regulations, reducing legal risks and ensuring proper documentation and processes are in place.",
+      "We provide hassle-free delivery and professional installation for all furniture purchases. Our team ensures everything is set up properly so you can enjoy your new space immediately.",
   },
   {
-    question: "Is your consultancy available for remote or hybrid teams?",
+    question: "Do you serve both home and office needs?",
     answer:
-      "Yes, we provide HR support for remote, hybrid, and in-office teams, helping you manage workforce operations seamlessly regardless of your work model.",
+      "Yes, we offer solutions for both residential and commercial spaces. Whether you're furnishing a home, setting up a workspace, or designing a retail area — we've got you covered.",
   },
 ];
 
@@ -258,15 +258,15 @@ const HomeScreen = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+917779096777"; // Replace with your number
+    window.location.href = "tel:+919375719988"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/DV8NxwoPHecb7eh4A", "_blank");
+    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
   };
 
   const handleWhatsApp = () => {
-    const phoneNumber = "917779096777"; // Replace with your number
+    const phoneNumber = "919375719988"; // Replace with your number
     const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
 
     const encodedMessage = encodeURIComponent(defaultMessage);
@@ -277,15 +277,15 @@ const HomeScreen = () => {
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:info.plixon.in"; // Replace with your email
+    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
-    window.open("https://facebook.com/yourprofile", "_blank");
+    window.open("https://www.facebook.com/decorafurnitureofficial/?_rdr", "_blank");
   };
 
   const handleInstagram = () => {
-    window.open("https://instagram.com/yourprofile", "_blank");
+    window.open("https://www.instagram.com/decorafurniture_official/", "_blank");
   };
 
   const handleLinkedIn = () => {
@@ -311,8 +311,8 @@ const HomeScreen = () => {
   const getPrice = (product) => {
     const userInfo = sessionStorage.getItem("userInfo");
     if (isMobile) {
-      const phoneNumber = "917779096777";
-      const imageUrl = `https://plixon.in/${product?.image}`;
+      const phoneNumber = "919375719988";
+      const imageUrl = `https://decora.in/${product?.image}`;
 
       // Create a message with product details and image URL
       const message = `*Product Inquiry*
@@ -344,12 +344,13 @@ const HomeScreen = () => {
       if (!userInfo) {
         setIsPopupOpen(true); // Open the popup if session data is not available
       } else {
-        const phoneNumber = "917779096777";
+        const phoneNumber = "919375719988";
+        const imageUrl = `https://decora.in/${product?.image}`;
 
         // Create a message with product details and image URL
         const message = `*Product Inquiry*
 
-  ${product?.image}
+  ${imageUrl}
   
   *Product Details:*
   • Name: ${product?.name}
@@ -630,7 +631,7 @@ const HomeScreen = () => {
           <button
             onClick={() =>
               window.open(
-                "https://www.google.com/maps/place/Rajkot,+Gujarat",
+                "https://g.page/r/CTjtIU0PHHR6EBM/review",
                 "_blank"
               )
             }
@@ -1082,7 +1083,7 @@ const HomeScreen = () => {
                   <button
                     onClick={() =>
                       window.open(
-                        "https://www.google.com/maps/place/Rajkot,+Gujarat",
+                        "https://g.page/r/CTjtIU0PHHR6EBM/review",
                         "_blank"
                       )
                     }
@@ -1329,16 +1330,16 @@ const HomeScreen = () => {
                       </div>
                     </div>
                   </div>
-                  <h3 className="title">{`HR Consultancy – Smart Solutions for Your Workforce`}</h3>
+                  <h3 className="title">{`Home Elegance – Smart Solutions for Your Living Spaces`}</h3>
                   <p>
-                    HR Consultancy – Smart Solutions for Your Workforce At HR
-                    Consultancy, we redefine human resource management by
-                    blending expertise, innovation, and personalized service.
-                    Our comprehensive range of HR solutions is designed to
-                    support businesses of all sizes in building efficient,
-                    compliant, and high-performing teams. Whether you're a
-                    growing startup or an established enterprise, we provide
-                    tailored services to meet your workforce needs.
+                    At Home Elegance, we redefine interior living by blending
+                    craftsmanship, innovation, and personalized design. Our wide
+                    range of premium furniture solutions is crafted to support
+                    homes of all styles in becoming more comfortable,
+                    functional, and aesthetically inspiring. Whether you're
+                    furnishing your first apartment or upgrading your dream
+                    home, we offer tailored pieces to meet your lifestyle and
+                    design needs.
                   </p>
                   <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12">
@@ -1350,7 +1351,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Talent Optimization</h6>
+                          <h6>Crafted Comfort, Designed to Impress</h6>
                         </div>
                       </div>
                     </div>
@@ -1363,7 +1364,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>HR Automation Tools</h6>
+                          <h6>Functional Style for Every Room</h6>
                         </div>
                       </div>
                     </div>
@@ -1376,7 +1377,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Clear Workforce Insights</h6>
+                          <h6>Modern Designs, Timeless Appeal</h6>
                         </div>
                       </div>
                     </div>
@@ -1389,7 +1390,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Smart HR Solutions</h6>
+                          <h6>Furnishing Dreams with Precision</h6>
                         </div>
                       </div>
                     </div>
@@ -1402,7 +1403,7 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Integrated HR Systems</h6>
+                          <h6>Elegant Spaces Start with Decora</h6>
                         </div>
                       </div>
                     </div>
@@ -1415,20 +1416,20 @@ const HomeScreen = () => {
                           />
                         </div>
                         <div className="info">
-                          <h6>Ideal for Growing Teams</h6>
+                          <h6>Smart Storage. Beautiful Living.</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                   <p>
-                    Discover the future of HR with our premium consultancy
-                    services. Built on a foundation of industry knowledge and
-                    modern HR practices, we help organizations streamline
-                    recruitment, enhance employee engagement, and ensure legal
-                    compliance. Whether you need strategic hiring support,
-                    payroll management, or end-to-end HR outsourcing, we offer
-                    solutions aligned with your goals. Trust in our commitment
-                    to professionalism, efficiency, and client satisfaction.
+                    Discover the future of home living with our exquisite
+                    furniture collections. Built on a foundation of quality
+                    materials and modern design trends, we help homeowners
+                    create stylish, cohesive spaces that reflect their
+                    personality. Whether you need custom sofas, elegant dining
+                    sets, or complete room transformations, we deliver solutions
+                    that align with your vision. Trust in our commitment to
+                    durability, elegance, and customer satisfaction.
                     <a
                       href="/about"
                       style={{
@@ -1481,7 +1482,7 @@ const HomeScreen = () => {
                             style={{
                               display: "-webkit-box",
                               WebkitBoxOrient: "vertical",
-                              WebkitLineClamp:6,
+                              WebkitLineClamp: 4,
                               overflow: "hidden",
                               textOverflow: "ellipsis",
                               maxWidth: "300px",
@@ -1540,8 +1541,11 @@ const HomeScreen = () => {
                                       marginRight: "8px",
                                     }}
                                   />
-                                  <span className="underline" style={{color: "#24D07A"}}>
-                                    Get Services
+                                  <span
+                                    className="underline"
+                                    style={{ color: "#24D07A" }}
+                                  >
+                                    Get Price
                                   </span>
                                 </button>
                               </li>
@@ -1677,7 +1681,7 @@ const HomeScreen = () => {
                           if (!userInfo) {
                             setIsPopupOpen(true); // Open the popup if session data is not available
                           } else {
-                            const phoneNumber = "917984348404"; // Replace with your retailer's WhatsApp number
+                            const phoneNumber = "919375719988"; // Replace with your retailer's WhatsApp number
                             const message = `${requirementInput}`;
                             const encodedMessage = encodeURIComponent(message);
                             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -1694,7 +1698,7 @@ const HomeScreen = () => {
                     >
                       Or connect with seller instantly
                       <a
-                        href="tel:79843 48404"
+                        href="tel: 93757 19988"
                         className="text-decoration-none ms-1"
                       >
                         <strong
@@ -1704,7 +1708,7 @@ const HomeScreen = () => {
                             marginLeft: "5px",
                           }}
                         >
-                          79843 48404
+                          93757 19988
                         </strong>
                       </a>
                     </div>
@@ -1780,7 +1784,7 @@ const HomeScreen = () => {
                       </div>
                       <div className="review-content">
                         <h5>Moriana Steve</h5>
-                        <span className="date">Sep 02, 2021</span>
+                        <span className="date">Sep 02, 2025</span>
                         <p>
                           Musutrum orci montes hac at neque mollis taciti
                           parturient vehicula interdum verra cubilia ipsum duis
@@ -1823,7 +1827,7 @@ const HomeScreen = () => {
                       </div>
                       <div className="review-content">
                         <h5>Moriana Steve</h5>
-                        <span className="date">Sep 02, 2021</span>
+                        <span className="date">Sep 02, 2025</span>
                         <p>
                           Musutrum orci montes hac at neque mollis taciti
                           parturient vehicula interdum verra cubilia ipsum duis

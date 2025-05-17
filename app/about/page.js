@@ -67,14 +67,14 @@ const About = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+917779096777"; // Replace with your number
+    window.location.href = "tel:+919375719988"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/DV8NxwoPHecb7eh4A", "_blank");
+    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
   };
   const handleWhatsApp = () => {
-    const phoneNumber = "917779096777"; // Replace with your number
+    const phoneNumber = "919375719988"; // Replace with your number
     const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
 
     const encodedMessage = encodeURIComponent(defaultMessage);
@@ -85,15 +85,21 @@ const About = () => {
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:info@plixon.in"; // Replace with your email
+    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
-    window.open("https://facebook.com/yourprofile", "_blank");
+    window.open(
+      "https://www.facebook.com/decorafurnitureofficial/?_rdr",
+      "_blank"
+    );
   };
 
   const handleInstagram = () => {
-    window.open("https://instagram.com/yourprofile", "_blank");
+    window.open(
+      "https://www.instagram.com/decorafurniture_official/",
+      "_blank"
+    );
   };
 
   const handleLinkedIn = () => {
@@ -406,10 +412,10 @@ const About = () => {
                   <div className="content">
                     <h3 className="title">User-Friendly Experience</h3>
                     <p>
-                      At Plixon, our Smart TVs are designed for effortless
-                      usability — with intuitive interfaces, smooth navigation,
-                      and instant access to all your favorite streaming apps and
-                      features.
+                      At Decora, our furniture is crafted for everyday ease —
+                      with thoughtful designs, comfortable features, and
+                      seamless functionality to perfectly fit your lifestyle and
+                      space.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -428,9 +434,9 @@ const About = () => {
                   <div className="content">
                     <h3 className="title">Exciting Daily Deals</h3>
                     <p>
-                      Enjoy unbeatable value every day. Plixon offers exclusive
-                      daily deals on high-performance Smart TVs, giving you
-                      premium quality at pocket-friendly prices.
+                      Enjoy unbeatable value every day. Decora offers exclusive
+                      deals on stylish, high-quality furniture—bringing comfort
+                      and elegance to your space at pocket-friendly prices.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -449,9 +455,9 @@ const About = () => {
                   <div className="content">
                     <h3 className="title">Smart & Quick Search</h3>
                     <p>
-                      Say goodbye to endless scrolling. With Plixon’s advanced
-                      filters and intelligent search, find your perfect Smart TV
-                      match in seconds — tailored to your preferences and
+                      Say goodbye to endless browsing. With Decora’s smart
+                      filters and easy search tools, find the perfect furniture
+                      piece in seconds — tailored to your style, space, and
                       budget.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
@@ -471,10 +477,9 @@ const About = () => {
                   <div className="content">
                     <h3 className="title">24/7 Live Support</h3>
                     <p>
-                      Need help? Our dedicated support team is always ready to
-                      assist — whether it’s setup guidance, feature
-                      explanations, or product inquiries. At Plixon, we’re just
-                      a click away.
+                      Need help? Our friendly support team is always here for
+                      you — whether it's product details, design advice, or
+                      order assistance. At Decora, we’re just a click away.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -504,11 +509,11 @@ const About = () => {
                 <div className="features-content-box features-content-box-one">
                   <div className="section-title section-title-left mb-30 wow fadeInUp">
                     <span className="sub-title">Our Speciality</span>
-                    <h2>Experience Entertainment Like Never Before</h2>
+                    <h2>Experience Comfort Like Never Before</h2>
                   </div>
                   <h5>
-                    Enjoy stunning visuals, rich sound, and seamless
-                    connectivity with Plixon Smart TVs.
+                    Enjoy elegant designs, lasting comfort, and seamless style
+                    with Decora furniture.
                   </h5>
                   <ul className="features-list-one">
                     <li
@@ -521,8 +526,8 @@ const About = () => {
                       <div className="content">
                         <h5>Perfect Match, Effortlessly</h5>
                         <p>
-                          From compact to cinematic, find the TV that fits your
-                          space and style with ease.
+                          From cozy corners to spacious rooms, find the
+                          furniture that fits your space and style with ease.
                         </p>
                       </div>
                     </li>
@@ -536,8 +541,8 @@ const About = () => {
                       <div className="content">
                         <h5>Smart & Simple Selection</h5>
                         <p>
-                          User-friendly tools help you compare and choose
-                          confidently.
+                          Easy-to-use tools help you explore, compare, and
+                          choose the perfect furniture with confidence.
                         </p>
                       </div>
                     </li>
@@ -551,8 +556,9 @@ const About = () => {
                       <div className="content">
                         <h5>24/7 Expert Support</h5>
                         <p>
-                          Instant help is always a click away for any product
-                          questions.
+                          Get instant help anytime for your furniture questions,
+                          styling tips, or order support — we're just a click
+                          away.
                         </p>
                       </div>
                     </li>
@@ -565,10 +571,10 @@ const About = () => {
                 <div className="content">
                   <h5>Our Vision</h5>
                   <p>
-                    To revolutionize home entertainment by making smart,
-                    connected, and immersive viewing experiences accessible to
-                    every household—empowering people to see the world in
-                    extraordinary clarity and convenience.
+                    To transform everyday living by offering stylish,
+                    comfortable, and functional furniture that fits every
+                    space—empowering people to create homes and workspaces that
+                    truly reflect their lifestyle and personality.
                   </p>
                 </div>
               </div>
@@ -576,12 +582,13 @@ const About = () => {
                 <div className="content">
                   <h5>Our Mission</h5>
                   <p>
-                    At Plixon, our mission is to innovate relentlessly and
-                    deliver cutting-edge Smart TVs that combine elegance,
-                    intelligence, and ease of use. We aim to enhance everyday
-                    living through technology that’s intuitive, reliable, and
-                    enriching—backed by exceptional support, sustainable
-                    practices, and a customer-first mindset.
+                    At Decora, our mission is to craft beautiful, comfortable
+                    furniture that blends style, quality, and functionality. We
+                    strive to enhance everyday living by creating pieces that
+                    are intuitive to use, built to last, and designed to enrich
+                    your space—supported by exceptional customer care,
+                    sustainable practices, and a commitment to your
+                    satisfaction.
                   </p>
                 </div>
               </div>
@@ -594,20 +601,35 @@ const About = () => {
       <section className="cta-area">
         <div
           className="cta-wrapper-two bg_cover b"
-          style={{ backgroundImage: "url(assets/images/bg/cta-bg-2.jpg)" }}
+          style={{
+            backgroundImage: "url(assets/images/bg/cta-bg-2.jpg)",
+            height: "50vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-7">
-                <div className="company-name wow fadeInLeft">Plixon</div>
+                <div
+                  className="company-name wow fadeInLeft"
+                  style={{
+                    fontSize: "160px",
+                    fontWeight: "bold",
+                    color: "#FFF",
+                  }}
+                >
+                  Decora
+                </div>
               </div>
               <div className="col-lg-5">
                 <div className="cta-content-box wow fadeInRight">
-                  <h2>Experience Best Display Technology</h2>
+                  <h2>Experience the Art of Comfortable Living</h2>
                   <p>
-                    Superior TV collection featuring crystal-clear resolution
-                    and immersive sound that transforms your viewing into a
-                    cinema-like experience.
+                    Premium furniture collection crafted with top-quality
+                    materials and stylish designs that transform your space into
+                    a comfortable and elegant retreat.
                   </p>
                   <a
                     onClick={() => {
@@ -722,7 +744,7 @@ const About = () => {
                               document.getElementById("whatsappMessage").value;
                             const encodedMessage = encodeURIComponent(message);
                             // Replace with your actual WhatsApp number (with country code, remove +)
-                            const whatsappNumber = "917779096777";
+                            const whatsappNumber = "919375719988";
                             window.open(
                               `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
                               "_blank"

@@ -70,15 +70,15 @@ const ProductDetailsClient = ({ item }) => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+917779096777"; // Replace with your number
+    window.location.href = "tel:+919375719988"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/DV8NxwoPHecb7eh4A", "_blank");
+    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
   };
 
   const handleWhatsApp = () => {
-    const phoneNumber = "917779096777"; // Replace with your number
+    const phoneNumber = "919375719988"; // Replace with your number
     const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
 
     const encodedMessage = encodeURIComponent(defaultMessage);
@@ -89,15 +89,21 @@ const ProductDetailsClient = ({ item }) => {
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:info@plixon.in"; // Replace with your email
+    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
-    window.open("https://facebook.com/yourprofile", "_blank");
+    window.open(
+      "https://www.facebook.com/decorafurnitureofficial/?_rdr",
+      "_blank"
+    );
   };
 
   const handleInstagram = () => {
-    window.open("https://instagram.com/yourprofile", "_blank");
+    window.open(
+      "https://www.instagram.com/decorafurniture_official/",
+      "_blank"
+    );
   };
 
   const handleLinkedIn = () => {
@@ -147,8 +153,8 @@ const ProductDetailsClient = ({ item }) => {
 
     const userInfo = sessionStorage.getItem("userInfo");
     if (isMobile) {
-      const phoneNumber = "917779096777";
-      const imageUrl = `https://plixon.in/${item?.image}`;
+      const phoneNumber = "919375719988";
+      const imageUrl = `https://decora.in/${item?.image}`;
 
       // Create a message with product details and image URL
       const message = `*Product Inquiry*
@@ -180,12 +186,13 @@ const ProductDetailsClient = ({ item }) => {
       if (!userInfo) {
         setIsPopupOpen(true);
       } else {
-        const phoneNumber = "917779096777";
+        const phoneNumber = "919375719988";
+        const imageUrl = `https://decora.in/${item?.image}`;
 
         // Create a message with product details and image URL
         const message = `*Product Inquiry*
 
-  ${item?.image}
+  ${imageUrl}
   
   *Product Details:*
   • Name: ${item?.name}
@@ -450,21 +457,63 @@ const ProductDetailsClient = ({ item }) => {
             className="product-details-wrapper mb-30 w-full"
             style={{ width: "100%" }}
           >
-            <div className="row">
-              <img
-                src={item?.image}
-                alt={item.name}
-                width={390}
-                height={290}
-                className="w-full h-auto object-cover rounded-lg"
-              />
+            <div
+              className={`${isMobile ? "flex flex-col" : ""}`}
+              style={{
+                display: "flex",
+                flexDirection: isMobile ? "column" : "row",
+                width: "100%",
+                gap: "20px",
+              }}
+            >
               <div
-                className="col-lg-8 col-md-10"
-                style={{ paddingLeft: "30px" }}
+                style={{
+                  width: isMobile ? "100%" : "50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: item?.backgroundColor || "#fff",
+                  borderRadius: "10px",
+                  // padding: "20px",
+                }}
+              >
+                <img
+                  src={item?.image}
+                  alt={item?.name || "Product Image"}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "contain",
+                    borderRadius: "10px",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: isMobile ? "100%" : "50%",
+                  padding: isMobile ? "0px" : "0 20px",
+                }}
               >
                 <div className="product-info mt-30">
-                  <h3 className="title">{item?.name}</h3>
-                  <span>{item?.detail}</span>
+                  <h3
+                    className="title"
+                    style={{
+                      fontSize: isMobile ? "20px" : "24px",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    {item?.name}
+                  </h3>
+                  <span
+                    style={{
+                      fontSize: isMobile ? "14px" : "16px",
+                      color: "#666",
+                      marginBottom: "20px",
+                      display: "block",
+                    }}
+                  >
+                    {item?.detail}
+                  </span>
                   <button
                     onClick={() => {
                       getPriceButton(item);
@@ -475,6 +524,8 @@ const ProductDetailsClient = ({ item }) => {
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
+                      justifyContent: "center",
+                      width: isMobile ? "100%" : "fit-content",
                     }}
                   >
                     <img
@@ -488,36 +539,80 @@ const ProductDetailsClient = ({ item }) => {
                     />
                     <span
                       className="underline text-white"
-                      style={{ fontSize: "18px" }}
+                      style={{
+                        fontSize: isMobile ? "16px" : "18px",
+                      }}
                     >
                       Get Price
                     </span>
                   </button>
                   <div className="product-meta mt-4">
-                    <span className="category">
-                      <span className="title text-sm">Usability:</span>
-                      {item?.usability?.map((val) => (
-                        <span
-                          key={val}
-                          style={{ borderRadius: "20px" }}
-                          className="px-3 my-1 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm"
-                        >
-                          {val}
-                        </span>
-                      ))}
-                    </span>
-                    <span className="category">
-                      <span className="title text-sm">Specifications:</span>
-                      {item?.specification?.map((val) => (
-                        <span
-                          key={val}
-                          style={{ borderRadius: "20px" }}
-                          className="px-3 mr-3 py-2 rounded-full border border-gray-300 bg-white text-sm"
-                        >
-                          {val}
-                        </span>
-                      ))}
-                    </span>
+                    <div className="category" style={{ marginBottom: "20px" }}>
+                      <span
+                        className="title text-sm"
+                        style={{
+                          display: "block",
+                          marginBottom: "10px",
+                          fontWeight: "bold",
+                          fontSize: isMobile ? "14px" : "16px",
+                        }}
+                      >
+                        Usability:
+                      </span>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: "8px",
+                        }}
+                      >
+                        {item?.usability?.map((val) => (
+                          <span
+                            key={val}
+                            style={{
+                              borderRadius: "20px",
+                              fontSize: isMobile ? "12px" : "14px",
+                            }}
+                            className="px-3 py-2 rounded-full border border-gray-300 bg-white"
+                          >
+                            {val}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="category">
+                      <span
+                        className="title text-sm"
+                        style={{
+                          display: "block",
+                          marginBottom: "10px",
+                          fontWeight: "bold",
+                          fontSize: isMobile ? "14px" : "16px",
+                        }}
+                      >
+                        Specifications:
+                      </span>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: "8px",
+                        }}
+                      >
+                        {item?.specification?.map((val) => (
+                          <span
+                            key={val}
+                            style={{
+                              borderRadius: "20px",
+                              fontSize: isMobile ? "12px" : "14px",
+                            }}
+                            className="px-3 py-2 rounded-full border border-gray-300 bg-white"
+                          >
+                            {val}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -611,7 +706,7 @@ const ProductDetailsClient = ({ item }) => {
                             </div>
                             <div className="review-content">
                               <h4>John F. Medina</h4>
-                              <span className="date">25 May 2021</span>
+                              <span className="date">25 May 2025</span>
                               <ul className="ratings ratings-five">
                                 <li className="star">
                                   <i className="flaticon-star-1" />
@@ -746,11 +841,11 @@ const ProductDetailsClient = ({ item }) => {
                     </span>
                   </div>
                   <div className="listing-content">
-                    <h3 className="title">
+                    {/* <h3 className="title">
                       <Link href={`/product-details/${item.slug}`}>
                         {item.name}
                       </Link>{" "}
-                    </h3>
+                    </h3> */}
                     <p
                       style={{
                         display: "-webkit-box",
@@ -765,7 +860,7 @@ const ProductDetailsClient = ({ item }) => {
                     >
                       {item.detail}
                     </p>{" "}
-                    <div className="features-list">
+                    {/* <div className="features-list">
                       <ul>
                         {" "}
                         <li
@@ -778,7 +873,7 @@ const ProductDetailsClient = ({ item }) => {
                           {"Smart TV"}
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
                     <span className="phone-meta"></span>
                     <div className="listing-meta">
                       <ul
