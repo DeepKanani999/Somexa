@@ -152,11 +152,11 @@ export const GallerySlider2 = {
   slidesToScroll: 1,
 };
 export const reletedListingSlider2 = {
-  dots: false,
+  dots: true,
   arrows: false,
   infinite: true,
   autoplaySpeed: 1500,
-  autoplay: true,
+  autoplay: false,
   slidesToShow: 2,
   slidesToScroll: 1,
 
@@ -173,9 +173,9 @@ export const reletedListingSlider2 = {
 export const reletedProductSlider = {
   dots: false,
   arrows: false,
-  infinite: true,
+  infinite: false,
   autoplaySpeed: 1500,
-  autoplay: true,
+  autoplay: false,
   slidesToShow: 3,
   slidesToScroll: 1,
   responsive: [

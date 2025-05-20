@@ -67,14 +67,14 @@ const About = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+919375719988"; // Replace with your number
+    window.location.href = "tel:+919726594265"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
+    window.open("https://maps.app.goo.gl/K2WbFgvgbXR13jTj7", "_blank");
   };
   const handleWhatsApp = () => {
-    const phoneNumber = "919375719988"; // Replace with your number
+    const phoneNumber = "919726594265"; // Replace with your number
     const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
 
     const encodedMessage = encodeURIComponent(defaultMessage);
@@ -85,7 +85,7 @@ const About = () => {
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
+    window.location.href = "mailto:somixafoodsllp@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
@@ -396,7 +396,7 @@ const About = () => {
               <div className="col-lg-6">
                 <div className="section-title text-center mb-60 wow fadeInUp">
                   <span className="sub-title">Some Feature</span>
-                  <h2>Caring for Your Entertainment</h2>
+                  <h2>Spicing Up Your Refreshment</h2>
                 </div>
               </div>
             </div>
@@ -412,10 +412,10 @@ const About = () => {
                   <div className="content">
                     <h3 className="title">User-Friendly Experience</h3>
                     <p>
-                      At Decora, our furniture is crafted for everyday ease —
-                      with thoughtful designs, comfortable features, and
-                      seamless functionality to perfectly fit your lifestyle and
-                      space.
+                      At Somixa, our masala is crafted for everyday refreshment
+                      — with authentic flavors, digestive benefits, and
+                      easy-to-use packaging that perfectly complements your
+                      lifestyle and taste preferences.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -434,9 +434,10 @@ const About = () => {
                   <div className="content">
                     <h3 className="title">Exciting Daily Deals</h3>
                     <p>
-                      Enjoy unbeatable value every day. Decora offers exclusive
-                      deals on stylish, high-quality furniture—bringing comfort
-                      and elegance to your space at pocket-friendly prices.
+                      Enjoy unbeatable value every day. Somixa brings you
+                      exclusive deals on our flavorful buttermilk masala—crafted
+                      to add taste, freshness, and digestive goodness to every
+                      glass at a pocket-friendly price.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -453,12 +454,11 @@ const About = () => {
                     <i className="flaticon-laptop" />
                   </div>
                   <div className="content">
-                    <h3 className="title">Smart & Quick Search</h3>
+                    <h3 className="title">Smart & Quick Choice</h3>
                     <p>
-                      Say goodbye to endless browsing. With Decora’s smart
-                      filters and easy search tools, find the perfect furniture
-                      piece in seconds — tailored to your style, space, and
-                      budget.
+                      Say goodbye to bland beverages. With Somixa’s perfectly
+                      balanced masala blend, elevate your buttermilk in seconds
+                      — full of flavor, tradition, and digestive goodness.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -477,9 +477,10 @@ const About = () => {
                   <div className="content">
                     <h3 className="title">24/7 Live Support</h3>
                     <p>
-                      Need help? Our friendly support team is always here for
-                      you — whether it's product details, design advice, or
-                      order assistance. At Decora, we’re just a click away.
+                      Got a question? Our friendly team is here round the clock
+                      to assist you — whether it’s about ingredients, usage
+                      tips, or placing an order. With Somixa, help is always
+                      just a message away.
                     </p>
                     {/* <Link className="btn-link icon-btn" href="/how-work">
                       More Details
@@ -509,11 +510,11 @@ const About = () => {
                 <div className="features-content-box features-content-box-one">
                   <div className="section-title section-title-left mb-30 wow fadeInUp">
                     <span className="sub-title">Our Speciality</span>
-                    <h2>Experience Comfort Like Never Before</h2>
+                    <h2>Experience Flavor Like Never Before</h2>
                   </div>
                   <h5>
-                    Enjoy elegant designs, lasting comfort, and seamless style
-                    with Decora furniture.
+                    Enjoy rich flavor, digestive comfort, and authentic taste
+                    with Somixa Buttermilk Masala.
                   </h5>
                   <ul className="features-list-one">
                     <li
@@ -524,10 +525,10 @@ const About = () => {
                         <i className="flaticon-find" />
                       </div>
                       <div className="content">
-                        <h5>Perfect Match, Effortlessly</h5>
+                        <h5>Perfect Blend, Instantly</h5>
                         <p>
-                          From cozy corners to spacious rooms, find the
-                          furniture that fits your space and style with ease.
+                          From daily meals to festive feasts, add the ideal
+                          touch of spice to your buttermilk with ease.
                         </p>
                       </div>
                     </li>
@@ -539,10 +540,10 @@ const About = () => {
                         <i className="flaticon-place" />
                       </div>
                       <div className="content">
-                        <h5>Smart & Simple Selection</h5>
+                        <h5>Smart & Flavorful Choice</h5>
                         <p>
-                          Easy-to-use tools help you explore, compare, and
-                          choose the perfect furniture with confidence.
+                          Our simple, authentic blend makes it easy to enjoy
+                          delicious, refreshing chaas—every time.
                         </p>
                       </div>
                     </li>
@@ -554,11 +555,11 @@ const About = () => {
                         <i className="flaticon-social-care" />
                       </div>
                       <div className="content">
-                        <h5>24/7 Expert Support</h5>
+                        <h5>24/7 Flavor Support</h5>
                         <p>
-                          Get instant help anytime for your furniture questions,
-                          styling tips, or order support — we're just a click
-                          away.
+                          Need help with recipes, orders, or product info? Our
+                          support team is always here to assist you — anytime,
+                          anywhere.
                         </p>
                       </div>
                     </li>
@@ -571,10 +572,14 @@ const About = () => {
                 <div className="content">
                   <h5>Our Vision</h5>
                   <p>
-                    To transform everyday living by offering stylish,
-                    comfortable, and functional furniture that fits every
-                    space—empowering people to create homes and workspaces that
-                    truly reflect their lifestyle and personality.
+                    To be the trusted brand for authentic buttermilk masala
+                    blends that deliver great taste, health benefits, and honor
+                    cultural heritage. We aim to make traditional drinks like
+                    chaas popular for their flavor and digestive qualities,
+                    bringing wellness and enjoyment to homes worldwide. Our
+                    vision is to make every glass of buttermilk a nourishing,
+                    flavorful experience that blends tradition with modern
+                    convenience.
                   </p>
                 </div>
               </div>
@@ -582,13 +587,13 @@ const About = () => {
                 <div className="content">
                   <h5>Our Mission</h5>
                   <p>
-                    At Decora, our mission is to craft beautiful, comfortable
-                    furniture that blends style, quality, and functionality. We
-                    strive to enhance everyday living by creating pieces that
-                    are intuitive to use, built to last, and designed to enrich
-                    your space—supported by exceptional customer care,
-                    sustainable practices, and a commitment to your
-                    satisfaction.
+                    At Somixa, our mission is to deliver authentic, high-quality
+                    buttermilk masala made from carefully selected spices. We
+                    aim to promote better digestion and hydration through our
+                    flavorful blend, preserving the essence of Indian culinary
+                    heritage. With a focus on purity, convenience, and customer
+                    satisfaction, we strive to become a staple in every kitchen
+                    that values both health and tradition.
                   </p>
                 </div>
               </div>
@@ -634,12 +639,11 @@ const About = () => {
                 }}
               >
                 <h2 style={{ textAlign: "center" }}>
-                  Experience the Art of Comfortable Living
+                  Experience the Art of Refreshing Tradition
                 </h2>
                 <p style={{ textAlign: "center" }}>
-                  Premium furniture collection crafted with top-quality
-                  materials and stylish designs that transform your space into a
-                  comfortable and elegant retreat.
+                  Premium buttermilk masala crafted with top-quality ingredients
+                  and authentic flavors that refresh your tradition.
                 </p>
                 <a
                   onClick={() => {
@@ -652,7 +656,7 @@ const About = () => {
                   style={{
                     display: "inline-block",
                     padding: "10px 20px",
-                    backgroundColor: "#0091C9",
+                    backgroundColor: "#39B54A",
                     color: "#FFF",
                     textDecoration: "none",
                     borderRadius: "5px",
@@ -742,7 +746,7 @@ const About = () => {
                     />
                     <button
                       className="main-btn"
-                      style={{ backgroundColor: "#0091C9" }}
+                      style={{ backgroundColor: "#39B54A" }}
                       onClick={() => {
                         const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
                         if (isMobile) {
@@ -755,7 +759,7 @@ const About = () => {
                               document.getElementById("whatsappMessage").value;
                             const encodedMessage = encodeURIComponent(message);
                             // Replace with your actual WhatsApp number (with country code, remove +)
-                            const whatsappNumber = "919375719988";
+                            const whatsappNumber = "919726594265";
                             window.open(
                               `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
                               "_blank"

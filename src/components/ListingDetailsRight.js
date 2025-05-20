@@ -48,7 +48,7 @@ const ListingDetailsRight = () => {
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
+    window.open("https://maps.app.goo.gl/K2WbFgvgbXR13jTj7", "_blank");
   };
 
   const handleMail = () => {
@@ -56,7 +56,7 @@ const ListingDetailsRight = () => {
     const body = encodeURIComponent(
       "Hello, I am interested in your products. Please share more details."
     );
-    window.location.href = `mailto:decorafurniture@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:somixafoodsllp@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const handleShare = async () => {
@@ -109,7 +109,7 @@ const ListingDetailsRight = () => {
             }}
           >
             <i className="ti-book" />
-            <h3>View All Our Furniture Options</h3>
+            <h3>Explore Our Buttermilk Masala Flavors</h3>
             <a
               onClick={() => {
                 const link = document.createElement("a");
@@ -124,22 +124,24 @@ const ListingDetailsRight = () => {
               style={{
                 display: "inline-block",
                 padding: "10px 20px",
-                backgroundColor: "#0091C9",
+                backgroundColor: "#39B54A",
                 color: "#FFF",
                 textDecoration: "none",
                 borderRadius: "5px",
                 marginTop: "10px",
               }}
             >
-              View Catalogue
+              View Flavors List
             </a>
           </div>
         </div>
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
-          <h5 className="widget-title">Check Out Our Furniture Collections</h5>
+          <h5 className="widget-title">
+            Check Out All Our Buttermilk Masala Range
+          </h5>
           <span style={{ marginBottom: "10px", marginTop: "10px" }}>
-            Explore stylish solutions and pricing tailored to your space —
+            Explore authentic flavors and pricing tailored to your taste —
             absolutely free
           </span>
           <form onSubmit={(e) => e.preventDefault()}>
@@ -170,8 +172,8 @@ const ListingDetailsRight = () => {
                 onClick={() => {
                   const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
                   if (isMobile) {
-                    const phoneNumber = "917984348404"; // Replace with your WhatsApp number (in international format without '+')
-                    const message = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
+                    const phoneNumber = "919726594265"; // Replace with your WhatsApp number (in international format without '+')
+                    const message = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your Somixa Buttermilk Masala products and would appreciate a consultation on how your blends can add flavor and health benefits to our daily offerings.`;
                     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                       message
                     )}`;
@@ -182,8 +184,8 @@ const ListingDetailsRight = () => {
                     if (!userInfo) {
                       setIsPopupOpen(true); // Open the popup if session data is not available
                     } else {
-                      const phoneNumber = "917984348404"; // Replace with your WhatsApp number (in international format without '+')
-                      const message = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
+                      const phoneNumber = "919726594265"; // Replace with your WhatsApp number (in international format without '+')
+                      const message = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your Buttermilk Masala products and would appreciate a consultation on how your blends can add flavor and health benefits to our daily offerings.`;
                       const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                         message
                       )}`;
@@ -194,7 +196,7 @@ const ListingDetailsRight = () => {
                   }
                 }}
               >
-                Style Guide
+                Flavor Guide
               </button>
             </div>
           </form>
@@ -202,9 +204,9 @@ const ListingDetailsRight = () => {
         <div className="widget contact-info-widget mb-30 wow fadeInUp">
           <div className="contact-info-widget-wrap">
             <div className="contact-map">
-              <iframe src="https://maps.google.com/maps?q=Dhebar+Road+Rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+              <iframe src="https://maps.google.com/maps?q=Maruti+Industrial+Area,+Vavdi,+Rajkot,+Gujarat+360004&t=&z=13&ie=UTF8&iwloc=&output=embed" />
               <a
-                href="https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A"
+                href="https://maps.app.goo.gl/K2WbFgvgbXR13jTj7"
                 className="support-icon"
               >
                 <i className="ti-location-pin" />
@@ -215,7 +217,7 @@ const ListingDetailsRight = () => {
                 <h5 className="widget-title my-2">Contact Info</h5>
                 <p>
                   <i className="ti-mobile" />
-                  <a href="tel:+91 93757 19988">+91 93757 19988</a>
+                  <a href="tel:+919726594265">+91 9726594265</a>
                 </p>
                 <hr className="my-2 opacity-25" />
               </div>
@@ -224,9 +226,9 @@ const ListingDetailsRight = () => {
                   <i className="ti-email" />
                   <a
                     style={{ fontSize: "16px" }}
-                    href="mailto:decorafurniture@gmail.com"
+                    href="mailto:somixafoodsllp@gmail.com"
                   >
-                    decorafurniture@gmail.com
+                    somixafoodsllp@gmail.com
                   </a>
                 </p>
                 <hr className="my-2 opacity-25" />
@@ -235,8 +237,8 @@ const ListingDetailsRight = () => {
                 <h5 className="widget-title my-2">Address</h5>
                 <p>
                   <a>
-                    Decora Furniture, Near Grand Regency Hotel, Opposite Diwali
-                    Chamber, Dhebar Road-360002
+                    Maruti Ind. Area, Shed No1, 30 Ft. Road, Near Pgvcl Office,
+                    Vavdi, Rajkot, Gujarat - 360004
                   </a>
                   <button
                     className="btn p-0 text-decoration-none d-flex align-items-center"
@@ -256,8 +258,8 @@ const ListingDetailsRight = () => {
                   onClick={() => {
                     const userInfo = sessionStorage.getItem("userInfo"); // Retrieve userInfo here
                     if (isMobile) {
-                      const whatsappNumber = "917984348404"; // WhatsApp number in international format (without '+')
-                      const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
+                      const whatsappNumber = "919726594265"; // WhatsApp number in international format (without '+')
+                      const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your Somixa Buttermilk Masala products and would appreciate a consultation on how your blends can add flavor and health benefits to our daily offerings.`;
 
                       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
                         enquiryMessage
@@ -273,8 +275,8 @@ const ListingDetailsRight = () => {
                       if (!userInfo) {
                         setIsPopupOpen(true); // Open the popup if session data is not available
                       } else {
-                        const whatsappNumber = "917984348404"; // WhatsApp number in international format (without '+')
-                        const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your HR services and would appreciate a consultation on how you can assist with our workforce needs.`;
+                        const whatsappNumber = "919726594265"; // WhatsApp number in international format (without '+')
+                        const enquiryMessage = `Hello, I'm ${name} and my contact number is ${number}. I'm interested in learning more about your Buttermilk Masala products and would appreciate a consultation on how your blends can add flavor and health benefits to our daily offerings.`;
 
                         const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
                           enquiryMessage
@@ -381,43 +383,43 @@ const ListingDetailsRight = () => {
 
         <div className="widget reservation-form-widget mb-30 wow fadeInUp">
           <h5 className="widget-title" style={{ marginBottom: "10px" }}>
-            Key Furniture Solutions for Your Space
+            Key Buttermilk Masala Blends for Your Taste
           </h5>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 mr-3 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Custom Furniture Designs
+            Authentic Buttermilk Masala Blends
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Living Room Essentials
+            Refreshing Pudina Masala Variants
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Bedroom Furniture Collections
+            Traditional Spice Mixes
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Office Furniture Solutions
+            Healthy Digestive Formulas
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Smart Storage Options
+            Natural Ingredients & Flavors
           </span>
           <span
             style={{ borderRadius: "20px" }}
             className="px-4 py-2 my-1 rounded-full border border-gray-300 bg-white text-sm shadow-sm"
           >
-            Interior Styling & Consultation
+            Tips & Recipes for Perfect Chaas
           </span>
         </div>
       </div>

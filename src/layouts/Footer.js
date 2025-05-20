@@ -184,9 +184,9 @@ const Footer = () => {
                         </span>
                         <h6 className="title">
                           <Link href="#" style={{ color: "#fff" }}>
-                            Discover high-quality furniture that transforms your
-                            space, adds comfort, and boosts style—making your
-                            home or office more functional and stylish.
+                            "Discover flavorful buttermilk masala that enhances
+                            every sip, supports digestion, and brings authentic
+                            Indian taste to your daily refreshment."
                           </Link>
                         </h6>
                       </div>
