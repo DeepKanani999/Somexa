@@ -28,19 +28,19 @@ const Products = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+917779096777"; // Replace with your number
+    window.location.href = "tel:+919726594265"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/DV8NxwoPHecb7eh4A", "_blank");
+    window.open("https://maps.app.goo.gl/K2WbFgvgbXR13jTj7", "_blank");
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/917779096777", "_blank"); // Replace with your number
+    window.open("https://wa.me/919726594265", "_blank"); // Replace with your number
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:info@plixon.in"; // Replace with your email
+    window.location.href = "mailto:somixafoodsllp@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
@@ -540,7 +540,14 @@ const Products = () => {
         </div> */}
         <div className="container">
           <div className="products-item-wrapper">
-            <div className="row">
+            <div
+              className="row"
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                display: "flex",
+              }}
+            >
               {products.map((val) => {
                 return (
                   <div className="col-lg-4 col-md-6 col-sm-12" key={val.slug}>
@@ -567,11 +574,11 @@ const Products = () => {
                         </span>
                       </div>
                       <div className="listing-content">
-                        {/* <h3 className="title">
+                        <h3 className="title">
                           <Link href={`/product-details/${val.slug}`}>
                             {val.name}
                           </Link>{" "}
-                        </h3> */}
+                        </h3>
                         <p
                           style={{
                             display: "-webkit-box",
@@ -622,7 +629,7 @@ const Products = () => {
                                 <div
                                   className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
                                   style={{
-                                    backgroundColor: "#0091C9",
+                                    backgroundColor: "#39B54A",
                                     display: "flex",
                                     flexDirection: "row",
                                     alignItems: "center",

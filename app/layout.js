@@ -2,14 +2,14 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Decora - Furniture to match your moods",
+  title: "Somixa - Truth of Goodness",
   description:
-    "At Decora, we believe your furniture should reflect how you live and feel. Whether you're looking for cozy comfort, bold style, or minimalist charm, our collections are thoughtfully designed to match every mood, space, and lifestyle.",
+    "Somixa is a brand that offers a range of products that are designed to help you live a healthier life. We offer a range of products that are designed to help you live a healthier life.",
   manifest: "/manifest.json", // Path to the PWA manifest file
 };
 
 export const viewport = {
-  themeColor: "#0091C9",
+  themeColor: "#39B54A",
 };
 
 export default function RootLayout({ children }) {

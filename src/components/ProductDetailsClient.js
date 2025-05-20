@@ -70,15 +70,15 @@ const ProductDetailsClient = ({ item }) => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+919375719988"; // Replace with your number
+    window.location.href = "tel:+919726594265"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
+    window.open("https://maps.app.goo.gl/K2WbFgvgbXR13jTj7", "_blank");
   };
 
   const handleWhatsApp = () => {
-    const phoneNumber = "919375719988"; // Replace with your number
+    const phoneNumber = "919726594265"; // Replace with your number
     const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
 
     const encodedMessage = encodeURIComponent(defaultMessage);
@@ -89,7 +89,7 @@ const ProductDetailsClient = ({ item }) => {
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
+    window.location.href = "mailto:somixafoodsllp@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
@@ -153,8 +153,8 @@ const ProductDetailsClient = ({ item }) => {
 
     const userInfo = sessionStorage.getItem("userInfo");
     if (isMobile) {
-      const phoneNumber = "919375719988";
-      const imageUrl = `https://decora.in/${item?.image}`;
+      const phoneNumber = "919726594265";
+      const imageUrl = `https://somixa.in/${item?.image}`;
 
       // Create a message with product details and image URL
       const message = `*Product Inquiry*
@@ -186,8 +186,8 @@ const ProductDetailsClient = ({ item }) => {
       if (!userInfo) {
         setIsPopupOpen(true);
       } else {
-        const phoneNumber = "919375719988";
-        const imageUrl = `https://decora.in/${item?.image}`;
+        const phoneNumber = "919726594265";
+        const imageUrl = `https://somixa.in/${item?.image}`;
 
         // Create a message with product details and image URL
         const message = `*Product Inquiry*
@@ -812,7 +812,16 @@ const ProductDetailsClient = ({ item }) => {
             </div>
           </div>
           <div className="releted-product-area">
-            <h3 className="releted-title">Related Product</h3>
+            <h3
+              className="releted-title"
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                display: "flex",
+              }}
+            >
+              Related Product
+            </h3>
             <Slider
               {...reletedProductSlider}
               className="releted-products-slider-one"
@@ -896,7 +905,7 @@ const ProductDetailsClient = ({ item }) => {
                             <div
                               className="flex items-center gap-2 px-3 py-1 mt-1 mb-4 border border-gray-300 rounded-lg transition"
                               style={{
-                                backgroundColor: "#0091C9",
+                                backgroundColor: "#39B54A",
                                 display: "flex",
                                 flexDirection: "row",
                                 alignItems: "center",

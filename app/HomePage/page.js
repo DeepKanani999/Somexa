@@ -17,24 +17,23 @@ import UserInfoPopup from "@/components/userDetailPopup";
 const heroImages = [
   "/assets/images/Hero-Banner/TV-setup-1.jpg",
   "/assets/images/Hero-Banner/TV-setup-2.jpg",
-  "/assets/images/Hero-Banner/TV-setup-3.jpg",
 ];
 
 const populerSearches = [
-  "Furniture trends 2025",
-  "Buy modern sofa",
-  "Space-saving furniture",
-  "Affordable bedroom sets",
-  "Office furniture ideas",
-  "Home decor guide",
-  "Modular wardrobe designs",
-  "Dining table styles",
-  "Furniture for small spaces",
-  "Interior design tips",
-  "Living room makeover",
-  "Smart storage solutions",
-  "Custom furniture online",
-  "Wood vs metal furniture",
+  "Best buttermilk masala 2025",
+  "Buy chaas masala online",
+  "Traditional spice blends",
+  "Digestive spice mix",
+  "Healthy summer drinks",
+  "Spices for buttermilk",
+  "Chaas masala benefits",
+  "Homemade chaas recipe",
+  "Spiced buttermilk ideas",
+  "Natural drink enhancers",
+  "Daily digestive masala",
+  "Indian masala powders",
+  "Somixa product reviews",
+  "How to make tasty chaas",
 ];
 
 const carouselSettings = {
@@ -123,29 +122,29 @@ export function SocialStoriesSection() {
 
 const faqs = [
   {
-    question: "What types of furniture do you offer?",
+    question: "What is Somixa Buttermilk Masala made of?",
     answer:
-      "We offer a wide range of home and office furniture including sofas, beds, dining sets, wardrobes, workstations, and custom-made pieces — all designed to suit different styles and spaces.",
+      "Somixa Buttermilk Masala is a blend of carefully selected spices and herbs, including cumin, ginger, rock salt, and more, crafted to give your buttermilk a refreshing and authentic taste.",
   },
   {
-    question: "Can I customize furniture to fit my space?",
+    question: "How do I use Somixa Masala?",
     answer:
-      "Yes, we offer customization options for many of our products. From dimensions and finishes to materials and layouts, we help you personalize furniture to match your needs.",
+      "Simply add a spoonful of Somixa Masala to your chilled buttermilk (chaas), stir well, and enjoy. It can also be used to enhance the flavor of other drinks and savory dishes.",
   },
   {
-    question: "Do you cater to small spaces or studio apartments?",
+    question: "Is Somixa suitable for daily use?",
     answer:
-      "Absolutely. We specialize in space-saving and multifunctional furniture that’s perfect for compact homes, apartments, and studios without compromising on style or comfort.",
+      "Yes, Somixa is made with natural ingredients and is perfect for everyday consumption. It helps aid digestion and adds a delicious punch to your daily chaas.",
   },
   {
-    question: "What about delivery and installation?",
+    question: "Do you offer different flavors or spice levels?",
     answer:
-      "We provide hassle-free delivery and professional installation for all furniture purchases. Our team ensures everything is set up properly so you can enjoy your new space immediately.",
+      "Currently, we offer our signature blend, crafted to appeal to a wide range of taste buds. We’re also working on introducing more variants soon based on customer preferences.",
   },
   {
-    question: "Do you serve both home and office needs?",
+    question: "Where can I buy Somixa products?",
     answer:
-      "Yes, we offer solutions for both residential and commercial spaces. Whether you're furnishing a home, setting up a workspace, or designing a retail area — we've got you covered.",
+      "Somixa Masala is available online and in select retail stores. You can also order directly through our website or partner marketplaces for home delivery.",
   },
 ];
 
@@ -172,7 +171,7 @@ export function FAQSection() {
               onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
             >
               <span className="flex-1">{faq.question}</span>
-              <span className="text-3xl ml-4" style={{ color: "#0091C9" }}>
+              <span className="text-3xl ml-4" style={{ color: "#39B54A" }}>
                 {openIndex === idx ? "−" : "+"}
               </span>
             </button>
@@ -258,15 +257,15 @@ const HomeScreen = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+919375719988"; // Replace with your number
+    window.location.href = "tel:+919726594265"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
+    window.open("https://maps.app.goo.gl/K2WbFgvgbXR13jTj7", "_blank");
   };
 
   const handleWhatsApp = () => {
-    const phoneNumber = "919375719988"; // Replace with your number
+    const phoneNumber = "919726594265"; // Replace with your number
     const defaultMessage = `Hi, I'm interested in your products. Could you please provide more details?`;
 
     const encodedMessage = encodeURIComponent(defaultMessage);
@@ -277,15 +276,21 @@ const HomeScreen = () => {
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
+    window.location.href = "mailto:somixafoodsllp@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
-    window.open("https://www.facebook.com/decorafurnitureofficial/?_rdr", "_blank");
+    window.open(
+      "https://www.facebook.com/decorafurnitureofficial/?_rdr",
+      "_blank"
+    );
   };
 
   const handleInstagram = () => {
-    window.open("https://www.instagram.com/decorafurniture_official/", "_blank");
+    window.open(
+      "https://www.instagram.com/decorafurniture_official/",
+      "_blank"
+    );
   };
 
   const handleLinkedIn = () => {
@@ -311,8 +316,8 @@ const HomeScreen = () => {
   const getPrice = (product) => {
     const userInfo = sessionStorage.getItem("userInfo");
     if (isMobile) {
-      const phoneNumber = "919375719988";
-      const imageUrl = `https://decora.in/${product?.image}`;
+      const phoneNumber = "919726594265";
+      const imageUrl = `https://somixa.in/${product?.image}`;
 
       // Create a message with product details and image URL
       const message = `*Product Inquiry*
@@ -344,8 +349,8 @@ const HomeScreen = () => {
       if (!userInfo) {
         setIsPopupOpen(true); // Open the popup if session data is not available
       } else {
-        const phoneNumber = "919375719988";
-        const imageUrl = `https://decora.in/${product?.image}`;
+        const phoneNumber = "919726594265";
+        const imageUrl = `https://somixa.in/${product?.image}`;
 
         // Create a message with product details and image URL
         const message = `*Product Inquiry*
@@ -630,10 +635,7 @@ const HomeScreen = () => {
         >
           <button
             onClick={() =>
-              window.open(
-                "https://g.page/r/CTjtIU0PHHR6EBM/review",
-                "_blank"
-              )
+              window.open("https://g.page/r/CTjtIU0PHHR6EBM/review", "_blank")
             }
             style={{
               padding: "12px 20px",
@@ -1330,110 +1332,115 @@ const HomeScreen = () => {
                       </div>
                     </div>
                   </div>
-                  <h3 className="title">{`Home Elegance – Smart Solutions for Your Living Spaces`}</h3>
+                  <h3 className="title">{`Somixa – Flavorful Spice Blend for Refreshing Buttermilk`}</h3>
                   <p>
-                    At Home Elegance, we redefine interior living by blending
-                    craftsmanship, innovation, and personalized design. Our wide
-                    range of premium furniture solutions is crafted to support
-                    homes of all styles in becoming more comfortable,
-                    functional, and aesthetically inspiring. Whether you're
-                    furnishing your first apartment or upgrading your dream
-                    home, we offer tailored pieces to meet your lifestyle and
-                    design needs.
+                    At Somixa, we reinvent the way you enjoy traditional flavors
+                    by blending authenticity, innovation, and quality
+                    ingredients. Our premium range of buttermilk masalas is
+                    crafted to elevate everyday meals with bold, refreshing
+                    taste rooted in India’s culinary heritage. Whether you're
+                    preparing a quick homemade chaas or enhancing a family
+                    recipe, Somixa delivers the perfect balance of spice and
+                    flavor to suit your lifestyle.
                   </p>
                   <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12">
                       <div className="icon-box icon-box-one">
                         <div className="icon">
-                          <i
+                          {/* <i
                             className="ti-desktop"
-                            style={{ color: "#0091C9" }}
-                          />
+                            style={{ color: "#39B54A" }}
+                          /> */}
+                          <span style={{ fontSize: "25px" }}>🌿</span>
                         </div>
                         <div className="info">
-                          <h6>Crafted Comfort, Designed to Impress</h6>
+                          <h6>Spice That Refreshes, Flavor That Lasts</h6>
                         </div>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-12">
                       <div className="icon-box icon-box-one">
                         <div className="icon">
-                          <i
+                          {/* <i
                             className="ti-volume"
-                            style={{ color: "#0091C9" }}
-                          />
+                            style={{ color: "#39B54A" }}
+                          /> */}
+                          <span style={{ fontSize: "25px" }}>🌿</span>
                         </div>
                         <div className="info">
-                          <h6>Functional Style for Every Room</h6>
+                          <h6>Authentic Taste in Every Sip</h6>
                         </div>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-12">
                       <div className="icon-box icon-box-one">
                         <div className="icon">
-                          <i
+                          {/* <i
                             className="ti-desktop"
-                            style={{ color: "#0091C9" }}
-                          />
+                            style={{ color: "#39B54A" }}
+                          /> */}
+                          <span style={{ fontSize: "25px" }}>🌿</span>
                         </div>
                         <div className="info">
-                          <h6>Modern Designs, Timeless Appeal</h6>
+                          <h6>Tradition Blended with Innovation</h6>
                         </div>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-12">
                       <div className="icon-box icon-box-one">
                         <div className="icon">
-                          <i
+                          {/* <i
                             className="ti-desktop"
-                            style={{ color: "#0091C9" }}
-                          />
+                            style={{ color: "#39B54A" }}
+                          /> */}
+                          <span style={{ fontSize: "25px" }}>🌿</span>
                         </div>
                         <div className="info">
-                          <h6>Furnishing Dreams with Precision</h6>
+                          <h6>Crafting the Perfect Chaas Experience</h6>
                         </div>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-12">
                       <div className="icon-box icon-box-one">
                         <div className="icon">
-                          <i
+                          {/* <i
                             className="ti-volume"
-                            style={{ color: "#0091C9" }}
-                          />
+                            style={{ color: "#39B54A" }}
+                          /> */}
+                          <span style={{ fontSize: "25px" }}>🌿</span>
                         </div>
                         <div className="info">
-                          <h6>Elegant Spaces Start with Decora</h6>
+                          <h6>Flavorful Moments Start with Somixa</h6>
                         </div>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-12">
                       <div className="icon-box icon-box-one">
                         <div className="icon">
-                          <i
+                          {/* <i
                             className="ti-desktop"
-                            style={{ color: "#0091C9" }}
-                          />
+                            style={{ color: "#39B54A" }}
+                          /> */}
+                          <span style={{ fontSize: "25px" }}>🌿</span>
                         </div>
                         <div className="info">
-                          <h6>Smart Storage. Beautiful Living.</h6>
+                          <h6>Bold Masala. Everyday Delight.</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                   <p>
-                    Discover the future of home living with our exquisite
-                    furniture collections. Built on a foundation of quality
-                    materials and modern design trends, we help homeowners
-                    create stylish, cohesive spaces that reflect their
-                    personality. Whether you need custom sofas, elegant dining
-                    sets, or complete room transformations, we deliver solutions
-                    that align with your vision. Trust in our commitment to
-                    durability, elegance, and customer satisfaction.
+                    Experience the future of flavorful refreshment with Somixa’s
+                    signature masala blends. Made with carefully sourced spices
+                    and time-tested recipes, our products bring consistency,
+                    convenience, and taste to every glass. Whether you prefer a
+                    classic tang or a modern twist, Somixa offers the ideal mix
+                    for all palates. Trust in our commitment to purity,
+                    tradition, and customer satisfaction.
                     <a
                       href="/about"
                       style={{
-                        color: "#0091C9",
+                        color: "#39B54A",
                         cursor: "pointer",
                         fontSize: "15px",
                         whiteSpace: "nowrap",
@@ -1473,16 +1480,16 @@ const HomeScreen = () => {
                           </span>
                         </div>
                         <div className="listing-content">
-                          {/* <h3 className="title">
+                          <h3 className="title">
                             <Link href={`/product-details/${product.slug}`}>
                               {product.name}
                             </Link>
-                          </h3> */}
+                          </h3>
                           <p
                             style={{
                               display: "-webkit-box",
                               WebkitBoxOrient: "vertical",
-                              WebkitLineClamp: 4,
+                              WebkitLineClamp: 3,
                               overflow: "hidden",
                               textOverflow: "ellipsis",
                               maxWidth: "300px",
@@ -1522,8 +1529,8 @@ const HomeScreen = () => {
                                   className="flex items-center gap-2 px-3 py-1 mt-1 mb-3 rounded-lg transition"
                                   style={{
                                     backgroundColor: "#FFF",
-                                    border: "1px solid #24D07A",
-                                    borderColor: "#24D07A",
+                                    border: "1px solid #4EB755",
+                                    borderColor: "#4EB755",
                                     display: "flex",
                                     flexDirection: "row",
                                     alignItems: "center",
@@ -1543,7 +1550,7 @@ const HomeScreen = () => {
                                   />
                                   <span
                                     className="underline"
-                                    style={{ color: "#24D07A" }}
+                                    style={{ color: "#4EB755" }}
                                   >
                                     Get Price
                                   </span>
@@ -1681,7 +1688,7 @@ const HomeScreen = () => {
                           if (!userInfo) {
                             setIsPopupOpen(true); // Open the popup if session data is not available
                           } else {
-                            const phoneNumber = "919375719988"; // Replace with your retailer's WhatsApp number
+                            const phoneNumber = "919726594265"; // Replace with your retailer's WhatsApp number
                             const message = `${requirementInput}`;
                             const encodedMessage = encodeURIComponent(message);
                             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -1698,7 +1705,7 @@ const HomeScreen = () => {
                     >
                       Or connect with seller instantly
                       <a
-                        href="tel: 93757 19988"
+                        href="tel: 9726594265"
                         className="text-decoration-none ms-1"
                       >
                         <strong
@@ -1708,7 +1715,7 @@ const HomeScreen = () => {
                             marginLeft: "5px",
                           }}
                         >
-                          93757 19988
+                          97265 94265
                         </strong>
                       </a>
                     </div>

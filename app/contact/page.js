@@ -63,19 +63,19 @@ const Contact = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+919375719988"; // Replace with your number
+    window.location.href = "tel:+919726594265"; // Replace with your number
   };
 
   const handleLocation = () => {
-    window.open("https://maps.app.goo.gl/vCRn8EJ6haS2L8c8A", "_blank");
+    window.open("https://maps.app.goo.gl/K2WbFgvgbXR13jTj7", "_blank");
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/919375719988", "_blank"); // Replace with your number
+    window.open("https://wa.me/919726594265", "_blank"); // Replace with your number
   };
 
   const handleMail = () => {
-    window.location.href = "mailto:decorafurniture@gmail.com"; // Replace with your email
+    window.location.href = "mailto:somixafoodsllp@gmail.com"; // Replace with your email
   };
 
   const handleFacebook = () => {
@@ -429,8 +429,8 @@ const Contact = () => {
                   <div className="info">
                     <h5>Address</h5>
                     <p>
-                    Decora Furniture, Near Grand Regency Hotel, Opposite Diwali
-                    Chamber, Dhebar Road-360002
+                    Maruti Ind. Area, Shed No1, 30 Ft. Road, Near Pgvcl Office,
+                    Vavdi, Rajkot, Gujarat - 360004
                     </p>
                   </div>
                 </div>
@@ -441,7 +441,7 @@ const Contact = () => {
                   <div className="info">
                     <h5>Phone</h5>
                     <p>
-                      <a href="tel:+91 93757 19988">+91 93757 19988</a>
+                      <a href="tel:+91 9726594265">+91 9726594265</a>
                     </p>
                   </div>
                 </div>
@@ -452,7 +452,7 @@ const Contact = () => {
                   <div className="info">
                     <h5>Email</h5>
                     <p>
-                      <a href="mailto:decorafurniture@gmail.com">decorafurniture@gmail.com</a>
+                      <a href="mailto:somixafoodsllp@gmail.com">somixafoodsllp@gmail.com</a>
                     </p>
                   </div>
                 </div>
@@ -552,7 +552,7 @@ const Contact = () => {
       {/*====== Start Map section ======*/}
       <div className="contact-page-map">
         <div className="map-box">
-          <iframe src="https://maps.google.com/maps?q=Dhebar+Road+Rajkot&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+          <iframe src="https://maps.google.com/maps?q=Maruti+Industrial+Area,+Vavdi,+Rajkot,+Gujarat+360004&t=&z=13&ie=UTF8&iwloc=&output=embed" />
         </div>
       </div>
       {/*====== End Map section ======*/}

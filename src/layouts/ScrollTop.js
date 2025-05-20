@@ -35,7 +35,7 @@ const ScrollTop = () => {
         .back-to-top {
           position: fixed;
           right: 30px;
-          background: #0091C9;
+          background: #39B54A;
           color: white;
           border-radius: 50%;
           z-index: 999;
@@ -69,7 +69,7 @@ const ScrollTop = () => {
 
         /* Hover effects */
         .back-to-top:hover {
-          background: #0091C9;
+          background: #39B54A;
           transform: translateY(-2px);
         }
 
