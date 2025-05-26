@@ -15,8 +15,8 @@ import BottomTab from "@/components/BottomBar";
 import UserInfoPopup from "@/components/userDetailPopup";
 
 const heroImages = [
-  "/assets/images/Hero-Banner/TV-setup-1.jpg",
-  "/assets/images/Hero-Banner/TV-setup-2.jpg",
+  "/assets/images/Hero-Banner/somixa-hero-banner-1.jpg",
+  "/assets/images/Hero-Banner/somixa-hero-banner-2.jpg",
 ];
 
 const populerSearches = [
@@ -195,6 +195,42 @@ const HomeScreen = () => {
   const [visible, setVisible] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      // Intercept the event and store it
+      e.preventDefault();
+      setDeferredPrompt(e);
+      console.log('✅ beforeinstallprompt event captured');
+    };
+
+    window.addEventListener('beforeinstallprompt', handler);
+
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleAddToHomeScreen = async () => {
+    if (!deferredPrompt) {
+      console.log('⚠️ Install prompt not available');
+      return;
+    }
+
+    // Show the prompt
+    deferredPrompt.prompt();
+
+    const result = await deferredPrompt.userChoice;
+    console.log('👉 User response:', result.outcome);
+
+    if (result.outcome === 'accepted') {
+      console.log('✅ User accepted the install prompt');
+    } else {
+      console.log('❌ User dismissed the install prompt');
+    }
+
+    // Clear the saved prompt since it can't be used again
+    setDeferredPrompt(null);
+  };
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -281,14 +317,14 @@ const HomeScreen = () => {
 
   const handleFacebook = () => {
     window.open(
-      "https://www.facebook.com/decorafurnitureofficial/?_rdr",
+      "https://www.facebook.com/",
       "_blank"
     );
   };
 
   const handleInstagram = () => {
     window.open(
-      "https://www.instagram.com/decorafurniture_official/",
+      "https://www.instagram.com/",
       "_blank"
     );
   };
@@ -395,7 +431,7 @@ const HomeScreen = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    background: "#160E41",
+    background: "#3C9D3B",
     border: "2px solid #FFF",
     borderRadius: "10px",
     padding: "0 12px",
@@ -429,6 +465,16 @@ const HomeScreen = () => {
     zIndex: 1,
   };
 
+  const labelStyle2 = {
+    position: "absolute",
+    // left: "50%",
+    right: "-10%",
+    transform: "translateX(-50%)",
+    color: "#FFF",
+    fontSize: "14px",
+    zIndex: 1,
+  };
+  
   return (
     <Layout>
       {video && <VideoPopup close={setVideo} />}
@@ -571,7 +617,7 @@ const HomeScreen = () => {
                 style={{ color: "#000", fontSize: "18px" }}
               />
             </div>
-            <span style={labelStyle}>DOWNLOAD BROCHURE</span>
+            <span style={labelStyle2}>DOWNLOAD BROCHURE</span>
           </button>
         </div>
 
@@ -643,9 +689,11 @@ const HomeScreen = () => {
               borderRadius: "8px",
               backgroundColor: "white",
               display: "flex",
+              justifyContent: "center",
               alignItems: "center",
               fontSize: "16px",
               fontWeight: "500",
+              width: "70%",
               color: "#333",
               boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
             }}
@@ -1090,7 +1138,7 @@ const HomeScreen = () => {
                       )
                     }
                     style={{
-                      padding: "12px 20px",
+                      padding: "12px 40px",
                       border: "1px solid #e0e0e0",
                       borderRadius: "8px",
                       backgroundColor: "white",
@@ -1100,6 +1148,7 @@ const HomeScreen = () => {
                       fontWeight: "500",
                       color: "#333",
                       boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                      fontWeight: "bold",
                     }}
                   >
                     <img
@@ -1145,7 +1194,7 @@ const HomeScreen = () => {
                     flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "#160E41",
+                    background: "#3C9D3B",
                     border: "2px solid #FFF",
                     borderRadius: "10px",
                     padding: "4px",
@@ -1196,8 +1245,8 @@ const HomeScreen = () => {
                     flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "#160E41",
-                    border: "2px solid #000",
+                    background: "#3C9D3B",
+                    border: "2px solid #3C9D3B",
                     borderRadius: "10px",
                     padding: "4px",
                     width: "100%", // Full width for buttons
@@ -1238,8 +1287,8 @@ const HomeScreen = () => {
                     flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "#160E41",
-                    border: "2px solid #000",
+                    background: "#3C9D3B",
+                    border: "2px solid #3C9D3B",
                     borderRadius: "10px",
                     padding: "4px",
                     width: "100%", // Full width for buttons
@@ -1274,14 +1323,14 @@ const HomeScreen = () => {
 
                 {/* Share */}
                 <button
-                  onClick={handleShare}
+                  onClick={handleAddToHomeScreen}
                   style={{
                     display: "flex",
                     flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "#160E41",
-                    border: "2px solid #000",
+                    background: "#3C9D3B",
+                    border: "2px solid #3C9D3B",
                     borderRadius: "10px",
                     padding: "4px",
                     width: "100%", // Full width for buttons
@@ -1474,7 +1523,10 @@ const HomeScreen = () => {
                           </Link>
                           <span
                             className="featured-btn"
-                            style={{ borderRadius: "5px" }}
+                            style={{
+                              borderRadius: "5px",
+                              backgroundColor: "#000000",
+                            }}
                           >
                             Featured
                           </span>

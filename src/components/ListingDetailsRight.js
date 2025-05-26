@@ -113,7 +113,7 @@ const ListingDetailsRight = () => {
             <a
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = "/assets/images/HR_Consultancy.pptx";
+                link.href = "/assets/images/Somixa-Catalogue-digital.pdf";
                 link.target = "_blank"; // Open in a new tab
                 link.rel = "noopener noreferrer"; // Security best practice
                 document.body.appendChild(link);

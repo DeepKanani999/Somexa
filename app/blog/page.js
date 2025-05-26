@@ -29,7 +29,7 @@ const Blog = () => {
                   <div className="post-thumbnail">
                     <Link href="/blog-details">
                       <img
-                        src="assets/images/blog/blog-standard-1.jpg"
+                        src="/assets/images/blog/blog-standard-1.jpg"
                         alt="Blog Image"
                       />
                     </Link>
@@ -79,7 +79,7 @@ const Blog = () => {
                   <div className="post-thumbnail">
                     <Link href="/blog-details">
                       <img
-                        src="assets/images/blog/blog-standard-2.jpg"
+                        src="/assets/images/blog/blog-standard-2.jpg"
                         alt="Blog Image"
                       />
                     </Link>
@@ -129,7 +129,7 @@ const Blog = () => {
                   <div className="post-thumbnail">
                     <Link href="/blog-details">
                       <img
-                        src="assets/images/blog/blog-standard-3.jpg"
+                        src="/assets/images/blog/blog-standard-3.jpg"
                         alt="Blog Image"
                       />
                     </Link>
@@ -179,7 +179,7 @@ const Blog = () => {
                   className="blog-post-item blog-post-item-four blog-post-with-bg mb-50 bg_cover wow fadeInUp"
                   style={{
                     backgroundImage:
-                      "url(assets/images/blog/blog-standard-4.jpg)",
+                      "url(/assets/images/blog/blog-standard-4.jpg)",
                   }}
                 >
                   <div className="entry-content">
@@ -225,7 +225,7 @@ const Blog = () => {
                   <div className="post-thumbnail">
                     <Link href="/blog-details">
                       <img
-                        src="assets/images/blog/blog-standard-5.jpg"
+                        src="/assets/images/blog/blog-standard-5.jpg"
                         alt="Blog Image"
                       />
                     </Link>
@@ -381,7 +381,7 @@ const Blog = () => {
                   <ul className="recent-post-list">
                     <li className="post-thumbnail-content">
                       <img
-                        src="assets/images/elements/thumb-1.jpg"
+                        src="/assets/images/elements/thumb-1.jpg"
                         className="img-fluid"
                         alt=""
                       />
@@ -399,7 +399,7 @@ const Blog = () => {
                     </li>
                     <li className="post-thumbnail-content">
                       <img
-                        src="assets/images/elements/thumb-2.jpg"
+                        src="/assets/images/elements/thumb-2.jpg"
                         className="img-fluid"
                         alt=""
                       />
@@ -417,7 +417,7 @@ const Blog = () => {
                     </li>
                     <li className="post-thumbnail-content">
                       <img
-                        src="assets/images/elements/thumb-3.jpg"
+                        src="/assets/images/elements/thumb-3.jpg"
                         className="img-fluid"
                         alt=""
                       />
@@ -438,7 +438,7 @@ const Blog = () => {
                 <div className="widget add-widget mb-30 wow fadeInUp">
                   <div className="add-img-box">
                     <img
-                      src="assets/images/elements/add-1.jpg"
+                      src="/assets/images/elements/add-1.jpg"
                       alt="Add Image"
                     />
                   </div>

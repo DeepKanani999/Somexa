@@ -78,7 +78,6 @@
     &:after{
         width: 43.5%;
         right: 0;
-        background: url(../images/hero/hero-one-bg-2.jpg) no-repeat center center;
         background-size: cover;
         @media #{$xm}{
             display: none;
@@ -87,7 +86,6 @@
     &:before{
         width: 56.5%;
         left: 0;
-        background: url(../images/hero/hero-one-bg-1.jpg)no-repeat center center;
         background-size: cover;
         @media #{$xm}{
             width: 100%;
