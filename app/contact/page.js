@@ -79,11 +79,11 @@ const Contact = () => {
   };
 
   const handleFacebook = () => {
-    window.open("https://www.facebook.com/decorafurnitureofficial/?_rdr", "_blank");
+    window.open("https://www.facebook.com/", "_blank");
   };
 
   const handleInstagram = () => {
-    window.open("https://www.instagram.com/decorafurniture_official/", "_blank");
+    window.open("https://www.instagram.com/", "_blank");
   };
 
   const handleLinkedIn = () => {

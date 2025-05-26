@@ -90,14 +90,14 @@ const About = () => {
 
   const handleFacebook = () => {
     window.open(
-      "https://www.facebook.com/decorafurnitureofficial/?_rdr",
+      "https://www.facebook.com/",
       "_blank"
     );
   };
 
   const handleInstagram = () => {
     window.open(
-      "https://www.instagram.com/decorafurniture_official/",
+      "https://www.instagram.com/",
       "_blank"
     );
   };
@@ -648,8 +648,8 @@ const About = () => {
                 <a
                   onClick={() => {
                     const link = document.createElement("a");
-                    link.href = "/assets/images/Plixon-Catalogue-Digital.pdf";
-                    link.download = "Plixon-Catalogue-Digital.pdf"; // Optional: Specify the file name
+                    link.href = "/assets/images/Somixa-Catalogue-digital.pdf";
+                    link.download = "Somixa-Catalogue-Digital.pdf"; // Optional: Specify the file name
                     link.click();
                   }}
                   className="main-btn"

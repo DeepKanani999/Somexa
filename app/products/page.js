@@ -44,11 +44,11 @@ const Products = () => {
   };
 
   const handleFacebook = () => {
-    window.open("https://facebook.com/yourprofile", "_blank");
+    window.open("https://facebook.com/", "_blank");
   };
 
   const handleInstagram = () => {
-    window.open("https://instagram.com/yourprofile", "_blank");
+    window.open("https://instagram.com/", "_blank");
   };
 
   const handleLinkedIn = () => {

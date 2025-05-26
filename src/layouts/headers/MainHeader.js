@@ -16,6 +16,8 @@ const Header2 = () => {
                     <img
                       src="/assets/images/logo/logo-2.png"
                       alt="Brand Logo"
+                      className="brand-logo-img"
+                      style={{ width: '300px', height: 'auto' }}
                     />
                   </Link>
                 </div>
