@@ -1787,11 +1787,18 @@ const HomeScreen = () => {
                   <h4 className="title">Customer Review</h4>
                   <ul className="review-list">
                     <li className="review">
-                      <div className="thumb">
-                        <img
-                          src="/assets/images/listing/review-1.jpg"
-                          alt="review image"
-                        />
+                      <div
+                        className="thumb border"
+                        style={{
+                          alignItems: "center",
+                          justifyContent: "center",
+                          display: "flex",
+                          borderRadius: "10px",
+                          backgroundColor: "#F7F7F7",
+                          fontSize: "40px",
+                        }}
+                      >
+                        M
                       </div>
                       <div className="review-content">
                         <h5>Moriana Steve</h5>
@@ -1830,11 +1837,18 @@ const HomeScreen = () => {
                       </div>
                     </li>
                     <li className="review">
-                      <div className="thumb">
-                        <img
-                          src="/assets/images/listing/review-2.jpg"
-                          alt="review image"
-                        />
+                      <div
+                        className="thumb border"
+                        style={{
+                          alignItems: "center",
+                          justifyContent: "center",
+                          display: "flex",
+                          borderRadius: "10px",
+                          backgroundColor: "#F7F7F7",
+                          fontSize: "40px",
+                        }}
+                      >
+                        M
                       </div>
                       <div className="review-content">
                         <h5>Moriana Steve</h5>
@@ -1873,11 +1887,18 @@ const HomeScreen = () => {
                       </div>
                     </li>
                     <li className="review">
-                      <div className="thumb">
-                        <img
-                          src="/assets/images/listing/review-3.jpg"
-                          alt="review image"
-                        />
+                      <div
+                        className="thumb border"
+                        style={{
+                          alignItems: "center",
+                          justifyContent: "center",
+                          display: "flex",
+                          borderRadius: "10px",
+                          backgroundColor: "#F7F7F7",
+                          fontSize: "40px",
+                        }}
+                      >
+                        M
                       </div>
                       <div className="review-content">
                         <h5>Moriana Steve</h5>
