@@ -89,17 +89,11 @@ const About = () => {
   };
 
   const handleFacebook = () => {
-    window.open(
-      "https://www.facebook.com/",
-      "_blank"
-    );
+    window.open("https://www.facebook.com/", "_blank");
   };
 
   const handleInstagram = () => {
-    window.open(
-      "https://www.instagram.com/",
-      "_blank"
-    );
+    window.open("https://www.instagram.com/", "_blank");
   };
 
   const handleLinkedIn = () => {
@@ -236,7 +230,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/phone_black.png"
+                        src="/assets/images/black-icons/phone_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -266,7 +260,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/location_black.png"
+                        src="/assets/images/black-icons/location_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -307,7 +301,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/whatsapp_black.png"
+                        src="/assets/images/black-icons/whatsapp_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -337,7 +331,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/gmail_black.png"
+                        src="/assets/images/black-icons/gmail_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -351,39 +345,35 @@ const About = () => {
                   <button
                     className="social-rounded-btn"
                     onClick={handleFacebook}
-                    style={{ padding: "8px", backgroundColor: "#3A559F" }}
                   >
                     <img
-                      src="/assets/images/icons/facebook.png"
+                      src="/assets/images/social-media-icons/Facebook.svg"
                       alt="Facebook"
                     />
                   </button>
                   <button
                     className="social-rounded-btn"
                     onClick={handleInstagram}
-                    style={{ padding: "8px", backgroundColor: "#D03B98" }}
                   >
                     <img
-                      src="/assets/images/icons/instagram.png"
+                      src="/assets/images/social-media-icons/Instagram.svg"
                       alt="Instagram"
                     />
                   </button>
                   <button
                     className="social-rounded-btn"
                     onClick={handleLinkedIn}
-                    style={{ padding: "8px", backgroundColor: "#0B63BD" }}
                   >
                     <img
-                      src="/assets/images/icons/linkedin.png"
+                      src="/assets/images/social-media-icons/Linkedin.svg"
                       alt="LinkedIn"
                     />
                   </button>
-                  <button
-                    className="social-rounded-btn"
-                    onClick={handleShare}
-                    style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                  >
-                    <img src="/assets/images/icons/share.png" alt="Share" />
+                  <button className="social-rounded-btn" onClick={handleShare}>
+                    <img
+                      src="/assets/images/social-media-icons/Share.svg"
+                      alt="Share"
+                    />
                   </button>
                 </div>
               </div>
@@ -407,7 +397,13 @@ const About = () => {
                   data-wow-delay="10ms"
                 >
                   <div className="icon">
-                    <i className="flaticon-add-user" />
+                    {/* <i className="flaticon-add-user" /> */}
+                    <img
+                      src="/assets/images/about-us-page/User-Friendly Experience.svg"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "50px", height: "50px" }}
+                    />
                   </div>
                   <div className="content">
                     <h3 className="title">User-Friendly Experience</h3>
@@ -429,7 +425,13 @@ const About = () => {
                   data-wow-delay="20ms"
                 >
                   <div className="icon">
-                    <i className="flaticon-gift-box" />
+                    {/* <i className="flaticon-gift-box" /> */}
+                    <img
+                      src="/assets/images/about-us-page/Exciting Daily Deals.svg"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "50px", height: "50px" }}
+                    />
                   </div>
                   <div className="content">
                     <h3 className="title">Exciting Daily Deals</h3>
@@ -451,7 +453,13 @@ const About = () => {
                   data-wow-delay="30ms"
                 >
                   <div className="icon">
-                    <i className="flaticon-laptop" />
+                    {/* <i className="flaticon-laptop" /> */}
+                    <img
+                      src="/assets/images/about-us-page/Smart & Quick Choice.svg"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "50px", height: "50px" }}
+                    />
                   </div>
                   <div className="content">
                     <h3 className="title">Smart & Quick Choice</h3>
@@ -472,7 +480,13 @@ const About = () => {
                   data-wow-delay="40ms"
                 >
                   <div className="icon">
-                    <i className="flaticon-headphone" />
+                    {/* <i className="flaticon-headphone" /> */}
+                    <img
+                      src="/assets/images/about-us-page/Live Support.svg"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "50px", height: "50px" }}
+                    />
                   </div>
                   <div className="content">
                     <h3 className="title">24/7 Live Support</h3>
@@ -522,7 +536,13 @@ const About = () => {
                       data-wow-delay="10ms"
                     >
                       <div className="icon">
-                        <i className="flaticon-find" />
+                        {/* <i className="flaticon-find" /> */}
+                        <img
+                          src="/assets/images/about-us-page/perfect-blend.svg"
+                          className="me-2 mx-2"
+                          alt="WhatsApp"
+                          style={{ width: "40px", height: "40px" }}
+                        />
                       </div>
                       <div className="content">
                         <h5>Perfect Blend, Instantly</h5>
@@ -537,7 +557,13 @@ const About = () => {
                       data-wow-delay="20ms"
                     >
                       <div className="icon">
-                        <i className="flaticon-place" />
+                        {/* <i className="flaticon-place" /> */}
+                        <img
+                          src="/assets/images/about-us-page/smart-and-flavour.svg"
+                          className="me-2 mx-2"
+                          alt="WhatsApp"
+                          style={{ width: "40px", height: "40px" }}
+                        />
                       </div>
                       <div className="content">
                         <h5>Smart & Flavorful Choice</h5>
@@ -552,10 +578,16 @@ const About = () => {
                       data-wow-delay="30ms"
                     >
                       <div className="icon">
-                        <i className="flaticon-social-care" />
+                        {/* <i className="flaticon-social-care" /> */}
+                        <img
+                          src="/assets/images/about-us-page/24-7-support.svg"
+                          className="me-2 mx-2"
+                          alt="WhatsApp"
+                          style={{ width: "40px", height: "40px" }}
+                        />
                       </div>
                       <div className="content">
-                        <h5>24/7 Flavor Support</h5>
+                        <h5>24/7 Experts Support</h5>
                         <p>
                           Need help with recipes, orders, or product info? Our
                           support team is always here to assist you — anytime,
@@ -607,7 +639,7 @@ const About = () => {
         <div
           className="cta-wrapper-two bg_cover b"
           style={{
-            backgroundImage: "url(assets/images/bg/cta-bg-2.jpg)",
+            backgroundImage: "url(/assets/images/bg/cta-bg-2.jpg)",
             height: "40vh",
             display: "flex",
             alignItems: "center",
@@ -677,7 +709,7 @@ const About = () => {
       <section
         className="testimonial-area bg_cover pt-110 pb-265"
         style={{
-          backgroundImage: "url(assets/images/bg/testimonial-bg-2.jpg)",
+          backgroundImage: "url(/assets/images/bg/testimonial-bg-2.jpg)",
         }}
       >
         <div className="container">
@@ -707,7 +739,8 @@ const About = () => {
           <div
             className="newsletter-wrapper newsletter-wrapper-one bg_cover"
             style={{
-              backgroundImage: "url(assets/images/bg/newsletter-bg-1.jpg)",
+              backgroundColor:"#83D88E"
+              // backgroundImage: "url(assets/images/bg/newsletter-bg-1.jpg)",
             }}
           >
             <div className="row">

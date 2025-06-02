@@ -129,6 +129,7 @@ const ListingDetailsRight = () => {
                 textDecoration: "none",
                 borderRadius: "5px",
                 marginTop: "10px",
+                cursor:"pointer"
               }}
             >
               View Flavors List
@@ -209,21 +210,39 @@ const ListingDetailsRight = () => {
                 href="https://maps.app.goo.gl/K2WbFgvgbXR13jTj7"
                 className="support-icon"
               >
-                <i className="ti-location-pin" />
+                {/* <i className="ti-location-pin" /> */}
+                <img
+                  src="/assets/images/contact-info/Location.svg"
+                  className="me-2 mx-2"
+                  alt="WhatsApp"
+                  style={{ width: "25px", height: "25px" }}
+                />
               </a>
             </div>
             <div className="contact-info-content">
               <div className="info-list my-2">
                 <h5 className="widget-title my-2">Contact Info</h5>
                 <p>
-                  <i className="ti-mobile" />
+                  {/* <i className="ti-mobile" /> */}
+                  <img
+                    src="/assets/images/contact-info/Phone.svg"
+                    className="me-2 mx-2"
+                    alt="WhatsApp"
+                    style={{ width: "17px", height: "17px" }}
+                  />
                   <a href="tel:+919726594265">+91 9726594265</a>
                 </p>
                 <hr className="my-2 opacity-25" />
               </div>
               <div className="info-list my-3">
                 <p>
-                  <i className="ti-email" />
+                  {/* <i className="ti-email" /> */}
+                  <img
+                    src="/assets/images/contact-info/email.svg"
+                    className="me-2 mx-2"
+                    alt="WhatsApp"
+                    style={{ width: "17px", height: "17px" }}
+                  />
                   <a
                     style={{ fontSize: "16px" }}
                     href="mailto:somixafoodsllp@gmail.com"
@@ -235,7 +254,7 @@ const ListingDetailsRight = () => {
               </div>
               <div className="info-list my-3">
                 <h5 className="widget-title my-2">Address</h5>
-                <p>
+                <p className="mx-2">
                   <a>
                     Maruti Ind. Area, Shed No1, 30 Ft. Road, Near Pgvcl Office,
                     Vavdi, Rajkot, Gujarat - 360004
@@ -245,7 +264,13 @@ const ListingDetailsRight = () => {
                     onClick={handleLocation}
                   >
                     <div className="flex items-center px-3 py-1 mt-2 bg-transparent border border-gray-300 rounded-lg hover:bg-gray-100 transition">
-                      <i className="ti-location-pin me-2" />
+                      {/* <i className="ti-location-pin me-2" /> */}
+                      <img
+                        src="/assets/images/contact-info/Get-Direction.svg"
+                        className="me-2 mx-2"
+                        alt="WhatsApp"
+                        style={{ width: "17px", height: "17px" }}
+                      />
                       <span className="underline">Get Direction</span>
                     </div>
                   </button>
@@ -310,7 +335,13 @@ const ListingDetailsRight = () => {
                   onClick={handleMail}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
-                    <i className="ti-email me-2 mx-2" />
+                    {/* <i className="ti-email me-2 mx-2" /> */}
+                    <img
+                      src="/assets/images/contact-info/email.svg"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "17px", height: "17px" }}
+                    />
                     <span className="underline">Get information by Email</span>
                   </div>
                 </button>
@@ -322,7 +353,13 @@ const ListingDetailsRight = () => {
                   onClick={handleShare}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
-                    <i className="ti-share me-2 mx-2" />
+                    {/* <i className="ti-share me-2 mx-2" /> */}
+                    <img
+                      src="/assets/images/contact-info/share.svg"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "17px", height: "17px" }}
+                    />
                     <span className="underline">Share</span>
                   </div>
                 </button>
@@ -339,7 +376,13 @@ const ListingDetailsRight = () => {
                   }}
                 >
                   <div className="flex items-center bg-transparent rounded-lg hover:bg-gray-100 transition">
-                    <i className="ti-star me-2 mx-2" />
+                    {/* <i className="ti-star me-2 mx-2" /> */}
+                    <img
+                      src="/assets/images/contact-info/star.svg"
+                      className="me-2 mx-2"
+                      alt="WhatsApp"
+                      style={{ width: "17px", height: "17px" }}
+                    />
                     <span className="underline">Tap to rate</span>
                   </div>
                 </button>

@@ -385,7 +385,7 @@ button {
   display: inline-flex;
   position: relative;
   z-index: 1;
-  background-color: #3C9D3B;
+  background-color: #13592E;
   padding: 8px 15px;
   color: #fff;
   font-family: "Opensans", sans-serif;
@@ -440,6 +440,9 @@ button {
   justify-content: center;  /* Center content horizontally */
   align-items: center;      /* Center content vertically */
   text-align: center;       /* Center text */
+  background-color: #FFF;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* YourStylesheet.css */
