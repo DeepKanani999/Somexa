@@ -93,17 +93,11 @@ const ProductDetailsClient = ({ item }) => {
   };
 
   const handleFacebook = () => {
-    window.open(
-      "https://www.facebook.com/",
-      "_blank"
-    );
+    window.open("https://www.facebook.com/", "_blank");
   };
 
   const handleInstagram = () => {
-    window.open(
-      "https://www.instagram.com/",
-      "_blank"
-    );
+    window.open("https://www.instagram.com/", "_blank");
   };
 
   const handleLinkedIn = () => {
@@ -305,7 +299,7 @@ const ProductDetailsClient = ({ item }) => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/phone_black.png"
+                      src="/assets/images/black-icons/phone_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -335,7 +329,7 @@ const ProductDetailsClient = ({ item }) => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/location_black.png"
+                      src="/assets/images/black-icons/location_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -376,7 +370,7 @@ const ProductDetailsClient = ({ item }) => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/whatsapp_black.png"
+                      src="/assets/images/black-icons/whatsapp_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -406,7 +400,7 @@ const ProductDetailsClient = ({ item }) => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/gmail_black.png"
+                      src="/assets/images/black-icons/gmail_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -417,36 +411,32 @@ const ProductDetailsClient = ({ item }) => {
 
               {/* Right Section: Rounded Social Buttons */}
               <div style={{ display: "flex", gap: "10px" }}>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{ padding: "8px", backgroundColor: "#3A559F" }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{ padding: "8px", backgroundColor: "#D03B98" }}
-                >
+                <button className="social-rounded-btn" onClick={handleFacebook}>
                   <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
+                    src="/assets/images/social-media-icons/Facebook.svg"
+                    alt="Facebook"
                   />
                 </button>
                 <button
                   className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{ padding: "8px", backgroundColor: "#0B63BD" }}
+                  onClick={handleInstagram}
                 >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
+                  <img
+                    src="/assets/images/social-media-icons/Instagram.svg"
+                    alt="Instagram"
+                  />
                 </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
+                <button className="social-rounded-btn" onClick={handleLinkedIn}>
+                  <img
+                    src="/assets/images/social-media-icons/Linkedin.svg"
+                    alt="LinkedIn"
+                  />
+                </button>
+                <button className="social-rounded-btn" onClick={handleShare}>
+                  <img
+                    src="/assets/images/social-media-icons/Share.svg"
+                    alt="Share"
+                  />
                 </button>
               </div>
             </div>
@@ -661,7 +651,7 @@ const ProductDetailsClient = ({ item }) => {
                           <li className="review">
                             <div className="review-thumb">
                               <img
-                                src="/assets/images/products/review-thumb-1.jpg"
+                                src="/assets/images/testimonial/feedback-user-1.jpg"
                                 alt="review thumb"
                               />
                             </div>
@@ -700,7 +690,7 @@ const ProductDetailsClient = ({ item }) => {
                           <li className="review">
                             <div className="review-thumb">
                               <img
-                                src="/assets/images/products/review-thumb-2.jpg"
+                                src="/assets/images/testimonial/feedback-user-2.jpg"
                                 alt="review thumb"
                               />
                             </div>
@@ -738,7 +728,25 @@ const ProductDetailsClient = ({ item }) => {
                           </li>
                         </ul>
                       </div>
-                      <div className="products-review-form">
+                      <div
+                        style={{
+                          justifyContent: "center",
+                          alignItems: "center",
+                          display: "flex",
+                          marginBottom: "50px",
+                        }}
+                      >
+                        <button
+                          className="main-btn"
+                          onClick={
+                            handleLocation
+                            // window.open("https://g.page/r/CTjtIU0PHHR6EBM/review", "_blank")
+                          }
+                        >
+                          Give Us a Review
+                        </button>
+                      </div>
+                      {/* <div className="products-review-form">
                         <h4 className="title">Leave Your Reviews</h4>
                         <form onSubmit={(e) => e.preventDefault()}>
                           <div className="row">
@@ -804,7 +812,7 @@ const ProductDetailsClient = ({ item }) => {
                             </div>
                           </div>
                         </form>
-                      </div>
+                      </div> */}
                     </div>
                   )}
                 </div>

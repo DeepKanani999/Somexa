@@ -202,17 +202,17 @@ const HomeScreen = () => {
       // Intercept the event and store it
       e.preventDefault();
       setDeferredPrompt(e);
-      console.log('✅ beforeinstallprompt event captured');
+      console.log("✅ beforeinstallprompt event captured");
     };
 
-    window.addEventListener('beforeinstallprompt', handler);
+    window.addEventListener("beforeinstallprompt", handler);
 
-    return () => window.removeEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
   const handleAddToHomeScreen = async () => {
     if (!deferredPrompt) {
-      console.log('⚠️ Install prompt not available');
+      console.log("⚠️ Install prompt not available");
       return;
     }
 
@@ -220,12 +220,12 @@ const HomeScreen = () => {
     deferredPrompt.prompt();
 
     const result = await deferredPrompt.userChoice;
-    console.log('👉 User response:', result.outcome);
+    console.log("👉 User response:", result.outcome);
 
-    if (result.outcome === 'accepted') {
-      console.log('✅ User accepted the install prompt');
+    if (result.outcome === "accepted") {
+      console.log("✅ User accepted the install prompt");
     } else {
-      console.log('❌ User dismissed the install prompt');
+      console.log("❌ User dismissed the install prompt");
     }
 
     // Clear the saved prompt since it can't be used again
@@ -316,17 +316,11 @@ const HomeScreen = () => {
   };
 
   const handleFacebook = () => {
-    window.open(
-      "https://www.facebook.com/",
-      "_blank"
-    );
+    window.open("https://www.facebook.com/", "_blank");
   };
 
   const handleInstagram = () => {
-    window.open(
-      "https://www.instagram.com/",
-      "_blank"
-    );
+    window.open("https://www.instagram.com/", "_blank");
   };
 
   const handleLinkedIn = () => {
@@ -474,7 +468,7 @@ const HomeScreen = () => {
     fontSize: "14px",
     zIndex: 1,
   };
-  
+
   return (
     <Layout>
       {video && <VideoPopup close={setVideo} />}
@@ -547,7 +541,7 @@ const HomeScreen = () => {
           <button onClick={handleCall} style={buttonStyle}>
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/phone_black.png"
+                src="/assets/images/black-icons/phone_black.svg"
                 alt="Call"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -569,7 +563,7 @@ const HomeScreen = () => {
           >
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/whatsapp_black.png"
+                src="/assets/images/black-icons/whatsapp_black.svg"
                 alt="WhatsApp"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -581,7 +575,7 @@ const HomeScreen = () => {
           <button onClick={handleLocation} style={buttonStyle}>
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/location_black.png"
+                src="/assets/images/black-icons/location_black.svg"
                 alt="Location"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -593,7 +587,7 @@ const HomeScreen = () => {
           <button onClick={handleMail} style={buttonStyle}>
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/gmail_black.png"
+                src="/assets/images/black-icons/gmail_black.svg"
                 alt="Mail"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -622,50 +616,30 @@ const HomeScreen = () => {
         </div>
 
         {/* Social Media Buttons - More minimal */}
-        <div style={{ marginTop: "20px" }}>
-          <button
-            className="social-rounded-btn"
-            onClick={handleFacebook}
-            style={{
-              padding: "8px",
-              backgroundColor: "#3A559F",
-              marginRight: "10px",
-            }}
-          >
-            <img src="/assets/images/icons/facebook.png" alt="Facebook" />
+        <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+          <button className="social-rounded-btn" onClick={handleFacebook}>
+            <img
+              src="/assets/images/social-media-icons/Facebook.svg"
+              alt="Facebook"
+            />
           </button>
-          <button
-            className="social-rounded-btn"
-            onClick={handleInstagram}
-            style={{
-              padding: "8px",
-              backgroundColor: "#D03B98",
-              marginRight: "10px",
-            }}
-          >
-            <img src="/assets/images/icons/instagram.png" alt="Instagram" />
+          <button className="social-rounded-btn" onClick={handleInstagram}>
+            <img
+              src="/assets/images/social-media-icons/Instagram.svg"
+              alt="Instagram"
+            />
           </button>
-          <button
-            className="social-rounded-btn"
-            onClick={handleLinkedIn}
-            style={{
-              padding: "8px",
-              backgroundColor: "#0B63BD",
-              marginRight: "10px",
-            }}
-          >
-            <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
+          <button className="social-rounded-btn" onClick={handleLinkedIn}>
+            <img
+              src="/assets/images/social-media-icons/Linkedin.svg"
+              alt="LinkedIn"
+            />
           </button>
-          <button
-            className="social-rounded-btn"
-            onClick={handleShare}
-            style={{
-              padding: "8px",
-              backgroundColor: "#00ADFF",
-              marginRight: "10px",
-            }}
-          >
-            <img src="/assets/images/icons/share.png" alt="Share" />
+          <button className="social-rounded-btn" onClick={handleShare}>
+            <img
+              src="/assets/images/social-media-icons/Share.svg"
+              alt="Share"
+            />
           </button>
         </div>
 
@@ -680,8 +654,9 @@ const HomeScreen = () => {
           }}
         >
           <button
-            onClick={() =>
-              window.open("https://g.page/r/CTjtIU0PHHR6EBM/review", "_blank")
+            onClick={
+              handleLocation
+              // window.open("https://g.page/r/CTjtIU0PHHR6EBM/review", "_blank")
             }
             style={{
               padding: "12px 20px",
@@ -776,7 +751,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/phone_black.png"
+                      src="/assets/images/black-icons/phone_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -806,7 +781,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/location_black.png"
+                      src="/assets/images/black-icons/location_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -847,7 +822,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/whatsapp_black.png"
+                      src="/assets/images/black-icons/whatsapp_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -877,7 +852,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/gmail_black.png"
+                      src="/assets/images/black-icons/gmail_black.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -887,37 +862,33 @@ const HomeScreen = () => {
               </div>
 
               {/* Right Section: Rounded Social Buttons */}
-              <div style={{ display: "flex", gap: "10px" }}>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleFacebook}
-                  style={{ padding: "8px", backgroundColor: "#3A559F" }}
-                >
-                  <img src="/assets/images/icons/facebook.png" alt="Facebook" />
-                </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleInstagram}
-                  style={{ padding: "8px", backgroundColor: "#D03B98" }}
-                >
+              <div style={{ display: "flex", gap: "10px", marginLeft: "20px" }}>
+                <button className="social-rounded-btn" onClick={handleFacebook}>
                   <img
-                    src="/assets/images/icons/instagram.png"
-                    alt="Instagram"
+                    src="/assets/images/social-media-icons/Facebook.svg"
+                    alt="Facebook"
                   />
                 </button>
                 <button
                   className="social-rounded-btn"
-                  onClick={handleLinkedIn}
-                  style={{ padding: "8px", backgroundColor: "#0B63BD" }}
+                  onClick={handleInstagram}
                 >
-                  <img src="/assets/images/icons/linkedin.png" alt="LinkedIn" />
+                  <img
+                    src="/assets/images/social-media-icons/Instagram.svg"
+                    alt="Instagram"
+                  />
                 </button>
-                <button
-                  className="social-rounded-btn"
-                  onClick={handleShare}
-                  style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                >
-                  <img src="/assets/images/icons/share.png" alt="Share" />
+                <button className="social-rounded-btn" onClick={handleLinkedIn}>
+                  <img
+                    src="/assets/images/social-media-icons/Linkedin.svg"
+                    alt="LinkedIn"
+                  />
+                </button>
+                <button className="social-rounded-btn" onClick={handleShare}>
+                  <img
+                    src="/assets/images/social-media-icons/Share.svg"
+                    alt="Share"
+                  />
                 </button>
               </div>
             </div>
@@ -973,7 +944,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/phone_black.png"
+                        src="/assets/images/black-icons/phone_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -1003,7 +974,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/location_black.png"
+                        src="/assets/images/black-icons/location_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -1044,7 +1015,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/whatsapp_black.png"
+                        src="/assets/images/black-icons/whatsapp_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -1074,7 +1045,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/gmail_black.png"
+                        src="/assets/images/black-icons/gmail_black.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -1088,39 +1059,35 @@ const HomeScreen = () => {
                   <button
                     className="social-rounded-btn"
                     onClick={handleFacebook}
-                    style={{ padding: "8px", backgroundColor: "#3A559F" }}
                   >
                     <img
-                      src="/assets/images/icons/facebook.png"
+                      src="/assets/images/social-media-icons/Facebook.svg"
                       alt="Facebook"
                     />
                   </button>
                   <button
                     className="social-rounded-btn"
                     onClick={handleInstagram}
-                    style={{ padding: "8px", backgroundColor: "#D03B98" }}
                   >
                     <img
-                      src="/assets/images/icons/instagram.png"
+                      src="/assets/images/social-media-icons/Instagram.svg"
                       alt="Instagram"
                     />
                   </button>
                   <button
                     className="social-rounded-btn"
                     onClick={handleLinkedIn}
-                    style={{ padding: "8px", backgroundColor: "#0B63BD" }}
                   >
                     <img
-                      src="/assets/images/icons/linkedin.png"
+                      src="/assets/images/social-media-icons/Linkedin.svg"
                       alt="LinkedIn"
                     />
                   </button>
-                  <button
-                    className="social-rounded-btn"
-                    onClick={handleShare}
-                    style={{ padding: "8px", backgroundColor: "#00ADFF" }}
-                  >
-                    <img src="/assets/images/icons/share.png" alt="Share" />
+                  <button className="social-rounded-btn" onClick={handleShare}>
+                    <img
+                      src="/assets/images/social-media-icons/Share.svg"
+                      alt="Share"
+                    />
                   </button>
                 </div>
                 <div
@@ -1131,14 +1098,12 @@ const HomeScreen = () => {
                   }}
                 >
                   <button
-                    onClick={() =>
-                      window.open(
-                        "https://g.page/r/CTjtIU0PHHR6EBM/review",
-                        "_blank"
-                      )
+                    onClick={
+                      handleLocation
+                      // window.open("https://g.page/r/CTjtIU0PHHR6EBM/review", "_blank")
                     }
                     style={{
-                      padding: "12px 40px",
+                      padding: "9px 40px",
                       border: "1px solid #e0e0e0",
                       borderRadius: "8px",
                       backgroundColor: "white",
@@ -1215,7 +1180,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/phone_black.png"
+                      src="/assets/images/black-icons/phone_black.svg"
                       alt="Call"
                       style={{
                         height: "17px",
@@ -1266,7 +1231,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/whatsapp_black.png"
+                      src="/assets/images/black-icons/whatsapp_black.svg"
                       alt="WhatsApp"
                       style={{
                         height: "15px",
@@ -1308,7 +1273,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/location_black.png"
+                      src="/assets/images/black-icons/location_black.svg"
                       alt="Location"
                       style={{
                         height: "18px",
@@ -1400,7 +1365,12 @@ const HomeScreen = () => {
                             className="ti-desktop"
                             style={{ color: "#39B54A" }}
                           /> */}
-                          <span style={{ fontSize: "25px" }}>🌿</span>
+                          <img
+                            src="/assets/images/About-us/spice-that-refreshes.svg"
+                            className="me-2 mx-2"
+                            alt="WhatsApp"
+                            style={{ width: "20px", height: "20px" }}
+                          />
                         </div>
                         <div className="info">
                           <h6>Spice That Refreshes, Flavor That Lasts</h6>
@@ -1414,7 +1384,12 @@ const HomeScreen = () => {
                             className="ti-volume"
                             style={{ color: "#39B54A" }}
                           /> */}
-                          <span style={{ fontSize: "25px" }}>🌿</span>
+                          <img
+                            src="/assets/images/About-us/Authentic-taste.svg"
+                            className="me-2 mx-2"
+                            alt="WhatsApp"
+                            style={{ width: "20px", height: "20px" }}
+                          />
                         </div>
                         <div className="info">
                           <h6>Authentic Taste in Every Sip</h6>
@@ -1428,7 +1403,12 @@ const HomeScreen = () => {
                             className="ti-desktop"
                             style={{ color: "#39B54A" }}
                           /> */}
-                          <span style={{ fontSize: "25px" }}>🌿</span>
+                          <img
+                            src="/assets/images/About-us/Tradition-blended.svg"
+                            className="me-2 mx-2"
+                            alt="WhatsApp"
+                            style={{ width: "20px", height: "20px" }}
+                          />
                         </div>
                         <div className="info">
                           <h6>Tradition Blended with Innovation</h6>
@@ -1442,7 +1422,12 @@ const HomeScreen = () => {
                             className="ti-desktop"
                             style={{ color: "#39B54A" }}
                           /> */}
-                          <span style={{ fontSize: "25px" }}>🌿</span>
+                          <img
+                            src="/assets/images/About-us/Crafting-perfect.svg"
+                            className="me-2 mx-2"
+                            alt="WhatsApp"
+                            style={{ width: "20px", height: "20px" }}
+                          />
                         </div>
                         <div className="info">
                           <h6>Crafting the Perfect Chaas Experience</h6>
@@ -1456,7 +1441,12 @@ const HomeScreen = () => {
                             className="ti-volume"
                             style={{ color: "#39B54A" }}
                           /> */}
-                          <span style={{ fontSize: "25px" }}>🌿</span>
+                          <img
+                            src="/assets/images/About-us/flavorful-moment.svg"
+                            className="me-2 mx-2"
+                            alt="WhatsApp"
+                            style={{ width: "20px", height: "20px" }}
+                          />
                         </div>
                         <div className="info">
                           <h6>Flavorful Moments Start with Somixa</h6>
@@ -1470,7 +1460,12 @@ const HomeScreen = () => {
                             className="ti-desktop"
                             style={{ color: "#39B54A" }}
                           /> */}
-                          <span style={{ fontSize: "25px" }}>🌿</span>
+                          <img
+                            src="/assets/images/About-us/bold-masala.svg"
+                            className="me-2 mx-2"
+                            alt="WhatsApp"
+                            style={{ width: "20px", height: "20px" }}
+                          />
                         </div>
                         <div className="info">
                           <h6>Bold Masala. Everyday Delight.</h6>
@@ -1922,7 +1917,25 @@ const HomeScreen = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="listing-review-form mb-30 wow fadeInUp">
+                <div
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                    marginBottom: "50px",
+                  }}
+                >
+                  <button
+                    className="main-btn"
+                    onClick={
+                      handleLocation
+                      // window.open("https://g.page/r/CTjtIU0PHHR6EBM/review", "_blank")
+                    }
+                  >
+                    Give Us a Review
+                  </button>
+                </div>
+                {/* <div className="listing-review-form mb-30 wow fadeInUp">
                   <div className="row">
                     <div className="col-md-6">
                       <h4 className="title">Write a Review</h4>
@@ -2010,7 +2023,7 @@ const HomeScreen = () => {
                       </div>
                     </div>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
 
