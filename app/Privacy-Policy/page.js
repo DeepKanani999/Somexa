@@ -203,7 +203,7 @@ const PrivacyPolicy = () => {
                   }}
                 >
                   <img
-                    src="/assets/images/black-icons/Call Us.svg"
+                    src="/assets/images/black-icons/Call-Us.svg"
                     alt="Call"
                     style={{ height: "20px", width: "20px" }}
                   />
