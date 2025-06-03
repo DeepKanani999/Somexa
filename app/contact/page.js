@@ -263,7 +263,7 @@ const Contact = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/phone_black.svg"
+                      src="/assets/images/black-icons/Call-Us.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -293,7 +293,7 @@ const Contact = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/location_black.svg"
+                      src="/assets/images/black-icons/Location.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -334,7 +334,7 @@ const Contact = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/whatsapp_black.svg"
+                      src="/assets/images/black-icons/whatsapp.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -364,7 +364,7 @@ const Contact = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/gmail_black.svg"
+                      src="/assets/images/black-icons/email.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
