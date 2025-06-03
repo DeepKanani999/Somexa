@@ -541,7 +541,7 @@ const HomeScreen = () => {
           <button onClick={handleCall} style={buttonStyle}>
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/phone_black.svg"
+                src="/assets/images/black-icons/Call-Us.svg"
                 alt="Call"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -563,7 +563,7 @@ const HomeScreen = () => {
           >
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/whatsapp_black.svg"
+                src="/assets/images/black-icons/whatsapp.svg"
                 alt="WhatsApp"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -575,7 +575,7 @@ const HomeScreen = () => {
           <button onClick={handleLocation} style={buttonStyle}>
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/location_black.svg"
+                src="/assets/images/black-icons/Location.svg"
                 alt="Location"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -587,7 +587,7 @@ const HomeScreen = () => {
           <button onClick={handleMail} style={buttonStyle}>
             <div style={iconWrapperStyle}>
               <img
-                src="/assets/images/black-icons/gmail_black.svg"
+                src="/assets/images/black-icons/email.svg"
                 alt="Mail"
                 style={{ height: "20px", width: "20px" }}
               />
@@ -751,7 +751,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/phone_black.svg"
+                      src="/assets/images/black-icons/Call-Us.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -781,7 +781,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/location_black.svg"
+                      src="/assets/images/black-icons/Location.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -822,7 +822,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/whatsapp_black.svg"
+                      src="/assets/images/black-icons/whatsapp.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -852,7 +852,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/gmail_black.svg"
+                      src="/assets/images/black-icons/email.svg"
                       alt="Call"
                       style={{ height: "20px", width: "20px" }}
                     />
@@ -944,7 +944,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/phone_black.svg"
+                        src="/assets/images/black-icons/Call-Us.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -974,7 +974,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/location_black.svg"
+                        src="/assets/images/black-icons/Location.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -1015,7 +1015,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/whatsapp_black.svg"
+                        src="/assets/images/black-icons/whatsapp.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -1045,7 +1045,7 @@ const HomeScreen = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/gmail_black.svg"
+                        src="/assets/images/black-icons/email.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -1180,7 +1180,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/phone_black.svg"
+                      src="/assets/images/black-icons/Call-Us.svg"
                       alt="Call"
                       style={{
                         height: "17px",
@@ -1231,7 +1231,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/whatsapp_black.svg"
+                      src="/assets/images/black-icons/whatsapp.svg"
                       alt="WhatsApp"
                       style={{
                         height: "15px",
@@ -1273,7 +1273,7 @@ const HomeScreen = () => {
                     }}
                   >
                     <img
-                      src="/assets/images/black-icons/location_black.svg"
+                      src="/assets/images/black-icons/Location.svg"
                       alt="Location"
                       style={{
                         height: "18px",
@@ -1366,7 +1366,7 @@ const HomeScreen = () => {
                             style={{ color: "#39B54A" }}
                           /> */}
                           <img
-                            src="/assets/images/About-us/spice-that-refreshes.svg"
+                            src="/assets/images/about-us/spice-that-refreshes.svg"
                             className="me-2 mx-2"
                             alt="WhatsApp"
                             style={{ width: "20px", height: "20px" }}
@@ -1385,7 +1385,7 @@ const HomeScreen = () => {
                             style={{ color: "#39B54A" }}
                           /> */}
                           <img
-                            src="/assets/images/About-us/Authentic-taste.svg"
+                            src="/assets/images/about-us/Authentic-taste.svg"
                             className="me-2 mx-2"
                             alt="WhatsApp"
                             style={{ width: "20px", height: "20px" }}
@@ -1404,7 +1404,7 @@ const HomeScreen = () => {
                             style={{ color: "#39B54A" }}
                           /> */}
                           <img
-                            src="/assets/images/About-us/Tradition-blended.svg"
+                            src="/assets/images/about-us/Tradition-blended.svg"
                             className="me-2 mx-2"
                             alt="WhatsApp"
                             style={{ width: "20px", height: "20px" }}
@@ -1423,7 +1423,7 @@ const HomeScreen = () => {
                             style={{ color: "#39B54A" }}
                           /> */}
                           <img
-                            src="/assets/images/About-us/Crafting-perfect.svg"
+                            src="/assets/images/about-us/Crafting-perfect.svg"
                             className="me-2 mx-2"
                             alt="WhatsApp"
                             style={{ width: "20px", height: "20px" }}
@@ -1442,7 +1442,7 @@ const HomeScreen = () => {
                             style={{ color: "#39B54A" }}
                           /> */}
                           <img
-                            src="/assets/images/About-us/flavorful-moment.svg"
+                            src="/assets/images/about-us/flavorful-moment.svg"
                             className="me-2 mx-2"
                             alt="WhatsApp"
                             style={{ width: "20px", height: "20px" }}
@@ -1461,7 +1461,7 @@ const HomeScreen = () => {
                             style={{ color: "#39B54A" }}
                           /> */}
                           <img
-                            src="/assets/images/About-us/bold-masala.svg"
+                            src="/assets/images/about-us/bold-masala.svg"
                             className="me-2 mx-2"
                             alt="WhatsApp"
                             style={{ width: "20px", height: "20px" }}

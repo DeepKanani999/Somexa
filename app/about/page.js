@@ -230,7 +230,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/phone_black.svg"
+                        src="/assets/images/black-icons/Call-Us.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -260,7 +260,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/location_black.svg"
+                        src="/assets/images/black-icons/Location.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -301,7 +301,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/whatsapp_black.svg"
+                        src="/assets/images/black-icons/whatsapp.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -331,7 +331,7 @@ const About = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/black-icons/gmail_black.svg"
+                        src="/assets/images/black-icons/email.svg"
                         alt="Call"
                         style={{ height: "20px", width: "20px" }}
                       />
@@ -399,7 +399,7 @@ const About = () => {
                   <div className="icon">
                     {/* <i className="flaticon-add-user" /> */}
                     <img
-                      src="/assets/images/about-us-page/User-Friendly Experience.svg"
+                      src="/assets/images/home-about-us/User-Friendly Experience.svg"
                       className="me-2 mx-2"
                       alt="WhatsApp"
                       style={{ width: "50px", height: "50px" }}
@@ -427,7 +427,7 @@ const About = () => {
                   <div className="icon">
                     {/* <i className="flaticon-gift-box" /> */}
                     <img
-                      src="/assets/images/about-us-page/Exciting Daily Deals.svg"
+                      src="/assets/images/home-about-us/Exciting Daily Deals.svg"
                       className="me-2 mx-2"
                       alt="WhatsApp"
                       style={{ width: "50px", height: "50px" }}
@@ -455,7 +455,7 @@ const About = () => {
                   <div className="icon">
                     {/* <i className="flaticon-laptop" /> */}
                     <img
-                      src="/assets/images/about-us-page/Smart & Quick Choice.svg"
+                      src="/assets/images/home-about-us/Smart & Quick Choice.svg"
                       className="me-2 mx-2"
                       alt="WhatsApp"
                       style={{ width: "50px", height: "50px" }}
@@ -482,7 +482,7 @@ const About = () => {
                   <div className="icon">
                     {/* <i className="flaticon-headphone" /> */}
                     <img
-                      src="/assets/images/about-us-page/Live Support.svg"
+                      src="/assets/images/home-about-us/Live Support.svg"
                       className="me-2 mx-2"
                       alt="WhatsApp"
                       style={{ width: "50px", height: "50px" }}
@@ -538,7 +538,7 @@ const About = () => {
                       <div className="icon">
                         {/* <i className="flaticon-find" /> */}
                         <img
-                          src="/assets/images/about-us-page/perfect-blend.svg"
+                          src="/assets/images/home-about-us/perfect-blend.svg"
                           className="me-2 mx-2"
                           alt="WhatsApp"
                           style={{ width: "40px", height: "40px" }}
@@ -559,7 +559,7 @@ const About = () => {
                       <div className="icon">
                         {/* <i className="flaticon-place" /> */}
                         <img
-                          src="/assets/images/about-us-page/smart-and-flavour.svg"
+                          src="/assets/images/home-about-us/smart-and-flavour.svg"
                           className="me-2 mx-2"
                           alt="WhatsApp"
                           style={{ width: "40px", height: "40px" }}
@@ -580,7 +580,7 @@ const About = () => {
                       <div className="icon">
                         {/* <i className="flaticon-social-care" /> */}
                         <img
-                          src="/assets/images/about-us-page/24-7-support.svg"
+                          src="/assets/images/home-about-us/24-7-support.svg"
                           className="me-2 mx-2"
                           alt="WhatsApp"
                           style={{ width: "40px", height: "40px" }}
